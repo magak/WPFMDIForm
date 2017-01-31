@@ -10,14 +10,16 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WPFMDIForm
+namespace WPFMDIForm.JKHModel
 {
-    public partial class PageTariffs : UserControl
+    /// <summary>
+    /// Interaction logic for Window1.xaml
+    /// </summary>
+    public partial class Window1 : Window
     {
-		public PageTariffs()
+        public Window1()
         {
             InitializeComponent();
         }

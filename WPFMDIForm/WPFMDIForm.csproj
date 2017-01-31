@@ -107,6 +107,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>JKHModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="JKHModel\WindowAddInhabit.xaml.cs">
+      <DependentUpon>WindowAddInhabit.xaml</DependentUpon>
+    </Compile>
     <Compile Include="JKHModel\Дом.cs">
       <DependentUpon>JKHModel.tt</DependentUpon>
       <SubType>Code</SubType>
@@ -145,15 +148,16 @@
     <Compile Include="PageODU.xaml.cs">
       <DependentUpon>PageODU.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PageTariffs.xaml.cs">
-      <DependentUpon>PageTariffs.xaml</DependentUpon>
-    </Compile>
     <Compile Include="PageFlats.xaml.cs">
       <DependentUpon>PageFlats.xaml</DependentUpon>
     </Compile>
     <Compile Include="PageFlatData.xaml.cs">
       <DependentUpon>PageFlatData.xaml</DependentUpon>
     </Compile>
+    <Page Include="JKHModel\WindowAddInhabit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PageFlats.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -197,10 +201,6 @@
       <DependentUpon>WindowAddFlat.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="PageTariffs.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
