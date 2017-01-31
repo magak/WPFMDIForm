@@ -12,12 +12,10 @@ namespace WPFMDIForm.JKHModel
     using System;
     using System.Collections.Generic;
     
-    public partial class Счетчики
+    public partial class Счетчик
     {
-        public long ID { get; set; }
         public int Код_счетчика { get; set; }
     
-        public virtual Услуга Услуга { get; set; }
         public virtual Квартира Квартира { get; set; }
     }
 }

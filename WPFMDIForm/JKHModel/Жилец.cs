@@ -12,11 +12,11 @@ namespace WPFMDIForm.JKHModel
     using System;
     using System.Collections.Generic;
     
-    public partial class Overall_accruals
+    public partial class Жилец
     {
-        public int ID { get; set; }
-        public byte[] Debt { get; set; }
-        public System.DateTime Date { get; set; }
-        public int Service_ID { get; set; }
+        public string Id { get; set; }
+        public string ФИО { get; set; }
+    
+        public virtual Квартира Квартира { get; set; }
     }
 }

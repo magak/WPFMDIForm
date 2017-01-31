@@ -92,53 +92,34 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="JKHModel\Accruals.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="JKHModel\Accruals_no_benefits.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="JKHModel\Expense.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="JKHModel\Model1.Context.cs">
+    <Compile Include="JKHModel\JKHModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.Context.tt</DependentUpon>
+      <DependentUpon>JKHModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="JKHModel\Model1.cs">
+    <Compile Include="JKHModel\JKHModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>JKHModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="JKHModel\Model1.Designer.cs">
+    <Compile Include="JKHModel\JKHModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="JKHModel\Overall_accruals.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>JKHModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="JKHModel\Дом.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>JKHModel.tt</DependentUpon>
+      <SubType>Code</SubType>
     </Compile>
-    <Compile Include="JKHModel\Жильцы.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+    <Compile Include="JKHModel\Жилец.cs">
+      <DependentUpon>JKHModel.tt</DependentUpon>
     </Compile>
     <Compile Include="JKHModel\Квартира.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>JKHModel.tt</DependentUpon>
+      <SubType>Code</SubType>
     </Compile>
-    <Compile Include="JKHModel\Льготы.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="JKHModel\Соц_норма.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="JKHModel\Счетчики.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="JKHModel\Услуга.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+    <Compile Include="JKHModel\Счетчик.cs">
+      <DependentUpon>JKHModel.tt</DependentUpon>
     </Compile>
     <Compile Include="PageLogin.xaml.cs">
       <DependentUpon>PageLogin.xaml</DependentUpon>
@@ -214,22 +195,22 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="JKHModel\Model1.edmx">
+    <EntityDeploy Include="JKHModel\JKHModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+      <LastGenOutput>JKHModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="JKHModel\Model1.Context.tt">
+    <None Include="JKHModel\JKHModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
-      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>JKHModel.Context.cs</LastGenOutput>
+      <DependentUpon>JKHModel.edmx</DependentUpon>
     </None>
-    <None Include="JKHModel\Model1.edmx.diagram">
-      <DependentUpon>Model1.edmx</DependentUpon>
+    <None Include="JKHModel\JKHModel.edmx.diagram">
+      <DependentUpon>JKHModel.edmx</DependentUpon>
     </None>
-    <None Include="JKHModel\Model1.tt">
+    <None Include="JKHModel\JKHModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Model1.cs</LastGenOutput>
-      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>JKHModel.cs</LastGenOutput>
+      <DependentUpon>JKHModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -265,7 +246,7 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="JKHModel\Model1.edmx.sql" />
+    <Content Include="JKHModel\JKHModel.edmx.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

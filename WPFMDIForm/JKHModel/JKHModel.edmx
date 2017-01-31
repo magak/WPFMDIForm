@@ -1,0 +1,248 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="JKHModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="JKHModelStoreContainer">
+    <EntitySet Name="ДомSet" EntityType="JKHModel.Store.ДомSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="КвартираSet" EntityType="JKHModel.Store.КвартираSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="СчетчикSet" EntityType="JKHModel.Store.СчетчикSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ЖилецSet" EntityType="JKHModel.Store.ЖилецSet" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="ДомКвартира" Association="JKHModel.Store.ДомКвартира">
+      <End Role="Дом" EntitySet="ДомSet" />
+      <End Role="Квартира" EntitySet="КвартираSet" />
+    </AssociationSet>
+    <AssociationSet Name="КвартираСчетчик" Association="JKHModel.Store.КвартираСчетчик">
+      <End Role="Квартира" EntitySet="КвартираSet" />
+      <End Role="Счетчик" EntitySet="СчетчикSet" />
+    </AssociationSet>
+    <AssociationSet Name="КвартираЖилец" Association="JKHModel.Store.КвартираЖилец">
+      <End Role="Квартира" EntitySet="КвартираSet" />
+      <End Role="Жилец" EntitySet="ЖилецSet" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="ДомSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Адрес" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Площадь" Type="decimal" Nullable="false" />
+  </EntityType>
+  <EntityType Name="КвартираSet">
+    <Key>
+      <PropertyRef Name="Номер" />
+    </Key>
+    <Property Name="Номер" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Площадь_квартиры" Type="decimal" Nullable="false" />
+    <Property Name="Счетчики_установлены" Type="bit" Nullable="false" />
+    <Property Name="Дом_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="СчетчикSet">
+    <Key>
+      <PropertyRef Name="Код_счетчика" />
+    </Key>
+    <Property Name="Код_счетчика" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Квартира_Номер" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ЖилецSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar(max)" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ФИО" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Квартира_Номер" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="ДомКвартира">
+    <End Role="Дом" Type="JKHModel.Store.ДомSet" Multiplicity="1" />
+    <End Role="Квартира" Type="JKHModel.Store.КвартираSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Дом">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Квартира">
+        <PropertyRef Name="Дом_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="КвартираСчетчик">
+    <End Role="Квартира" Type="JKHModel.Store.КвартираSet" Multiplicity="1" />
+    <End Role="Счетчик" Type="JKHModel.Store.СчетчикSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Квартира">
+        <PropertyRef Name="Номер" />
+      </Principal>
+      <Dependent Role="Счетчик">
+        <PropertyRef Name="Квартира_Номер" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="КвартираЖилец">
+    <End Role="Квартира" Type="JKHModel.Store.КвартираSet" Multiplicity="1" />
+    <End Role="Жилец" Type="JKHModel.Store.ЖилецSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Квартира">
+        <PropertyRef Name="Номер" />
+      </Principal>
+      <Dependent Role="Жилец">
+        <PropertyRef Name="Квартира_Номер" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="JKHModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="JKHModelContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ДомSet" EntityType="JKHModel.Дом" />
+          <EntitySet Name="КвартираSet" EntityType="JKHModel.Квартира" />
+          <AssociationSet Name="ДомКвартира" Association="JKHModel.ДомКвартира">
+            <End Role="Дом" EntitySet="ДомSet" />
+            <End Role="Квартира" EntitySet="КвартираSet" />
+          </AssociationSet>
+          <EntitySet Name="СчетчикSet" EntityType="JKHModel.Счетчик" />
+          <EntitySet Name="ЖилецSet" EntityType="JKHModel.Жилец" />
+          <AssociationSet Name="КвартираСчетчик" Association="JKHModel.КвартираСчетчик">
+            <End Role="Квартира" EntitySet="КвартираSet" />
+            <End Role="Счетчик" EntitySet="СчетчикSet" />
+          </AssociationSet>
+          <AssociationSet Name="КвартираЖилец" Association="JKHModel.КвартираЖилец">
+            <End Role="Квартира" EntitySet="КвартираSet" />
+            <End Role="Жилец" EntitySet="ЖилецSet" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Дом">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Адрес" Type="String" Nullable="false" />
+          <Property Name="Площадь" Type="Decimal" Nullable="false" />
+          <NavigationProperty Name="Квартира" Relationship="JKHModel.ДомКвартира" FromRole="Дом" ToRole="Квартира" />
+        </EntityType>
+        <EntityType Name="Квартира">
+          <Key>
+            <PropertyRef Name="Номер" />
+          </Key>
+          <Property Name="Номер" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Площадь_квартиры" Type="Decimal" Nullable="false" />
+          <Property Name="Счетчики_установлены" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Дом" Relationship="JKHModel.ДомКвартира" FromRole="Квартира" ToRole="Дом" />
+          <NavigationProperty Name="Счетчик" Relationship="JKHModel.КвартираСчетчик" FromRole="Квартира" ToRole="Счетчик" />
+          <NavigationProperty Name="Жилец" Relationship="JKHModel.КвартираЖилец" FromRole="Квартира" ToRole="Жилец" />
+        </EntityType>
+        <Association Name="ДомКвартира">
+          <End Type="JKHModel.Дом" Role="Дом" Multiplicity="1" />
+          <End Type="JKHModel.Квартира" Role="Квартира" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Счетчик">
+          <Key>
+            <PropertyRef Name="Код_счетчика" />
+          </Key>
+          <Property Name="Код_счетчика" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Квартира" Relationship="JKHModel.КвартираСчетчик" FromRole="Счетчик" ToRole="Квартира" />
+        </EntityType>
+        <EntityType Name="Жилец">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Квартира" Relationship="JKHModel.КвартираЖилец" FromRole="Жилец" ToRole="Квартира" />
+          <Property Name="ФИО" Type="String" Nullable="false" />
+        </EntityType>
+        <Association Name="КвартираСчетчик">
+          <End Type="JKHModel.Квартира" Role="Квартира" Multiplicity="1" />
+          <End Type="JKHModel.Счетчик" Role="Счетчик" Multiplicity="*" />
+        </Association>
+        <Association Name="КвартираЖилец">
+          <End Type="JKHModel.Квартира" Role="Квартира" Multiplicity="1" />
+          <End Type="JKHModel.Жилец" Role="Жилец" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="JKHModelStoreContainer" CdmEntityContainer="JKHModelContainer">
+    <EntitySetMapping Name="ДомSet">
+      <EntityTypeMapping TypeName="IsTypeOf(JKHModel.Дом)">
+        <MappingFragment StoreEntitySet="ДомSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Адрес" ColumnName="Адрес" />
+          <ScalarProperty Name="Площадь" ColumnName="Площадь" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="КвартираSet">
+      <EntityTypeMapping TypeName="IsTypeOf(JKHModel.Квартира)">
+        <MappingFragment StoreEntitySet="КвартираSet">
+          <ScalarProperty Name="Номер" ColumnName="Номер" />
+          <ScalarProperty Name="Площадь_квартиры" ColumnName="Площадь_квартиры" />
+          <ScalarProperty Name="Счетчики_установлены" ColumnName="Счетчики_установлены" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="СчетчикSet">
+      <EntityTypeMapping TypeName="IsTypeOf(JKHModel.Счетчик)">
+        <MappingFragment StoreEntitySet="СчетчикSet">
+          <ScalarProperty Name="Код_счетчика" ColumnName="Код_счетчика" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ЖилецSet">
+      <EntityTypeMapping TypeName="IsTypeOf(JKHModel.Жилец)">
+        <MappingFragment StoreEntitySet="ЖилецSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ФИО" ColumnName="ФИО" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="ДомКвартира" TypeName="JKHModel.ДомКвартира" StoreEntitySet="КвартираSet">
+      <EndProperty Name="Дом">
+        <ScalarProperty Name="Id" ColumnName="Дом_Id" />
+      </EndProperty>
+      <EndProperty Name="Квартира">
+        <ScalarProperty Name="Номер" ColumnName="Номер" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="КвартираСчетчик" TypeName="JKHModel.КвартираСчетчик" StoreEntitySet="СчетчикSet">
+      <EndProperty Name="Квартира">
+        <ScalarProperty Name="Номер" ColumnName="Квартира_Номер" />
+      </EndProperty>
+      <EndProperty Name="Счетчик">
+        <ScalarProperty Name="Код_счетчика" ColumnName="Код_счетчика" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="КвартираЖилец" TypeName="JKHModel.КвартираЖилец" StoreEntitySet="ЖилецSet">
+      <EndProperty Name="Квартира">
+        <ScalarProperty Name="Номер" ColumnName="Квартира_Номер" />
+      </EndProperty>
+      <EndProperty Name="Жилец">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

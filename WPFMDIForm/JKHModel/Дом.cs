@@ -19,7 +19,7 @@ namespace WPFMDIForm.JKHModel
             this.Квартира = new HashSet<Квартира>();
         }
     
-        public int ID { get; set; }
+        public int Id { get; set; }
         public string Адрес { get; set; }
         public decimal Площадь { get; set; }
     

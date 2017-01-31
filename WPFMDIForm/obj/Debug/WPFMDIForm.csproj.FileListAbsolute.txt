@@ -155,4 +155,3 @@ C:\WPFMDIForm\WPFMDIForm\WPFMDIForm\bin\Debug\EntityFramework.dll
 C:\WPFMDIForm\WPFMDIForm\WPFMDIForm\bin\Debug\EntityFramework.SqlServer.dll
 C:\WPFMDIForm\WPFMDIForm\WPFMDIForm\bin\Debug\EntityFramework.xml
 C:\WPFMDIForm\WPFMDIForm\WPFMDIForm\bin\Debug\EntityFramework.SqlServer.xml
-C:\WPFMDIForm\WPFMDIForm\WPFMDIForm\obj\Debug\WPFMDIForm_Content.g.cs

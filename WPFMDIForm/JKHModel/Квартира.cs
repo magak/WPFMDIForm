@@ -16,14 +16,16 @@ namespace WPFMDIForm.JKHModel
     {
         public Квартира()
         {
-            this.Счетчики = new HashSet<Счетчики>();
+            this.Счетчик = new HashSet<Счетчик>();
+            this.Жилец = new HashSet<Жилец>();
         }
     
-        public long Номер { get; set; }
-        public byte[] Water_Counters { get; set; }
-        public double Площадь_квартиры { get; set; }
+        public int Номер { get; set; }
+        public decimal Площадь_квартиры { get; set; }
+        public bool Счетчики_установлены { get; set; }
     
-        public virtual ICollection<Счетчики> Счетчики { get; set; }
         public virtual Дом Дом { get; set; }
+        public virtual ICollection<Счетчик> Счетчик { get; set; }
+        public virtual ICollection<Жилец> Жилец { get; set; }
     }
 }
