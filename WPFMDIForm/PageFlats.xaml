@@ -22,7 +22,7 @@
             Квартиры
         </Label>
         <DataGrid Name="dgvTable"
-                  AutoGenerateColumns="True" Margin="0,65,0,0" >
+                  AutoGenerateColumns="True" Margin="10,65,10,10" >
         </DataGrid>
         <Button Name="btnAdd"
                 Margin="10,36,797,504"
