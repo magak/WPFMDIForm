@@ -19,7 +19,7 @@ namespace WPFMDIForm.JKHModel
             this.Льгота = new HashSet<Льгота>();
         }
     
-        public string Id { get; set; }
+        public int Id { get; set; }
         public string ФИО { get; set; }
         public string Номер_паспорта { get; set; }
     

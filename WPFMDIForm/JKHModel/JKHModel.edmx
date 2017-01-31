@@ -362,14 +362,15 @@
         </EntityType>
         <EntityType Name="Квартира">
           <Key>
-            <PropertyRef Name="Номер" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Номер" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Площадь_квартиры" Type="Decimal" Nullable="false" />
           <Property Name="Счетчики_установлены" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Дом" Relationship="JKHModel.ДомКвартира" FromRole="Квартира" ToRole="Дом" />
           <NavigationProperty Name="Счетчик" Relationship="JKHModel.КвартираСчетчик" FromRole="Квартира" ToRole="Счетчик" />
           <NavigationProperty Name="Жилец" Relationship="JKHModel.КвартираЖилец" FromRole="Квартира" ToRole="Жилец" />
+          <Property Name="Номер_квартиры" Type="Int16" Nullable="false" />
         </EntityType>
         <Association Name="ДомКвартира">
           <End Type="JKHModel.Дом" Role="Дом" Multiplicity="1" />
@@ -511,7 +512,7 @@
     <EntitySetMapping Name="КвартираSet">
       <EntityTypeMapping TypeName="IsTypeOf(JKHModel.Квартира)">
         <MappingFragment StoreEntitySet="КвартираSet">
-          <ScalarProperty Name="Номер" ColumnName="Номер" />
+          <ScalarProperty Name="Id" ColumnName="Номер" />
           <ScalarProperty Name="Площадь_квартиры" ColumnName="Площадь_квартиры" />
           <ScalarProperty Name="Счетчики_установлены" ColumnName="Счетчики_установлены" />
         </MappingFragment>
@@ -597,12 +598,12 @@
         <ScalarProperty Name="Id" ColumnName="Дом_Id" />
       </EndProperty>
       <EndProperty Name="Квартира">
-        <ScalarProperty Name="Номер" ColumnName="Номер" />
+        <ScalarProperty Name="Id" ColumnName="Номер" />
       </EndProperty>
     </AssociationSetMapping>
     <AssociationSetMapping Name="КвартираСчетчик" TypeName="JKHModel.КвартираСчетчик" StoreEntitySet="СчетчикSet">
       <EndProperty Name="Квартира">
-        <ScalarProperty Name="Номер" ColumnName="Квартира_Номер" />
+        <ScalarProperty Name="Id" ColumnName="Квартира_Номер" />
       </EndProperty>
       <EndProperty Name="Счетчик">
         <ScalarProperty Name="Код_счетчика" ColumnName="Код_счетчика" />
@@ -610,7 +611,7 @@
     </AssociationSetMapping>
     <AssociationSetMapping Name="КвартираЖилец" TypeName="JKHModel.КвартираЖилец" StoreEntitySet="ЖилецSet">
       <EndProperty Name="Квартира">
-        <ScalarProperty Name="Номер" ColumnName="Квартира_Номер" />
+        <ScalarProperty Name="Id" ColumnName="Квартира_Номер" />
       </EndProperty>
       <EndProperty Name="Жилец">
         <ScalarProperty Name="Id" ColumnName="Id" />
