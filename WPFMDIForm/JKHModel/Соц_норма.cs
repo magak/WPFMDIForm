@@ -12,18 +12,12 @@ namespace WPFMDIForm.JKHModel
     using System;
     using System.Collections.Generic;
     
-    public partial class Жилец
+    public partial class Соц_норма
     {
-        public Жилец()
-        {
-            this.Льгота = new HashSet<Льгота>();
-        }
+        public int Id { get; set; }
+        public string Вид_нормы { get; set; }
+        public decimal Значение_нормы { get; set; }
     
-        public string Id { get; set; }
-        public string ФИО { get; set; }
-        public string Номер_паспорта { get; set; }
-    
-        public virtual Квартира Квартира { get; set; }
-        public virtual ICollection<Льгота> Льгота { get; set; }
+        public virtual Услуга Услуга { get; set; }
     }
 }

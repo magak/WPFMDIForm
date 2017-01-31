@@ -29,5 +29,11 @@ namespace WPFMDIForm.JKHModel
         public virtual DbSet<Квартира> КвартираSet { get; set; }
         public virtual DbSet<Счетчик> СчетчикSet { get; set; }
         public virtual DbSet<Жилец> ЖилецSet { get; set; }
+        public virtual DbSet<Услуга> УслугаSet { get; set; }
+        public virtual DbSet<Соц_норма> Соц_нормаSet { get; set; }
+        public virtual DbSet<Льгота> ЛьготаSet { get; set; }
+        public virtual DbSet<Показания_квартир> Показания_квартирSet { get; set; }
+        public virtual DbSet<Календарь> КалендарьSet { get; set; }
+        public virtual DbSet<Показания_ОДУ> Показания_ОДУSet { get; set; }
     }
 }

@@ -114,11 +114,29 @@
     <Compile Include="JKHModel\Жилец.cs">
       <DependentUpon>JKHModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="JKHModel\Календарь.cs">
+      <DependentUpon>JKHModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="JKHModel\Квартира.cs">
       <DependentUpon>JKHModel.tt</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="JKHModel\Льгота.cs">
+      <DependentUpon>JKHModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="JKHModel\Показания_квартир.cs">
+      <DependentUpon>JKHModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="JKHModel\Показания_ОДУ.cs">
+      <DependentUpon>JKHModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="JKHModel\Соц_норма.cs">
+      <DependentUpon>JKHModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="JKHModel\Счетчик.cs">
+      <DependentUpon>JKHModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="JKHModel\Услуга.cs">
       <DependentUpon>JKHModel.tt</DependentUpon>
     </Compile>
     <Compile Include="PageLogin.xaml.cs">

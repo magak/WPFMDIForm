@@ -17,5 +17,7 @@ namespace WPFMDIForm.JKHModel
         public int Код_счетчика { get; set; }
     
         public virtual Квартира Квартира { get; set; }
+        public virtual Услуга Услуга { get; set; }
+        public virtual Показания_квартир Показания_квартир { get; set; }
     }
 }

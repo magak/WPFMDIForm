@@ -12,18 +12,17 @@ namespace WPFMDIForm.JKHModel
     using System;
     using System.Collections.Generic;
     
-    public partial class Жилец
+    public partial class Показания_квартир
     {
-        public Жилец()
+        public Показания_квартир()
         {
-            this.Льгота = new HashSet<Льгота>();
+            this.Счетчик = new HashSet<Счетчик>();
         }
     
-        public string Id { get; set; }
-        public string ФИО { get; set; }
-        public string Номер_паспорта { get; set; }
+        public int Id { get; set; }
+        public short Значение_показания_кв { get; set; }
     
-        public virtual Квартира Квартира { get; set; }
-        public virtual ICollection<Льгота> Льгота { get; set; }
+        public virtual ICollection<Счетчик> Счетчик { get; set; }
+        public virtual Календарь Календарь { get; set; }
     }
 }
