@@ -126,3 +126,6 @@ E:\WPFMDIForm\WPFMDIForm\WPFMDIForm\obj\Debug\WPFMDIForm.Properties.Resources.re
 E:\WPFMDIForm\WPFMDIForm\WPFMDIForm\obj\Debug\WPFMDIForm.csproj.GenerateResource.Cache
 E:\WPFMDIForm\WPFMDIForm\WPFMDIForm\obj\Debug\WPFMDIForm.exe
 E:\WPFMDIForm\WPFMDIForm\WPFMDIForm\obj\Debug\WPFMDIForm.pdb
+C:\WPFMDIForm\WPFMDIForm\WPFMDIForm\bin\Debug\WPFMDIForm.exe.config
+C:\WPFMDIForm\WPFMDIForm\WPFMDIForm\obj\Debug\WPFMDIForm.exe
+C:\WPFMDIForm\WPFMDIForm\WPFMDIForm\obj\Debug\WPFMDIForm.pdb
