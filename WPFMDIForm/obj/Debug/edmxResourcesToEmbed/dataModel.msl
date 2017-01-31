@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="dataModelStoreContainer" CdmEntityContainer="dataModelContainer">
+    <EntitySetMapping Name="Показания">
+      <EntityTypeMapping TypeName="IsTypeOf(dataModel.Показания)">
+        <MappingFragment StoreEntitySet="Показания">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Значение" ColumnName="Значение" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Услуги">
+      <EntityTypeMapping TypeName="IsTypeOf(dataModel.Услуги)">
+        <MappingFragment StoreEntitySet="Услуги">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="ПоказанияУслуги" TypeName="dataModel.ПоказанияУслуги" StoreEntitySet="Показания">
+      <EndProperty Name="Услуги">
+        <ScalarProperty Name="Id" ColumnName="Услуги_Id" />
+      </EndProperty>
+      <EndProperty Name="Показания">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

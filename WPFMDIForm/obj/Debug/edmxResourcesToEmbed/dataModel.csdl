@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="dataModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+  <EntityContainer Name="dataModelContainer" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Показания" EntityType="dataModel.Показания" />
+    <EntitySet Name="Услуги" EntityType="dataModel.Услуги" />
+    <AssociationSet Name="ПоказанияУслуги" Association="dataModel.ПоказанияУслуги">
+      <End Role="Показания" EntitySet="Показания" />
+      <End Role="Услуги" EntitySet="Услуги" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Показания">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Значение" Type="Decimal" Nullable="false" />
+    <NavigationProperty Name="Услуги" Relationship="dataModel.ПоказанияУслуги" FromRole="Показания" ToRole="Услуги" />
+  </EntityType>
+  <EntityType Name="Услуги">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Показания" Relationship="dataModel.ПоказанияУслуги" FromRole="Услуги" ToRole="Показания" />
+  </EntityType>
+  <Association Name="ПоказанияУслуги">
+    <End Type="dataModel.Показания" Role="Показания" Multiplicity="*" />
+    <End Type="dataModel.Услуги" Role="Услуги" Multiplicity="1" />
+  </Association>
+</Schema>

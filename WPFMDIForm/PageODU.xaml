@@ -1,0 +1,31 @@
+﻿<UserControl x:Class="WPFMDIForm.PageODU"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="600">
+    <Grid Background="Khaki">
+        <Label Height="32" Margin="0,10,22,0" Name="label1" VerticalAlignment="Top" HorizontalAlignment="Stretch" FontSize="15" FontWeight="SemiBold">
+            Показания общедомового прибора учета воды
+        </Label>
+        <DockPanel HorizontalAlignment="Left" Height="231" LastChildFill="False" Margin="0,47,0,0" VerticalAlignment="Top" Width="456">
+            <WrapPanel Height="202" VerticalAlignment="Top" Width="353" Margin="0,46,0,-17">
+                <Label Content="ХВС" Height="30" Width="75"/>
+                <TextBox Height="30" TextWrapping="Wrap"  Width="250"/>
+                <Label Content="ГВС" Height="30" Width="76"/>
+                <TextBox Height="30" TextWrapping="Wrap"  Width="250"/>
+            </WrapPanel>
+            <StackPanel Height="101" VerticalAlignment="Top" Width="100" Margin="0,46,0,0">
+                <Button Content="Сохранить" Height="22" Margin="0,4"/>
+                <Button Content="Отмена" Height="22" Margin="0,4" RenderTransformOrigin="0.5,-0.545"/>
+            </StackPanel>
+        </DockPanel>
+        <ComboBox Name="intervals" Height="22" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="77,58,0,0" Width="246">
+            <TextBlock>Январь 2016</TextBlock>
+            <TextBlock>Февраль 2016</TextBlock>
+            <TextBlock>Март 2016</TextBlock>
+        </ComboBox>
+        <Label Content="Период" Margin="0,55,373,209" RenderTransformOrigin="-1.307,0.966"/>
+    </Grid>
+</UserControl>

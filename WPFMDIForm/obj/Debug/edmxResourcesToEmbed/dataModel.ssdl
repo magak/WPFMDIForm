@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dataModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="dataModelStoreContainer">
+    <EntitySet Name="Показания" EntityType="dataModel.Store.Показания" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Услуги" EntityType="dataModel.Store.Услуги" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="ПоказанияУслуги" Association="dataModel.Store.ПоказанияУслуги">
+      <End Role="Показания" EntitySet="Показания" />
+      <End Role="Услуги" EntitySet="Услуги" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Показания">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Значение" Type="decimal" Nullable="false" />
+    <Property Name="Услуги_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Услуги">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <Association Name="ПоказанияУслуги">
+    <End Role="Показания" Type="dataModel.Store.Показания" Multiplicity="*" />
+    <End Role="Услуги" Type="dataModel.Store.Услуги" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Услуги">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Показания">
+        <PropertyRef Name="Услуги_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

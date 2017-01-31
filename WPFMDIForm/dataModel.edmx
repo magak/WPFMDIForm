@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="dataModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="dataModelStoreContainer">
+    <EntitySet Name="Показания" EntityType="dataModel.Store.Показания" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Услуги" EntityType="dataModel.Store.Услуги" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="ПоказанияУслуги" Association="dataModel.Store.ПоказанияУслуги">
+      <End Role="Показания" EntitySet="Показания" />
+      <End Role="Услуги" EntitySet="Услуги" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Показания">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Значение" Type="decimal" Nullable="false" />
+    <Property Name="Услуги_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Услуги">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <Association Name="ПоказанияУслуги">
+    <End Role="Показания" Type="dataModel.Store.Показания" Multiplicity="*" />
+    <End Role="Услуги" Type="dataModel.Store.Услуги" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Услуги">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Показания">
+        <PropertyRef Name="Услуги_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="dataModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="dataModelContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Показания" EntityType="dataModel.Показания" />
+          <EntitySet Name="Услуги" EntityType="dataModel.Услуги" />
+          <AssociationSet Name="ПоказанияУслуги" Association="dataModel.ПоказанияУслуги">
+            <End Role="Показания" EntitySet="Показания" />
+            <End Role="Услуги" EntitySet="Услуги" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Показания">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Значение" Type="Decimal" Nullable="false" />
+          <NavigationProperty Name="Услуги" Relationship="dataModel.ПоказанияУслуги" FromRole="Показания" ToRole="Услуги" />
+        </EntityType>
+        <EntityType Name="Услуги">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Показания" Relationship="dataModel.ПоказанияУслуги" FromRole="Услуги" ToRole="Показания" />
+        </EntityType>
+        <Association Name="ПоказанияУслуги">
+          <End Type="dataModel.Показания" Role="Показания" Multiplicity="*" />
+          <End Type="dataModel.Услуги" Role="Услуги" Multiplicity="1" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="dataModelStoreContainer" CdmEntityContainer="dataModelContainer">
+    <EntitySetMapping Name="Показания">
+      <EntityTypeMapping TypeName="IsTypeOf(dataModel.Показания)">
+        <MappingFragment StoreEntitySet="Показания">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Значение" ColumnName="Значение" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Услуги">
+      <EntityTypeMapping TypeName="IsTypeOf(dataModel.Услуги)">
+        <MappingFragment StoreEntitySet="Услуги">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="ПоказанияУслуги" TypeName="dataModel.ПоказанияУслуги" StoreEntitySet="Показания">
+      <EndProperty Name="Услуги">
+        <ScalarProperty Name="Id" ColumnName="Услуги_Id" />
+      </EndProperty>
+      <EndProperty Name="Показания">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
