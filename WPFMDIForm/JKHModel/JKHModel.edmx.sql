@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 02/01/2017 00:32:17
+-- Date Created: 02/01/2017 01:22:39
 -- Generated from EDMX file: C:\WPFMDIForm\WPFMDIForm\WPFMDIForm\JKHModel\JKHModel.edmx
 -- --------------------------------------------------
 
@@ -26,6 +26,30 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_КвартираЖилец]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[ЖилецSet] DROP CONSTRAINT [FK_КвартираЖилец];
 GO
+IF OBJECT_ID(N'[dbo].[FK_УслугаСчетчик]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[СчетчикSet] DROP CONSTRAINT [FK_УслугаСчетчик];
+GO
+IF OBJECT_ID(N'[dbo].[FK_УслугаСоц_норма]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Соц_нормаSet] DROP CONSTRAINT [FK_УслугаСоц_норма];
+GO
+IF OBJECT_ID(N'[dbo].[FK_ЖилецЛьгота_Жилец]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ЖилецЛьгота] DROP CONSTRAINT [FK_ЖилецЛьгота_Жилец];
+GO
+IF OBJECT_ID(N'[dbo].[FK_ЖилецЛьгота_Льгота]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ЖилецЛьгота] DROP CONSTRAINT [FK_ЖилецЛьгота_Льгота];
+GO
+IF OBJECT_ID(N'[dbo].[FK_Показания_квартирСчетчик]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[СчетчикSet] DROP CONSTRAINT [FK_Показания_квартирСчетчик];
+GO
+IF OBJECT_ID(N'[dbo].[FK_КалендарьПоказания_квартир]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Показания_квартирSet] DROP CONSTRAINT [FK_КалендарьПоказания_квартир];
+GO
+IF OBJECT_ID(N'[dbo].[FK_Показания_ОДУДом]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ДомSet] DROP CONSTRAINT [FK_Показания_ОДУДом];
+GO
+IF OBJECT_ID(N'[dbo].[FK_КалендарьПоказания_ОДУ]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Показания_ОДУSet] DROP CONSTRAINT [FK_КалендарьПоказания_ОДУ];
+GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
@@ -43,6 +67,27 @@ GO
 IF OBJECT_ID(N'[dbo].[ЖилецSet]', 'U') IS NOT NULL
     DROP TABLE [dbo].[ЖилецSet];
 GO
+IF OBJECT_ID(N'[dbo].[УслугаSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[УслугаSet];
+GO
+IF OBJECT_ID(N'[dbo].[Соц_нормаSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Соц_нормаSet];
+GO
+IF OBJECT_ID(N'[dbo].[ЛьготаSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[ЛьготаSet];
+GO
+IF OBJECT_ID(N'[dbo].[Показания_квартирSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Показания_квартирSet];
+GO
+IF OBJECT_ID(N'[dbo].[КалендарьSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[КалендарьSet];
+GO
+IF OBJECT_ID(N'[dbo].[Показания_ОДУSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Показания_ОДУSet];
+GO
+IF OBJECT_ID(N'[dbo].[ЖилецЛьгота]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[ЖилецЛьгота];
+GO
 
 -- --------------------------------------------------
 -- Creating all tables
@@ -52,7 +97,8 @@ GO
 CREATE TABLE [dbo].[ДомSet] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [Адрес] nvarchar(max)  NOT NULL,
-    [Площадь] decimal(18,0)  NOT NULL
+    [Площадь] decimal(18,0)  NOT NULL,
+    [Показания_ОДУ_Id] int  NOT NULL
 );
 GO
 
@@ -68,15 +114,81 @@ GO
 -- Creating table 'СчетчикSet'
 CREATE TABLE [dbo].[СчетчикSet] (
     [Код_счетчика] int IDENTITY(1,1) NOT NULL,
-    [Квартира_Номер] int  NOT NULL
+    [Квартира_Номер] int  NOT NULL,
+    [Услуга_Id] int  NOT NULL,
+    [Показания_квартир_Id] int  NOT NULL
 );
 GO
 
 -- Creating table 'ЖилецSet'
 CREATE TABLE [dbo].[ЖилецSet] (
-    [Id] nvarchar(max)  NOT NULL,
+    [Id] int IDENTITY(1,1) NOT NULL,
     [ФИО] nvarchar(max)  NOT NULL,
+    [Номер_паспорта] nvarchar(max)  NOT NULL,
     [Квартира_Номер] int  NOT NULL
+);
+GO
+
+-- Creating table 'УслугаSet'
+CREATE TABLE [dbo].[УслугаSet] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [Вид_услуги] nvarchar(max)  NOT NULL,
+    [Тариф] decimal(18,0)  NOT NULL,
+    [ГВС] bit  NOT NULL,
+    [Отопление] bit  NOT NULL,
+    [Водоотведение] bit  NOT NULL,
+    [Содерж_дома] bit  NOT NULL,
+    [ХВС] nvarchar(max)  NOT NULL
+);
+GO
+
+-- Creating table 'Соц_нормаSet'
+CREATE TABLE [dbo].[Соц_нормаSet] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [Вид_нормы] nvarchar(max)  NOT NULL,
+    [Значение_нормы] decimal(18,0)  NOT NULL,
+    [Услуга_Id] int  NOT NULL
+);
+GO
+
+-- Creating table 'ЛьготаSet'
+CREATE TABLE [dbo].[ЛьготаSet] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [Имя_льготы] nvarchar(max)  NOT NULL,
+    [Значение_льготы] decimal(18,0)  NOT NULL,
+    [Общая] bit  NOT NULL
+);
+GO
+
+-- Creating table 'Показания_квартирSet'
+CREATE TABLE [dbo].[Показания_квартирSet] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [Значение_показания_кв] smallint  NOT NULL,
+    [Календарь_Id] int  NOT NULL
+);
+GO
+
+-- Creating table 'КалендарьSet'
+CREATE TABLE [dbo].[КалендарьSet] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [Месяц] nvarchar(max)  NOT NULL,
+    [Год] nvarchar(max)  NOT NULL
+);
+GO
+
+-- Creating table 'Показания_ОДУSet'
+CREATE TABLE [dbo].[Показания_ОДУSet] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [Показание_ГВС] nvarchar(max)  NOT NULL,
+    [Показание_ХВС] nvarchar(max)  NOT NULL,
+    [Календарь_Id] int  NOT NULL
+);
+GO
+
+-- Creating table 'ЖилецЛьгота'
+CREATE TABLE [dbo].[ЖилецЛьгота] (
+    [Жилец_Id] int  NOT NULL,
+    [Льгота_Id] int  NOT NULL
 );
 GO
 
@@ -106,6 +218,48 @@ GO
 ALTER TABLE [dbo].[ЖилецSet]
 ADD CONSTRAINT [PK_ЖилецSet]
     PRIMARY KEY CLUSTERED ([Id] ASC);
+GO
+
+-- Creating primary key on [Id] in table 'УслугаSet'
+ALTER TABLE [dbo].[УслугаSet]
+ADD CONSTRAINT [PK_УслугаSet]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
+GO
+
+-- Creating primary key on [Id] in table 'Соц_нормаSet'
+ALTER TABLE [dbo].[Соц_нормаSet]
+ADD CONSTRAINT [PK_Соц_нормаSet]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
+GO
+
+-- Creating primary key on [Id] in table 'ЛьготаSet'
+ALTER TABLE [dbo].[ЛьготаSet]
+ADD CONSTRAINT [PK_ЛьготаSet]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
+GO
+
+-- Creating primary key on [Id] in table 'Показания_квартирSet'
+ALTER TABLE [dbo].[Показания_квартирSet]
+ADD CONSTRAINT [PK_Показания_квартирSet]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
+GO
+
+-- Creating primary key on [Id] in table 'КалендарьSet'
+ALTER TABLE [dbo].[КалендарьSet]
+ADD CONSTRAINT [PK_КалендарьSet]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
+GO
+
+-- Creating primary key on [Id] in table 'Показания_ОДУSet'
+ALTER TABLE [dbo].[Показания_ОДУSet]
+ADD CONSTRAINT [PK_Показания_ОДУSet]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
+GO
+
+-- Creating primary key on [Жилец_Id], [Льгота_Id] in table 'ЖилецЛьгота'
+ALTER TABLE [dbo].[ЖилецЛьгота]
+ADD CONSTRAINT [PK_ЖилецЛьгота]
+    PRIMARY KEY CLUSTERED ([Жилец_Id], [Льгота_Id] ASC);
 GO
 
 -- --------------------------------------------------
@@ -152,6 +306,113 @@ ADD CONSTRAINT [FK_КвартираЖилец]
 CREATE INDEX [IX_FK_КвартираЖилец]
 ON [dbo].[ЖилецSet]
     ([Квартира_Номер]);
+GO
+
+-- Creating foreign key on [Услуга_Id] in table 'СчетчикSet'
+ALTER TABLE [dbo].[СчетчикSet]
+ADD CONSTRAINT [FK_УслугаСчетчик]
+    FOREIGN KEY ([Услуга_Id])
+    REFERENCES [dbo].[УслугаSet]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_УслугаСчетчик'
+CREATE INDEX [IX_FK_УслугаСчетчик]
+ON [dbo].[СчетчикSet]
+    ([Услуга_Id]);
+GO
+
+-- Creating foreign key on [Услуга_Id] in table 'Соц_нормаSet'
+ALTER TABLE [dbo].[Соц_нормаSet]
+ADD CONSTRAINT [FK_УслугаСоц_норма]
+    FOREIGN KEY ([Услуга_Id])
+    REFERENCES [dbo].[УслугаSet]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_УслугаСоц_норма'
+CREATE INDEX [IX_FK_УслугаСоц_норма]
+ON [dbo].[Соц_нормаSet]
+    ([Услуга_Id]);
+GO
+
+-- Creating foreign key on [Жилец_Id] in table 'ЖилецЛьгота'
+ALTER TABLE [dbo].[ЖилецЛьгота]
+ADD CONSTRAINT [FK_ЖилецЛьгота_Жилец]
+    FOREIGN KEY ([Жилец_Id])
+    REFERENCES [dbo].[ЖилецSet]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating foreign key on [Льгота_Id] in table 'ЖилецЛьгота'
+ALTER TABLE [dbo].[ЖилецЛьгота]
+ADD CONSTRAINT [FK_ЖилецЛьгота_Льгота]
+    FOREIGN KEY ([Льгота_Id])
+    REFERENCES [dbo].[ЛьготаSet]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_ЖилецЛьгота_Льгота'
+CREATE INDEX [IX_FK_ЖилецЛьгота_Льгота]
+ON [dbo].[ЖилецЛьгота]
+    ([Льгота_Id]);
+GO
+
+-- Creating foreign key on [Показания_квартир_Id] in table 'СчетчикSet'
+ALTER TABLE [dbo].[СчетчикSet]
+ADD CONSTRAINT [FK_Показания_квартирСчетчик]
+    FOREIGN KEY ([Показания_квартир_Id])
+    REFERENCES [dbo].[Показания_квартирSet]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_Показания_квартирСчетчик'
+CREATE INDEX [IX_FK_Показания_квартирСчетчик]
+ON [dbo].[СчетчикSet]
+    ([Показания_квартир_Id]);
+GO
+
+-- Creating foreign key on [Календарь_Id] in table 'Показания_квартирSet'
+ALTER TABLE [dbo].[Показания_квартирSet]
+ADD CONSTRAINT [FK_КалендарьПоказания_квартир]
+    FOREIGN KEY ([Календарь_Id])
+    REFERENCES [dbo].[КалендарьSet]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_КалендарьПоказания_квартир'
+CREATE INDEX [IX_FK_КалендарьПоказания_квартир]
+ON [dbo].[Показания_квартирSet]
+    ([Календарь_Id]);
+GO
+
+-- Creating foreign key on [Показания_ОДУ_Id] in table 'ДомSet'
+ALTER TABLE [dbo].[ДомSet]
+ADD CONSTRAINT [FK_Показания_ОДУДом]
+    FOREIGN KEY ([Показания_ОДУ_Id])
+    REFERENCES [dbo].[Показания_ОДУSet]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_Показания_ОДУДом'
+CREATE INDEX [IX_FK_Показания_ОДУДом]
+ON [dbo].[ДомSet]
+    ([Показания_ОДУ_Id]);
+GO
+
+-- Creating foreign key on [Календарь_Id] in table 'Показания_ОДУSet'
+ALTER TABLE [dbo].[Показания_ОДУSet]
+ADD CONSTRAINT [FK_КалендарьПоказания_ОДУ]
+    FOREIGN KEY ([Календарь_Id])
+    REFERENCES [dbo].[КалендарьSet]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_КалендарьПоказания_ОДУ'
+CREATE INDEX [IX_FK_КалендарьПоказания_ОДУ]
+ON [dbo].[Показания_ОДУSet]
+    ([Календарь_Id]);
 GO
 
 -- --------------------------------------------------
