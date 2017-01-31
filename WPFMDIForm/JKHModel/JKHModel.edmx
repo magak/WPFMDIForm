@@ -73,11 +73,12 @@
   </EntityType>
   <EntityType Name="КвартираSet">
     <Key>
-      <PropertyRef Name="Номер" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Номер" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Площадь_квартиры" Type="decimal" Nullable="false" />
     <Property Name="Счетчики_установлены" Type="bit" Nullable="false" />
+    <Property Name="Номер_квартиры" Type="smallint" Nullable="false" />
     <Property Name="Дом_Id" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="СчетчикSet">
@@ -85,7 +86,7 @@
       <PropertyRef Name="Код_счетчика" />
     </Key>
     <Property Name="Код_счетчика" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Квартира_Номер" Type="int" Nullable="false" />
+    <Property Name="Квартира_Id" Type="int" Nullable="false" />
     <Property Name="Услуга_Id" Type="int" Nullable="false" />
     <Property Name="Показания_квартир_Id" Type="int" Nullable="false" />
   </EntityType>
@@ -96,7 +97,7 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ФИО" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Номер_паспорта" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Квартира_Номер" Type="int" Nullable="false" />
+    <Property Name="Квартира_Id" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="УслугаSet">
     <Key>
@@ -179,10 +180,10 @@
     <End Role="Счетчик" Type="JKHModel.Store.СчетчикSet" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Квартира">
-        <PropertyRef Name="Номер" />
+        <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="Счетчик">
-        <PropertyRef Name="Квартира_Номер" />
+        <PropertyRef Name="Квартира_Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -191,10 +192,10 @@
     <End Role="Жилец" Type="JKHModel.Store.ЖилецSet" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Квартира">
-        <PropertyRef Name="Номер" />
+        <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="Жилец">
-        <PropertyRef Name="Квартира_Номер" />
+        <PropertyRef Name="Квартира_Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -512,9 +513,10 @@
     <EntitySetMapping Name="КвартираSet">
       <EntityTypeMapping TypeName="IsTypeOf(JKHModel.Квартира)">
         <MappingFragment StoreEntitySet="КвартираSet">
-          <ScalarProperty Name="Id" ColumnName="Номер" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Площадь_квартиры" ColumnName="Площадь_квартиры" />
           <ScalarProperty Name="Счетчики_установлены" ColumnName="Счетчики_установлены" />
+          <ScalarProperty Name="Номер_квартиры" ColumnName="Номер_квартиры" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -598,12 +600,12 @@
         <ScalarProperty Name="Id" ColumnName="Дом_Id" />
       </EndProperty>
       <EndProperty Name="Квартира">
-        <ScalarProperty Name="Id" ColumnName="Номер" />
+        <ScalarProperty Name="Id" ColumnName="Id" />
       </EndProperty>
     </AssociationSetMapping>
     <AssociationSetMapping Name="КвартираСчетчик" TypeName="JKHModel.КвартираСчетчик" StoreEntitySet="СчетчикSet">
       <EndProperty Name="Квартира">
-        <ScalarProperty Name="Id" ColumnName="Квартира_Номер" />
+        <ScalarProperty Name="Id" ColumnName="Квартира_Id" />
       </EndProperty>
       <EndProperty Name="Счетчик">
         <ScalarProperty Name="Код_счетчика" ColumnName="Код_счетчика" />
@@ -611,7 +613,7 @@
     </AssociationSetMapping>
     <AssociationSetMapping Name="КвартираЖилец" TypeName="JKHModel.КвартираЖилец" StoreEntitySet="ЖилецSet">
       <EndProperty Name="Квартира">
-        <ScalarProperty Name="Id" ColumnName="Квартира_Номер" />
+        <ScalarProperty Name="Id" ColumnName="Квартира_Id" />
       </EndProperty>
       <EndProperty Name="Жилец">
         <ScalarProperty Name="Id" ColumnName="Id" />
