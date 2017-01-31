@@ -9,7 +9,6 @@
 //------------------------------------------------------------------------------
 
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("datamodel.context.tt")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("datamodel.edmx.sql")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("datamodel.tt")]
 
 

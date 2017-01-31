@@ -98,5 +98,31 @@ E:\R\Multiple Document WPF\WPFMDIForm\obj\Debug\WPFMDIForm.g.resources
 E:\R\Multiple Document WPF\WPFMDIForm\obj\Debug\WPFMDIForm.Properties.Resources.resources
 E:\R\Multiple Document WPF\WPFMDIForm\obj\Debug\WPFMDIForm.csproj.GenerateResource.Cache
 E:\WPFMDIForm\WPFMDIForm\WPFMDIForm\bin\Debug\WPFMDIForm.exe.config
+E:\WPFMDIForm\WPFMDIForm\WPFMDIForm\bin\Debug\WPFMDIForm.exe
+E:\WPFMDIForm\WPFMDIForm\WPFMDIForm\bin\Debug\WPFMDIForm.pdb
+E:\WPFMDIForm\WPFMDIForm\WPFMDIForm\bin\Debug\EntityFramework.dll
+E:\WPFMDIForm\WPFMDIForm\WPFMDIForm\bin\Debug\EntityFramework.SqlServer.dll
+E:\WPFMDIForm\WPFMDIForm\WPFMDIForm\bin\Debug\WPF.MDI.dll
+E:\WPFMDIForm\WPFMDIForm\WPFMDIForm\bin\Debug\EntityFramework.xml
+E:\WPFMDIForm\WPFMDIForm\WPFMDIForm\bin\Debug\EntityFramework.SqlServer.xml
+E:\WPFMDIForm\WPFMDIForm\WPFMDIForm\obj\Debug\PageFlats.baml
+E:\WPFMDIForm\WPFMDIForm\WPFMDIForm\obj\Debug\PageFlatData.baml
+E:\WPFMDIForm\WPFMDIForm\WPFMDIForm\obj\Debug\PageLogin.baml
+E:\WPFMDIForm\WPFMDIForm\WPFMDIForm\obj\Debug\PageODU.baml
+E:\WPFMDIForm\WPFMDIForm\WPFMDIForm\obj\Debug\MainWindow.baml
+E:\WPFMDIForm\WPFMDIForm\WPFMDIForm\obj\Debug\WindowAddFlat.baml
+E:\WPFMDIForm\WPFMDIForm\WPFMDIForm\obj\Debug\PageTariffs.baml
+E:\WPFMDIForm\WPFMDIForm\WPFMDIForm\obj\Debug\PageFlats.g.cs
+E:\WPFMDIForm\WPFMDIForm\WPFMDIForm\obj\Debug\PageFlatData.g.cs
+E:\WPFMDIForm\WPFMDIForm\WPFMDIForm\obj\Debug\PageLogin.g.cs
+E:\WPFMDIForm\WPFMDIForm\WPFMDIForm\obj\Debug\PageODU.g.cs
+E:\WPFMDIForm\WPFMDIForm\WPFMDIForm\obj\Debug\MainWindow.g.cs
+E:\WPFMDIForm\WPFMDIForm\WPFMDIForm\obj\Debug\WindowAddFlat.g.cs
+E:\WPFMDIForm\WPFMDIForm\WPFMDIForm\obj\Debug\PageTariffs.g.cs
+E:\WPFMDIForm\WPFMDIForm\WPFMDIForm\obj\Debug\App.g.cs
+E:\WPFMDIForm\WPFMDIForm\WPFMDIForm\obj\Debug\WPFMDIForm_MarkupCompile.cache
+E:\WPFMDIForm\WPFMDIForm\WPFMDIForm\obj\Debug\WPFMDIForm.g.resources
+E:\WPFMDIForm\WPFMDIForm\WPFMDIForm\obj\Debug\WPFMDIForm.Properties.Resources.resources
+E:\WPFMDIForm\WPFMDIForm\WPFMDIForm\obj\Debug\WPFMDIForm.csproj.GenerateResource.Cache
 E:\WPFMDIForm\WPFMDIForm\WPFMDIForm\obj\Debug\WPFMDIForm.exe
 E:\WPFMDIForm\WPFMDIForm\WPFMDIForm\obj\Debug\WPFMDIForm.pdb

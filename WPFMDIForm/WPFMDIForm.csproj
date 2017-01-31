@@ -89,21 +89,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="dataModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>dataModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="dataModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>dataModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="dataModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>dataModel.edmx</DependentUpon>
-    </Compile>
     <Compile Include="PageLogin.xaml.cs">
       <DependentUpon>PageLogin.xaml</DependentUpon>
     </Compile>
@@ -118,12 +103,6 @@
     </Compile>
     <Compile Include="PageFlatData.xaml.cs">
       <DependentUpon>PageFlatData.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Показания.cs">
-      <DependentUpon>dataModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Услуги.cs">
-      <DependentUpon>dataModel.tt</DependentUpon>
     </Compile>
     <Page Include="PageFlats.xaml">
       <SubType>Designer</SubType>
@@ -184,13 +163,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="dataModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>dataModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="dataModel.edmx.diagram">
-      <DependentUpon>dataModel.edmx</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -220,19 +192,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Icon.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="dataModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>dataModel.Context.cs</LastGenOutput>
-      <DependentUpon>dataModel.edmx</DependentUpon>
-    </Content>
-    <Content Include="dataModel.edmx.sql" />
-    <Content Include="dataModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>dataModel.cs</LastGenOutput>
-      <DependentUpon>dataModel.edmx</DependentUpon>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
