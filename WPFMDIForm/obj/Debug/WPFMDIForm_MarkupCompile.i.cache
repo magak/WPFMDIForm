@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\WPFMDIForm\WPFMDIForm\WPFMDIForm\App.xaml
-7-1919147458
-1570571049
-28-1797137562
+191919909185
+2-1884808155
+40-1505553404
 18-98738225
-PageFlats.xaml;PageFlatData.xaml;PageLogin.xaml;PageODU.xaml;MainWindow.xaml;WindowAddFlat.xaml;PageTariffs.xaml;
+PageNorma.xaml;PageReadings.xaml;PageUsl.xaml;PageBens.xaml;PageCounters.xaml;WindowAddNorma.xaml;WindowAddODU.xaml;WindowAddReading.xaml;WindowAddUsl.xaml;WindowAddCounter.xaml;WindowAddBen.xaml;WindowAddInhabit.xaml;PageInhabits.xaml;PageFlats.xaml;PageLogin.xaml;PageODU.xaml;MainWindow.xaml;House.xaml;WindowAddFlat.xaml;
 
 False
 

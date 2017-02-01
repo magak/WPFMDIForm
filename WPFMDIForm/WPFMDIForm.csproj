@@ -107,6 +107,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>JKHModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="PageNorma.xaml.cs">
+      <DependentUpon>PageNorma.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageReadings.xaml.cs">
+      <DependentUpon>PageReadings.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PageUsl.xaml.cs">
       <DependentUpon>PageUsl.xaml</DependentUpon>
     </Compile>
@@ -115,6 +121,15 @@
     </Compile>
     <Compile Include="PageCounters.xaml.cs">
       <DependentUpon>PageCounters.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WindowAddNorma.xaml.cs">
+      <DependentUpon>WindowAddNorma.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WindowAddODU.xaml.cs">
+      <DependentUpon>WindowAddODU.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WindowAddReading.xaml.cs">
+      <DependentUpon>WindowAddReading.xaml</DependentUpon>
     </Compile>
     <Compile Include="WindowAddUsl.xaml.cs">
       <DependentUpon>WindowAddUsl.xaml</DependentUpon>
@@ -172,6 +187,14 @@
     <Compile Include="PageFlats.xaml.cs">
       <DependentUpon>PageFlats.xaml</DependentUpon>
     </Compile>
+    <Page Include="PageNorma.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PageReadings.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="PageUsl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -183,6 +206,18 @@
     <Page Include="PageCounters.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowAddNorma.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WindowAddODU.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WindowAddReading.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="WindowAddUsl.xaml">
       <SubType>Designer</SubType>
