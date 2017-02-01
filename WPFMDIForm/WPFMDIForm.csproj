@@ -187,6 +187,9 @@
     <Compile Include="PageFlats.xaml.cs">
       <DependentUpon>PageFlats.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WindowBens.xaml.cs">
+      <DependentUpon>WindowBens.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WindowCounters.xaml.cs">
       <DependentUpon>WindowCounters.xaml</DependentUpon>
     </Compile>
@@ -284,6 +287,10 @@
       <DependentUpon>WindowAddFlat.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="WindowBens.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="WindowCounters.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
