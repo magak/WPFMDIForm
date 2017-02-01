@@ -41,10 +41,6 @@
       <End Role="Льгота" EntitySet="ЛьготаSet" />
       <End Role="ЖилецЛьгота" EntitySet="ЖилецЛьгота" />
     </AssociationSet>
-    <AssociationSet Name="Показания_квартирСчетчик" Association="JKHModel.Store.Показания_квартирСчетчик">
-      <End Role="Показания_квартир" EntitySet="Показания_квартирSet" />
-      <End Role="Счетчик" EntitySet="СчетчикSet" />
-    </AssociationSet>
     <AssociationSet Name="КалендарьПоказания_квартир" Association="JKHModel.Store.КалендарьПоказания_квартир">
       <End Role="Календарь" EntitySet="КалендарьSet" />
       <End Role="Показания_квартир" EntitySet="Показания_квартирSet" />
@@ -60,6 +56,10 @@
     <AssociationSet Name="ДомПоказания_ОДУ" Association="JKHModel.Store.ДомПоказания_ОДУ">
       <End Role="Дом" EntitySet="ДомSet" />
       <End Role="Показания_ОДУ" EntitySet="Показания_ОДУSet" />
+    </AssociationSet>
+    <AssociationSet Name="СчетчикПоказания_квартир" Association="JKHModel.Store.СчетчикПоказания_квартир">
+      <End Role="Счетчик" EntitySet="СчетчикSet" />
+      <End Role="Показания_квартир" EntitySet="Показания_квартирSet" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="ДомSet">
@@ -87,7 +87,6 @@
     <Property Name="Код_счетчика" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Квартира_Id" Type="int" Nullable="false" />
     <Property Name="Услуга_Id" Type="int" Nullable="false" />
-    <Property Name="Показания_квартир_Id" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="ЖилецSet">
     <Key>
@@ -136,6 +135,7 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Значение_показания_кв" Type="smallint" Nullable="false" />
     <Property Name="Календарь_Id" Type="int" Nullable="false" />
+    <Property Name="Счетчик_Код_счетчика" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="КалендарьSet">
     <Key>
@@ -211,18 +211,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="Показания_квартирСчетчик">
-    <End Role="Показания_квартир" Type="JKHModel.Store.Показания_квартирSet" Multiplicity="1" />
-    <End Role="Счетчик" Type="JKHModel.Store.СчетчикSet" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Показания_квартир">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Счетчик">
-        <PropertyRef Name="Показания_квартир_Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="КалендарьПоказания_квартир">
     <End Role="Календарь" Type="JKHModel.Store.КалендарьSet" Multiplicity="1" />
     <End Role="Показания_квартир" Type="JKHModel.Store.Показания_квартирSet" Multiplicity="*" />
@@ -268,6 +256,18 @@
       </Principal>
       <Dependent Role="Показания_ОДУ">
         <PropertyRef Name="Дом_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="СчетчикПоказания_квартир">
+    <End Role="Счетчик" Type="JKHModel.Store.СчетчикSet" Multiplicity="1" />
+    <End Role="Показания_квартир" Type="JKHModel.Store.Показания_квартирSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Счетчик">
+        <PropertyRef Name="Код_счетчика" />
+      </Principal>
+      <Dependent Role="Показания_квартир">
+        <PropertyRef Name="Счетчик_Код_счетчика" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -328,10 +328,6 @@
             <End Role="Льгота" EntitySet="ЛьготаSet" />
           </AssociationSet>
           <EntitySet Name="Показания_квартирSet" EntityType="JKHModel.Показания_квартир" />
-          <AssociationSet Name="Показания_квартирСчетчик" Association="JKHModel.Показания_квартирСчетчик">
-            <End Role="Показания_квартир" EntitySet="Показания_квартирSet" />
-            <End Role="Счетчик" EntitySet="СчетчикSet" />
-          </AssociationSet>
           <EntitySet Name="КалендарьSet" EntityType="JKHModel.Календарь" />
           <AssociationSet Name="КалендарьПоказания_квартир" Association="JKHModel.КалендарьПоказания_квартир">
             <End Role="Календарь" EntitySet="КалендарьSet" />
@@ -349,6 +345,10 @@
           <AssociationSet Name="ДомПоказания_ОДУ" Association="JKHModel.ДомПоказания_ОДУ">
             <End Role="Дом" EntitySet="ДомSet" />
             <End Role="Показания_ОДУ" EntitySet="Показания_ОДУSet" />
+          </AssociationSet>
+          <AssociationSet Name="СчетчикПоказания_квартир" Association="JKHModel.СчетчикПоказания_квартир">
+            <End Role="Счетчик" EntitySet="СчетчикSet" />
+            <End Role="Показания_квартир" EntitySet="Показания_квартирSet" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Дом">
@@ -380,7 +380,7 @@
           <Property Name="Код_счетчика" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="Квартира" Relationship="JKHModel.КвартираСчетчик" FromRole="Счетчик" ToRole="Квартира" />
           <NavigationProperty Name="Услуга" Relationship="JKHModel.УслугаСчетчик" FromRole="Счетчик" ToRole="Услуга" />
-          <NavigationProperty Name="Показания_квартир" Relationship="JKHModel.Показания_квартирСчетчик" FromRole="Счетчик" ToRole="Показания_квартир" />
+          <NavigationProperty Name="Показания_квартир" Relationship="JKHModel.СчетчикПоказания_квартир" FromRole="Счетчик" ToRole="Показания_квартир" />
         </EntityType>
         <EntityType Name="Жилец">
           <Key>
@@ -451,14 +451,10 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <NavigationProperty Name="Счетчик" Relationship="JKHModel.Показания_квартирСчетчик" FromRole="Показания_квартир" ToRole="Счетчик" />
           <Property Name="Значение_показания_кв" Type="Int16" Nullable="false" />
           <NavigationProperty Name="Календарь" Relationship="JKHModel.КалендарьПоказания_квартир" FromRole="Показания_квартир" ToRole="Календарь" />
+          <NavigationProperty Name="Счетчик" Relationship="JKHModel.СчетчикПоказания_квартир" FromRole="Показания_квартир" ToRole="Счетчик" />
         </EntityType>
-        <Association Name="Показания_квартирСчетчик">
-          <End Type="JKHModel.Показания_квартир" Role="Показания_квартир" Multiplicity="1" />
-          <End Type="JKHModel.Счетчик" Role="Счетчик" Multiplicity="*" />
-        </Association>
         <EntityType Name="Календарь">
           <Key>
             <PropertyRef Name="Id" />
@@ -494,6 +490,10 @@
         <Association Name="ДомПоказания_ОДУ">
           <End Type="JKHModel.Дом" Role="Дом" Multiplicity="1" />
           <End Type="JKHModel.Показания_ОДУ" Role="Показания_ОДУ" Multiplicity="*" />
+        </Association>
+        <Association Name="СчетчикПоказания_квартир">
+          <End Type="JKHModel.Счетчик" Role="Счетчик" Multiplicity="1" />
+          <End Type="JKHModel.Показания_квартир" Role="Показания_квартир" Multiplicity="*" />
         </Association>
       </Schema>
     </edmx:ConceptualModels>
@@ -635,14 +635,6 @@
         <ScalarProperty Name="Id" ColumnName="Льгота_Id" />
       </EndProperty>
     </AssociationSetMapping>
-    <AssociationSetMapping Name="Показания_квартирСчетчик" TypeName="JKHModel.Показания_квартирСчетчик" StoreEntitySet="СчетчикSet">
-      <EndProperty Name="Показания_квартир">
-        <ScalarProperty Name="Id" ColumnName="Показания_квартир_Id" />
-      </EndProperty>
-      <EndProperty Name="Счетчик">
-        <ScalarProperty Name="Код_счетчика" ColumnName="Код_счетчика" />
-      </EndProperty>
-    </AssociationSetMapping>
     <AssociationSetMapping Name="КалендарьПоказания_квартир" TypeName="JKHModel.КалендарьПоказания_квартир" StoreEntitySet="Показания_квартирSet">
       <EndProperty Name="Календарь">
         <ScalarProperty Name="Id" ColumnName="Календарь_Id" />
@@ -672,6 +664,14 @@
         <ScalarProperty Name="Id" ColumnName="Дом_Id" />
       </EndProperty>
       <EndProperty Name="Показания_ОДУ">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="СчетчикПоказания_квартир" TypeName="JKHModel.СчетчикПоказания_квартир" StoreEntitySet="Показания_квартирSet">
+      <EndProperty Name="Счетчик">
+        <ScalarProperty Name="Код_счетчика" ColumnName="Счетчик_Код_счетчика" />
+      </EndProperty>
+      <EndProperty Name="Показания_квартир">
         <ScalarProperty Name="Id" ColumnName="Id" />
       </EndProperty>
     </AssociationSetMapping>

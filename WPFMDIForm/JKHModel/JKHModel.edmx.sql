@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 02/01/2017 22:03:37
+-- Date Created: 02/01/2017 22:47:10
 -- Generated from EDMX file: C:\WPFMDIForm\WPFMDIForm\WPFMDIForm\JKHModel\JKHModel.edmx
 -- --------------------------------------------------
 
@@ -17,9 +17,6 @@ GO
 -- Dropping existing FOREIGN KEY constraints
 -- --------------------------------------------------
 
-IF OBJECT_ID(N'[dbo].[FK_ДомКвартира]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[КвартираSet] DROP CONSTRAINT [FK_ДомКвартира];
-GO
 IF OBJECT_ID(N'[dbo].[FK_КвартираСчетчик]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[СчетчикSet] DROP CONSTRAINT [FK_КвартираСчетчик];
 GO
@@ -38,17 +35,20 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_ЖилецЛьгота_Льгота]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[ЖилецЛьгота] DROP CONSTRAINT [FK_ЖилецЛьгота_Льгота];
 GO
-IF OBJECT_ID(N'[dbo].[FK_Показания_квартирСчетчик]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[СчетчикSet] DROP CONSTRAINT [FK_Показания_квартирСчетчик];
-GO
 IF OBJECT_ID(N'[dbo].[FK_КалендарьПоказания_квартир]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Показания_квартирSet] DROP CONSTRAINT [FK_КалендарьПоказания_квартир];
 GO
-IF OBJECT_ID(N'[dbo].[FK_Показания_ОДУДом]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[ДомSet] DROP CONSTRAINT [FK_Показания_ОДУДом];
-GO
 IF OBJECT_ID(N'[dbo].[FK_КалендарьПоказания_ОДУ]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Показания_ОДУSet] DROP CONSTRAINT [FK_КалендарьПоказания_ОДУ];
+GO
+IF OBJECT_ID(N'[dbo].[FK_ДомКвартира]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[КвартираSet] DROP CONSTRAINT [FK_ДомКвартира];
+GO
+IF OBJECT_ID(N'[dbo].[FK_ДомПоказания_ОДУ]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Показания_ОДУSet] DROP CONSTRAINT [FK_ДомПоказания_ОДУ];
+GO
+IF OBJECT_ID(N'[dbo].[FK_СчетчикПоказания_квартир]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Показания_квартирSet] DROP CONSTRAINT [FK_СчетчикПоказания_квартир];
 GO
 
 -- --------------------------------------------------
@@ -115,8 +115,7 @@ GO
 CREATE TABLE [dbo].[СчетчикSet] (
     [Код_счетчика] int IDENTITY(1,1) NOT NULL,
     [Квартира_Id] int  NOT NULL,
-    [Услуга_Id] int  NOT NULL,
-    [Показания_квартир_Id] int  NOT NULL
+    [Услуга_Id] int  NOT NULL
 );
 GO
 
@@ -164,7 +163,8 @@ GO
 CREATE TABLE [dbo].[Показания_квартирSet] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [Значение_показания_кв] smallint  NOT NULL,
-    [Календарь_Id] int  NOT NULL
+    [Календарь_Id] int  NOT NULL,
+    [Счетчик_Код_счетчика] int  NOT NULL
 );
 GO
 
@@ -346,20 +346,6 @@ ON [dbo].[ЖилецЛьгота]
     ([Льгота_Id]);
 GO
 
--- Creating foreign key on [Показания_квартир_Id] in table 'СчетчикSet'
-ALTER TABLE [dbo].[СчетчикSet]
-ADD CONSTRAINT [FK_Показания_квартирСчетчик]
-    FOREIGN KEY ([Показания_квартир_Id])
-    REFERENCES [dbo].[Показания_квартирSet]
-        ([Id])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-
--- Creating non-clustered index for FOREIGN KEY 'FK_Показания_квартирСчетчик'
-CREATE INDEX [IX_FK_Показания_квартирСчетчик]
-ON [dbo].[СчетчикSet]
-    ([Показания_квартир_Id]);
-GO
-
 -- Creating foreign key on [Календарь_Id] in table 'Показания_квартирSet'
 ALTER TABLE [dbo].[Показания_квартирSet]
 ADD CONSTRAINT [FK_КалендарьПоказания_квартир]
@@ -414,6 +400,20 @@ ADD CONSTRAINT [FK_ДомПоказания_ОДУ]
 CREATE INDEX [IX_FK_ДомПоказания_ОДУ]
 ON [dbo].[Показания_ОДУSet]
     ([Дом_Id]);
+GO
+
+-- Creating foreign key on [Счетчик_Код_счетчика] in table 'Показания_квартирSet'
+ALTER TABLE [dbo].[Показания_квартирSet]
+ADD CONSTRAINT [FK_СчетчикПоказания_квартир]
+    FOREIGN KEY ([Счетчик_Код_счетчика])
+    REFERENCES [dbo].[СчетчикSet]
+        ([Код_счетчика])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_СчетчикПоказания_квартир'
+CREATE INDEX [IX_FK_СчетчикПоказания_квартир]
+ON [dbo].[Показания_квартирSet]
+    ([Счетчик_Код_счетчика]);
 GO
 
 -- --------------------------------------------------

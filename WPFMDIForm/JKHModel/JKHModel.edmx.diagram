@@ -18,13 +18,13 @@
         <EntityTypeShape EntityType="JKHModel.Льгота" Width="1.5" PointX="0.625" PointY="8.25" />
         <AssociationConnector Association="JKHModel.ЖилецЛьгота" />
         <EntityTypeShape EntityType="JKHModel.Показания_квартир" Width="1.875" PointX="3.125" PointY="3.125" />
-        <AssociationConnector Association="JKHModel.Показания_квартирСчетчик" />
         <EntityTypeShape EntityType="JKHModel.Календарь" Width="1.5" PointX="5.875" PointY="3.125" />
         <AssociationConnector Association="JKHModel.КалендарьПоказания_квартир" />
         <EntityTypeShape EntityType="JKHModel.Показания_ОДУ" Width="2" PointX="0.75" PointY="0.75" />
         <AssociationConnector Association="JKHModel.КалендарьПоказания_ОДУ" />
         <AssociationConnector Association="JKHModel.ДомКвартира" />
         <AssociationConnector Association="JKHModel.ДомПоказания_ОДУ" />
+        <AssociationConnector Association="JKHModel.СчетчикПоказания_квартир" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

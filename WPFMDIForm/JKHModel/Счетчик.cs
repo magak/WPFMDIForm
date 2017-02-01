@@ -14,10 +14,15 @@ namespace WPFMDIForm.JKHModel
     
     public partial class Счетчик
     {
+        public Счетчик()
+        {
+            this.Показания_квартир = new HashSet<Показания_квартир>();
+        }
+    
         public int Код_счетчика { get; set; }
     
         public virtual Квартира Квартира { get; set; }
         public virtual Услуга Услуга { get; set; }
-        public virtual Показания_квартир Показания_квартир { get; set; }
+        public virtual ICollection<Показания_квартир> Показания_квартир { get; set; }
     }
 }
