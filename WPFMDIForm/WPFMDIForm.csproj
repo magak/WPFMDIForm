@@ -107,7 +107,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>JKHModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="JKHModel\WindowAddInhabit.xaml.cs">
+    <Compile Include="WindowAddInhabit.xaml.cs">
       <DependentUpon>WindowAddInhabit.xaml</DependentUpon>
     </Compile>
     <Compile Include="JKHModel\Дом.cs">
@@ -142,6 +142,9 @@
     <Compile Include="JKHModel\Услуга.cs">
       <DependentUpon>JKHModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="PageInhabits.xaml.cs">
+      <DependentUpon>PageInhabits.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PageLogin.xaml.cs">
       <DependentUpon>PageLogin.xaml</DependentUpon>
     </Compile>
@@ -154,7 +157,11 @@
     <Compile Include="PageFlatData.xaml.cs">
       <DependentUpon>PageFlatData.xaml</DependentUpon>
     </Compile>
-    <Page Include="JKHModel\WindowAddInhabit.xaml">
+    <Page Include="WindowAddInhabit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageInhabits.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
