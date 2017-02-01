@@ -11,15 +11,19 @@
         <DockPanel>
             <Menu Name="MainMenu" VerticalAlignment="Top" DockPanel.Dock="Top" Height="25" FontSize="15" >
                 <MenuItem Name="menuHome" Header="Главное меню">
-                    <MenuItem Name="print" Header="Печать" Click="print_Click" />
-                    <MenuItem Name="login" Header="Другой пользователь" Click="changeUser_Click" />
-                    <MenuItem Name="Exit" Header="Выход" Click="menuExit_Click" />
+                    <MenuItem Name="print" Header="Печать"  />
+                    <MenuItem Name="login" Header="Другой пользователь" />
+                    <MenuItem Name="Exit" Header="Выход"/>
                 </MenuItem>
                 <MenuItem Name="menuLibraries" Header="Справочники">
-                    <MenuItem Name="libHouse" Header="Сведения о доме"  />
-                    <MenuItem Name="libFlats" Header="Квартиры" Click="flats_Click" />
-                    <MenuItem Name="libTariffs" Header="Услуги" Click="tariffs_Click" />
-                    
+                    <MenuItem Name="libInhabits" Header="Жильцы"  />
+                    <MenuItem Name="libFlats" Header="Квартиры" />
+                    <MenuItem Name="libHouse" Header="Дома"  />
+                    <MenuItem Name="libCounters" Header="Счетчики"  />
+                    <MenuItem Name="libUsl" Header="Услуги" />
+                    <MenuItem Name="libBens" Header="Льготы" />
+                    <MenuItem Name="libNorma" Header="Соц. нормы" />
+
                 </MenuItem>
                 <MenuItem Name="menuData" Header="Показания">
                     <MenuItem Name="flatData" Header="Показания квартир" Click="flatData_Click" />
