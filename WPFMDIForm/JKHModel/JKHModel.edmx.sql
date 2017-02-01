@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 02/01/2017 02:02:34
--- Generated from EDMX file: E:\WPFMDIForm\WPFMDIForm\WPFMDIForm\JKHModel\JKHModel.edmx
+-- Date Created: 02/01/2017 22:03:37
+-- Generated from EDMX file: C:\WPFMDIForm\WPFMDIForm\WPFMDIForm\JKHModel\JKHModel.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -97,8 +97,7 @@ GO
 CREATE TABLE [dbo].[ДомSet] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [Адрес] nvarchar(max)  NOT NULL,
-    [Площадь] decimal(18,0)  NOT NULL,
-    [Показания_ОДУ_Id] int  NOT NULL
+    [Площадь] decimal(18,0)  NOT NULL
 );
 GO
 
@@ -182,7 +181,8 @@ CREATE TABLE [dbo].[Показания_ОДУSet] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [Показание_ГВС] nvarchar(max)  NOT NULL,
     [Показание_ХВС] nvarchar(max)  NOT NULL,
-    [Календарь_Id] int  NOT NULL
+    [Календарь_Id] int  NOT NULL,
+    [Дом_Id] int  NOT NULL
 );
 GO
 
@@ -267,21 +267,6 @@ GO
 -- Creating all FOREIGN KEY constraints
 -- --------------------------------------------------
 
--- Creating foreign key on [Дом_Id] in table 'КвартираSet'
-ALTER TABLE [dbo].[КвартираSet]
-ADD CONSTRAINT [FK_ДомКвартира]
-    FOREIGN KEY ([Дом_Id])
-    REFERENCES [dbo].[ДомSet]
-        ([Id])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating non-clustered index for FOREIGN KEY 'FK_ДомКвартира'
-CREATE INDEX [IX_FK_ДомКвартира]
-ON [dbo].[КвартираSet]
-    ([Дом_Id]);
-GO
-
 -- Creating foreign key on [Квартира_Id] in table 'СчетчикSet'
 ALTER TABLE [dbo].[СчетчикSet]
 ADD CONSTRAINT [FK_КвартираСчетчик]
@@ -289,7 +274,6 @@ ADD CONSTRAINT [FK_КвартираСчетчик]
     REFERENCES [dbo].[КвартираSet]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_КвартираСчетчик'
 CREATE INDEX [IX_FK_КвартираСчетчик]
@@ -304,7 +288,6 @@ ADD CONSTRAINT [FK_КвартираЖилец]
     REFERENCES [dbo].[КвартираSet]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_КвартираЖилец'
 CREATE INDEX [IX_FK_КвартираЖилец]
@@ -319,7 +302,6 @@ ADD CONSTRAINT [FK_УслугаСчетчик]
     REFERENCES [dbo].[УслугаSet]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_УслугаСчетчик'
 CREATE INDEX [IX_FK_УслугаСчетчик]
@@ -334,7 +316,6 @@ ADD CONSTRAINT [FK_УслугаСоц_норма]
     REFERENCES [dbo].[УслугаSet]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_УслугаСоц_норма'
 CREATE INDEX [IX_FK_УслугаСоц_норма]
@@ -358,7 +339,6 @@ ADD CONSTRAINT [FK_ЖилецЛьгота_Льгота]
     REFERENCES [dbo].[ЛьготаSet]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_ЖилецЛьгота_Льгота'
 CREATE INDEX [IX_FK_ЖилецЛьгота_Льгота]
@@ -373,7 +353,6 @@ ADD CONSTRAINT [FK_Показания_квартирСчетчик]
     REFERENCES [dbo].[Показания_квартирSet]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_Показания_квартирСчетчик'
 CREATE INDEX [IX_FK_Показания_квартирСчетчик]
@@ -388,27 +367,11 @@ ADD CONSTRAINT [FK_КалендарьПоказания_квартир]
     REFERENCES [dbo].[КалендарьSet]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_КалендарьПоказания_квартир'
 CREATE INDEX [IX_FK_КалендарьПоказания_квартир]
 ON [dbo].[Показания_квартирSet]
     ([Календарь_Id]);
-GO
-
--- Creating foreign key on [Показания_ОДУ_Id] in table 'ДомSet'
-ALTER TABLE [dbo].[ДомSet]
-ADD CONSTRAINT [FK_Показания_ОДУДом]
-    FOREIGN KEY ([Показания_ОДУ_Id])
-    REFERENCES [dbo].[Показания_ОДУSet]
-        ([Id])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating non-clustered index for FOREIGN KEY 'FK_Показания_ОДУДом'
-CREATE INDEX [IX_FK_Показания_ОДУДом]
-ON [dbo].[ДомSet]
-    ([Показания_ОДУ_Id]);
 GO
 
 -- Creating foreign key on [Календарь_Id] in table 'Показания_ОДУSet'
@@ -418,12 +381,39 @@ ADD CONSTRAINT [FK_КалендарьПоказания_ОДУ]
     REFERENCES [dbo].[КалендарьSet]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_КалендарьПоказания_ОДУ'
 CREATE INDEX [IX_FK_КалендарьПоказания_ОДУ]
 ON [dbo].[Показания_ОДУSet]
     ([Календарь_Id]);
+GO
+
+-- Creating foreign key on [Дом_Id] in table 'КвартираSet'
+ALTER TABLE [dbo].[КвартираSet]
+ADD CONSTRAINT [FK_ДомКвартира]
+    FOREIGN KEY ([Дом_Id])
+    REFERENCES [dbo].[ДомSet]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_ДомКвартира'
+CREATE INDEX [IX_FK_ДомКвартира]
+ON [dbo].[КвартираSet]
+    ([Дом_Id]);
+GO
+
+-- Creating foreign key on [Дом_Id] in table 'Показания_ОДУSet'
+ALTER TABLE [dbo].[Показания_ОДУSet]
+ADD CONSTRAINT [FK_ДомПоказания_ОДУ]
+    FOREIGN KEY ([Дом_Id])
+    REFERENCES [dbo].[ДомSet]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_ДомПоказания_ОДУ'
+CREATE INDEX [IX_FK_ДомПоказания_ОДУ]
+ON [dbo].[Показания_ОДУSet]
+    ([Дом_Id]);
 GO
 
 -- --------------------------------------------------
