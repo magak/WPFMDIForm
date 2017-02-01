@@ -107,6 +107,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>JKHModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="PageBens.xaml.cs">
+      <DependentUpon>PageBens.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PageCounters.xaml.cs">
       <DependentUpon>PageCounters.xaml</DependentUpon>
     </Compile>
@@ -163,6 +166,10 @@
     <Compile Include="PageFlats.xaml.cs">
       <DependentUpon>PageFlats.xaml</DependentUpon>
     </Compile>
+    <Page Include="PageBens.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PageCounters.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
