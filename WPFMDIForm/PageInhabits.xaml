@@ -16,12 +16,12 @@
         </DataGrid>
         <Button Name="btnAdd"
                 Margin="10,36,500,504"
-                Click="btnAdd_Click"
+                
                 Content="Добавить" RenderTransformOrigin="1.1,-0.045"
                 />
         <Button Name="btnUpd"
                 Margin="114,36,395,504"
-                Click="btnUpd_Click"
+                
                 Content="Редактировать" RenderTransformOrigin="-0.069,0.636"
                  />
         <Button Name="btnDel"

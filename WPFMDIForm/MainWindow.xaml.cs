@@ -30,7 +30,7 @@ namespace WPFMDIForm
 		}
 		private void tariffs_Click(object sender, RoutedEventArgs e)
 		{
-			_openPage(new PageTariffs());
+			//_openPage(new PageTariffs());
 		}
 		private void flatData_Click(object sender, RoutedEventArgs e)
 		{

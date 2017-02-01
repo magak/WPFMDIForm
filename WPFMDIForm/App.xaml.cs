@@ -13,5 +13,10 @@ namespace WPFMDIForm
     /// </summary>
     public partial class App : Application
     {
+        private void Application_DispatcherUnhandledException(object sender, System.Windows.Threading.DispatcherUnhandledExceptionEventArgs e)
+        {
+            MessageBox.Show(string.Format("Ошибка: {0}{1}{2}", e.Exception.Message, Environment.NewLine, e.Exception.StackTrace)
+                , "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
     }
 }

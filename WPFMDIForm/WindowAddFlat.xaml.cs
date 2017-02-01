@@ -9,25 +9,37 @@ using System.Windows.Documents;
 using System.Windows.Media;
 using System.Windows.Shapes;
 using WPFMDIForm.JKHModel;
+using System.ComponentModel;
 
 namespace WPFMDIForm
 {
-    public partial class WindowAddFlat : Window
+    public partial class WindowAddFlat : Window, INotifyPropertyChanged
     {
         JKHModelContainer _context;
         Квартира _flat;
 
-        public WindowAddFlat(JKHModelContainer context)
+        public Квартира Flat
         {
-            _context = context;
-            _flat = new Квартира();
-            _flat.Дом = _context.ДомSet.ToList().First();
-            this.DataContext = _flat;            
-            InitializeComponent();
+            get
+            {
+                return _flat; 
+            }
+            set 
+            {
+                _flat = value;
+                RaiseProprtyChanged("Flat");
+            }
         }
 
-        private void WindowLoaded(object sender, RoutedEventArgs e)
+        public WindowAddFlat(JKHModelContainer context)
         {            
+            InitializeComponent();
+            this.DataContext = this;
+            
+            _context = context;
+            //var homes
+            _flat = new Квартира();
+            _flat.Дом = _context.ДомSet.ToList().First();            
         }
 
         private void save_Click(object sender, RoutedEventArgs e)
@@ -54,5 +66,13 @@ namespace WPFMDIForm
 
             ViewedPhoto.Source = _photo.Image;
         }*/
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void RaiseProprtyChanged(string PropertyName)
+        {
+            if (PropertyChanged != null)
+                PropertyChanged(this, new PropertyChangedEventArgs(PropertyName));
+        }
     }
 }
