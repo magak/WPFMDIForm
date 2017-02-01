@@ -3,8 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Сведения о жильце" Height="400" Width="536">
     <Grid Background="khaki">
-        <DockPanel HorizontalAlignment="Left" Height="470" Margin="5,10,0,0" LastChildFill="False" VerticalAlignment="Top" Width="519">
-            <WrapPanel Height="439" VerticalAlignment="Top" Width="428">
+        <DockPanel HorizontalAlignment="Left" Height="350" Margin="5,10,0,0" LastChildFill="False" VerticalAlignment="Top" Width="519">
+            <WrapPanel Height="289" VerticalAlignment="Top" Width="428">
                 <Label Content="ФИО" Height="30" Width="170"/>
                 <TextBox Height="30" TextWrapping="Wrap"  Width="250"/>
                 <Label Content="Номер паспорта" Height="30" Width="170"/>
@@ -30,6 +30,14 @@
         <Button x:Name="delBen"
         	Margin="434,213,26,132"
         	Content="Удалить"
+                />
+        <Button x:Name="save"
+                Margin="315,339,0,5"
+                Content="Сохранить" Click="save_Click" HorizontalAlignment="Left" Width="98"
+                />
+        <Button x:Name="del"
+        	Margin="424,339,0,0"
+        	Content="Отмена" Click="del_Click" HorizontalAlignment="Left" Width="94" Height="24" VerticalAlignment="Top"
                 />
 
     </Grid>

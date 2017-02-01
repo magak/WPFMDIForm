@@ -1,0 +1,32 @@
+﻿<Window x:Class="WPFMDIForm.Window3"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Сведения о счетчике" Height="209" Width="555">
+    <Grid Background="khaki" Margin="0,0,2,0" Height="176" VerticalAlignment="Top">
+        <DockPanel HorizontalAlignment="Left" Margin="5,10,0,289" LastChildFill="False" Width="519">
+            <WrapPanel Height="167" VerticalAlignment="Top" Width="428" Margin="0,0,0,-167">
+                <Label Content="Код счетчика" Height="30" Width="170"/>
+                <TextBox Text="{Binding Flat.Номер_квартиры}" Height="30" TextWrapping="Wrap"  Width="250"/>
+                <Label Content="Услуга" Height="30" Width="170"/>
+                <TextBox Height="30" TextWrapping="Wrap"  Width="250"/>
+
+
+
+
+            </WrapPanel>
+        </DockPanel>
+        <Button x:Name="save"
+                Margin="315,147,0,5"
+                Content="Сохранить" Click="save_Click" HorizontalAlignment="Left" Width="98"
+                />
+        <Button x:Name="del"
+        	Margin="430,147,0,0"
+        	Content="Отмена" Click="del_Click" HorizontalAlignment="Left" Width="94" Height="24" VerticalAlignment="Top"
+                />
+        <Button x:Name="addRom"
+        	Margin="441,44,0,0"
+        	Content="Добавить" Width="83" HorizontalAlignment="Left" Height="24" VerticalAlignment="Top" RenderTransformOrigin="0.386,-3.875"
+                />
+
+    </Grid>
+</Window>
