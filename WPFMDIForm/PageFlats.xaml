@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             mc:Ignorable="d">
+             mc:Ignorable="d" Unloaded="UserControl_Unloaded" Loaded="UserControl_Loaded">
 
     <UserControl.Resources>
       <Style x:Key="Button" TargetType="{x:Type Button}">
@@ -22,7 +22,25 @@
             Квартиры
         </Label>
         <DataGrid Name="dgvTable"
-                  AutoGenerateColumns="True" Margin="10,65,10,10" >
+                  AutoGenerateColumns="False" Margin="0,65,0,0" SelectedItem="{Binding SelectedFlat}" >
+            <DataGrid.Columns>
+                <DataGridTextColumn
+                    Header="Дом"
+                    Binding="{Binding Дом.Адрес}"
+                    />
+                <DataGridTextColumn
+                    Header="Номер Квартиры"
+                    Binding="{Binding Номер_квартиры}"
+                    />
+                <DataGridTextColumn
+                    Header="Площадь квартиры"
+                    Binding="{Binding Площадь_квартиры}"                    
+                    />
+                <DataGridCheckBoxColumn
+                    Header="Счетчики установлены"
+                    Binding="{Binding Счетчики_установлены}"
+                    />                
+            </DataGrid.Columns>
         </DataGrid>
         <Button Name="btnAdd"
                 Margin="10,36,797,504"
@@ -36,7 +54,7 @@
                  />
     <Button Name="btnDel"
                 Margin="218,36,589,504"
-                Content="Удалить"
+                Content="Удалить" Click="btnDel_Click"
                 />
     </Grid>
 </UserControl>
