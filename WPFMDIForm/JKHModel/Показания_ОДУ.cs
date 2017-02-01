@@ -14,16 +14,11 @@ namespace WPFMDIForm.JKHModel
     
     public partial class Показания_ОДУ
     {
-        public Показания_ОДУ()
-        {
-            this.Дом = new HashSet<Дом>();
-        }
-    
         public int Id { get; set; }
         public string Показание_ГВС { get; set; }
         public string Показание_ХВС { get; set; }
     
-        public virtual ICollection<Дом> Дом { get; set; }
         public virtual Календарь Календарь { get; set; }
+        public virtual Дом Дом { get; set; }
     }
 }

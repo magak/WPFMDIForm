@@ -25,8 +25,8 @@ namespace WPFMDIForm.JKHModel
         public bool Счетчики_установлены { get; set; }
         public short Номер_квартиры { get; set; }
     
-        public virtual Дом Дом { get; set; }
         public virtual ICollection<Счетчик> Счетчик { get; set; }
         public virtual ICollection<Жилец> Жилец { get; set; }
+        public virtual Дом Дом { get; set; }
     }
 }

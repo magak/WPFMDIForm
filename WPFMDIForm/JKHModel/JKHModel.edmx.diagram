@@ -7,7 +7,6 @@
       <Diagram DiagramId="9c26286d1d724260b39495f7e7699a37" Name="Diagram1" ZoomLevel="85" >
         <EntityTypeShape EntityType="JKHModel.Дом" Width="1.5" PointX="0.75" PointY="3.25" />
         <EntityTypeShape EntityType="JKHModel.Квартира" Width="1.5" PointX="0.625" PointY="5.75" />
-        <AssociationConnector Association="JKHModel.ДомКвартира" />
         <EntityTypeShape EntityType="JKHModel.Счетчик" Width="1.5" PointX="3.125" PointY="5.75" />
         <EntityTypeShape EntityType="JKHModel.Жилец" Width="1.5" PointX="3.25" PointY="8.5" />
         <AssociationConnector Association="JKHModel.КвартираСчетчик" />
@@ -23,8 +22,9 @@
         <EntityTypeShape EntityType="JKHModel.Календарь" Width="1.5" PointX="5.875" PointY="3.125" />
         <AssociationConnector Association="JKHModel.КалендарьПоказания_квартир" />
         <EntityTypeShape EntityType="JKHModel.Показания_ОДУ" Width="2" PointX="0.75" PointY="0.75" />
-        <AssociationConnector Association="JKHModel.Показания_ОДУДом" />
         <AssociationConnector Association="JKHModel.КалендарьПоказания_ОДУ" />
+        <AssociationConnector Association="JKHModel.ДомКвартира" />
+        <AssociationConnector Association="JKHModel.ДомПоказания_ОДУ" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

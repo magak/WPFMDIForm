@@ -17,6 +17,7 @@ namespace WPFMDIForm.JKHModel
         public Дом()
         {
             this.Квартира = new HashSet<Квартира>();
+            this.Показания_ОДУ = new HashSet<Показания_ОДУ>();
         }
     
         public int Id { get; set; }
@@ -24,6 +25,6 @@ namespace WPFMDIForm.JKHModel
         public decimal Площадь { get; set; }
     
         public virtual ICollection<Квартира> Квартира { get; set; }
-        public virtual Показания_ОДУ Показания_ОДУ { get; set; }
+        public virtual ICollection<Показания_ОДУ> Показания_ОДУ { get; set; }
     }
 }
