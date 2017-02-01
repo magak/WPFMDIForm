@@ -17,7 +17,7 @@
                 </MenuItem>
                 <MenuItem Name="menuLibraries" Header="Справочники">
                     <MenuItem Name="libInhabits" Header="Жильцы"  />
-                    <MenuItem Name="libFlats" Header="Квартиры" />
+                    <MenuItem Name="libFlats" Header="Квартиры" Click="flats_Click" />
                     <MenuItem Name="libHouse" Header="Дома"  />
                     <MenuItem Name="libCounters" Header="Счетчики"  />
                     <MenuItem Name="libUsl" Header="Услуги" />
