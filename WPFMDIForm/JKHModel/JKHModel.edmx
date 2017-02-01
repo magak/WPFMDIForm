@@ -85,7 +85,7 @@
       <PropertyRef Name="Код_счетчика" />
     </Key>
     <Property Name="Код_счетчика" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Квартира_Id" Type="int" Nullable="false" />
+    <Property Name="Квартира_Id" Type="int" Nullable="true" />
     <Property Name="Услуга_Id" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="ЖилецSet">
@@ -95,7 +95,7 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ФИО" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Номер_паспорта" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Квартира_Id" Type="int" Nullable="false" />
+    <Property Name="Квартира_Id" Type="int" Nullable="true" />
   </EntityType>
   <EntityType Name="УслугаSet">
     <Key>
@@ -164,7 +164,7 @@
     <Property Name="Льгота_Id" Type="int" Nullable="false" />
   </EntityType>
   <Association Name="КвартираСчетчик">
-    <End Role="Квартира" Type="JKHModel.Store.КвартираSet" Multiplicity="1" />
+    <End Role="Квартира" Type="JKHModel.Store.КвартираSet" Multiplicity="0..1" />
     <End Role="Счетчик" Type="JKHModel.Store.СчетчикSet" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Квартира">
@@ -176,7 +176,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="КвартираЖилец">
-    <End Role="Квартира" Type="JKHModel.Store.КвартираSet" Multiplicity="1" />
+    <End Role="Квартира" Type="JKHModel.Store.КвартираSet" Multiplicity="0..1" />
     <End Role="Жилец" Type="JKHModel.Store.ЖилецSet" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Квартира">
@@ -393,11 +393,11 @@
           <NavigationProperty Name="Льгота" Relationship="JKHModel.ЖилецЛьгота" FromRole="Жилец" ToRole="Льгота" />
         </EntityType>
         <Association Name="КвартираСчетчик">
-          <End Type="JKHModel.Квартира" Role="Квартира" Multiplicity="1" />
+          <End Type="JKHModel.Квартира" Role="Квартира" Multiplicity="0..1" />
           <End Type="JKHModel.Счетчик" Role="Счетчик" Multiplicity="*" />
         </Association>
         <Association Name="КвартираЖилец">
-          <End Type="JKHModel.Квартира" Role="Квартира" Multiplicity="1" />
+          <End Type="JKHModel.Квартира" Role="Квартира" Multiplicity="0..1" />
           <End Type="JKHModel.Жилец" Role="Жилец" Multiplicity="*" />
         </Association>
         <EntityType Name="Услуга">
@@ -602,6 +602,7 @@
       <EndProperty Name="Счетчик">
         <ScalarProperty Name="Код_счетчика" ColumnName="Код_счетчика" />
       </EndProperty>
+      <Condition ColumnName="Квартира_Id" IsNull="false" />
     </AssociationSetMapping>
     <AssociationSetMapping Name="КвартираЖилец" TypeName="JKHModel.КвартираЖилец" StoreEntitySet="ЖилецSet">
       <EndProperty Name="Квартира">
@@ -610,6 +611,7 @@
       <EndProperty Name="Жилец">
         <ScalarProperty Name="Id" ColumnName="Id" />
       </EndProperty>
+      <Condition ColumnName="Квартира_Id" IsNull="false" />
     </AssociationSetMapping>
     <AssociationSetMapping Name="УслугаСчетчик" TypeName="JKHModel.УслугаСчетчик" StoreEntitySet="СчетчикSet">
       <EndProperty Name="Услуга">
