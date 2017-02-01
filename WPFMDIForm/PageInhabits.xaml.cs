@@ -15,9 +15,12 @@ using System.Windows.Shapes;
 
 namespace WPFMDIForm
 {
-    public partial class PageTariffs : UserControl
+    /// <summary>
+    /// Interaction logic for Page1.xaml
+    /// </summary>
+    public partial class Page1 : Page
     {
-		public PageTariffs()
+        public Page1()
         {
             InitializeComponent();
         }

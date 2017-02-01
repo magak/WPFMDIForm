@@ -5,7 +5,7 @@
     Title="Сведения о квартире"
     Icon="Icon.ico"
     Width="536"
-    Height="480">
+    Height="580">
 
     <Grid Background="khaki">
         <DockPanel HorizontalAlignment="Left" Height="470" Margin="5,10,0,0" LastChildFill="False" VerticalAlignment="Top" Width="519">
@@ -19,13 +19,17 @@
                 <CheckBox IsChecked="{Binding Счетчики_установлены}" Height="14" Width="250"/>
                 <Label Content="Адрес" Height="30" Width="170"/>
                 <TextBox Height="30" TextWrapping="Wrap"  Width="250"/>
+                <Label Content="Жильцы" Width="75" />
+                <DataGrid x:Name="dgvTable"
+                	AutoGenerateColumns="True" Margin="0,20,0,0" Height="109" Width="420" />
+                <Label Content="Счетчики" Width="75" />
+                <DataGrid x:Name="dgvTable_Copy"
+                	AutoGenerateColumns="True" Margin="0,20,0,0" Height="112" Width="420" />
+
+
 
 
             </WrapPanel>
-            <StackPanel Height="164" VerticalAlignment="Top" Width="80" RenderTransformOrigin="0.874,0.494" Margin="0,89,0,0">
-                <Button Content="Сохранить" Height="22" Margin="0,4"/>
-                <Button Content="Отмена" Height="22" Margin="0,4"/>
-            </StackPanel>
         </DockPanel>
         <Button Name="save"
                 Margin="281,389,131,27"
@@ -34,6 +38,26 @@
         <Button x:Name="del"
         	Margin="402,389,10,27"
         	Content="Отмена" Click="del_Click"
+                />
+        <Button x:Name="addAd"
+        	Margin="435,103,25,422"
+        	Content="Добавить"
+                />
+        <Button x:Name="addRom"
+        	Margin="435,190,0,335"
+        	Content="Добавить" HorizontalAlignment="Left" Width="68"
+                />
+        <Button x:Name="delRom"
+        	Margin="435,220,25,305"
+        	Content="Удалить"
+                />
+        <Button x:Name="addCount"
+        	Margin="435,343,0,182"
+        	Content="Добавить" HorizontalAlignment="Left" Width="68" RenderTransformOrigin="0.504,5.884"
+                />
+        <Button x:Name="delCount"
+        	Margin="435,373,25,152"
+        	Content="Удалить"
                 />
 
     </Grid>
