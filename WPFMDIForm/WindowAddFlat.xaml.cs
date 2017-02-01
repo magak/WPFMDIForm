@@ -31,20 +31,58 @@ namespace WPFMDIForm
             }
         }
 
-        public WindowAddFlat(JKHModelContainer context)
-        {            
+        private List<Дом> _domSelection;
+
+        public List<Дом> DomSelection
+        {
+            get
+            {
+                return _domSelection;
+            }
+            set
+            {
+                _domSelection = value;
+                RaiseProprtyChanged("DomSelection");
+            }
+        }
+
+        public List<Жилец> Dwellers
+        {
+            get
+            {
+                return _flat.Жилец.ToList();
+            }
+            set
+            {
+
+            }
+        }
+
+        private bool _editMode = false;
+
+        public WindowAddFlat(int? flatId = null)
+        {
+            _context = new JKHModelContainer();
+
+            if (flatId == null)
+            {
+                _flat = new Квартира();
+                _context.КвартираSet.Add(_flat);
+            }
+            else
+            {
+                _flat = _context.КвартираSet.Find(flatId);
+                _editMode = true;
+            }
+
             InitializeComponent();
             this.DataContext = this;
-            
-            _context = context;
-            //var homes
-            _flat = new Квартира();
-            _flat.Дом = _context.ДомSet.ToList().First();            
+
+            DomSelection = _context.ДомSet.ToList();
         }
 
         private void save_Click(object sender, RoutedEventArgs e)
         {
-            _context.КвартираSet.Add(_flat);
             _context.SaveChanges();
             this.DialogResult = true;
             this.Close();
@@ -53,7 +91,7 @@ namespace WPFMDIForm
         private void del_Click(object sender, RoutedEventArgs e)
         {
             this.DialogResult = false;
-            this.Close();            
+            this.Close();     
         }
 
         /*private void Rotate(object sender, RoutedEventArgs e)
@@ -73,6 +111,12 @@ namespace WPFMDIForm
         {
             if (PropertyChanged != null)
                 PropertyChanged(this, new PropertyChangedEventArgs(PropertyName));
+        }
+
+        private void Window_Closing(object sender, CancelEventArgs e)
+        {
+            if (_context != null)
+                _context.Dispose();
         }
     }
 }

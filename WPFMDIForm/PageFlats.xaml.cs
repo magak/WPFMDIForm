@@ -23,20 +23,7 @@ namespace WPFMDIForm
         {
             DataContext = this;
 
-            InitializeComponent();
-
-            //DataTable table = new DataTable();
-            //table.BeginLoadData();
-            //table.Columns.Add("Номер", typeof(int));
-            //table.Columns.Add("Площадь", typeof(float));
-            //table.Columns.Add("Объем", typeof(float));
-            //table.Columns.Add("ФИО проживающего", typeof(string));
-            //table.Columns.Add("Счетчики установлены", typeof(bool));
-            //table.Columns.Add("Число проживающих", typeof(int));
-            //table.LoadDataRow(new object[] { 1, 50, 120, "И.И.Иванов", true, 1 }, fAcceptChanges: true);
-            //table.LoadDataRow(new object[] { 3, 60, 140, "П.П.Петров", false, 3}, fAcceptChanges: true);
-            //table.LoadDataRow(new object[] { 4, 60, 140, "С.С.Сидоров", false, 3 }, fAcceptChanges: true);
-            //table.EndLoadData();
+            InitializeComponent();            
 
             context = new JKHModelContainer();
 
@@ -55,8 +42,7 @@ namespace WPFMDIForm
 
 		private void btnAdd_Click(object sender, RoutedEventArgs e)
 		{
-            WindowAddFlat window = new WindowAddFlat(context);
-            //window.SelectedPhoto = (Photo)PhotosListBox.SelectedItem;
+            WindowAddFlat window = new WindowAddFlat();
             var result = window.ShowDialog();
             if (result ?? false)
             {
@@ -66,8 +52,10 @@ namespace WPFMDIForm
 
 		private void btnUpd_Click(object sender, RoutedEventArgs e)
 		{
-            WindowAddFlat window = new WindowAddFlat(context);
-			//window.SelectedPhoto = (Photo)PhotosListBox.SelectedItem;
+            if (SelectedFlat == null)
+                return;
+
+            WindowAddFlat window = new WindowAddFlat(SelectedFlat.Id);
             var result = window.ShowDialog();
             if(result ?? false)
             {

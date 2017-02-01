@@ -17,6 +17,7 @@ namespace WPFMDIForm
         {
             MessageBox.Show(string.Format("Ошибка: {0}{1}{2}", e.Exception.Message, Environment.NewLine, e.Exception.StackTrace)
                 , "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            e.Handled = true;
         }
     }
 }

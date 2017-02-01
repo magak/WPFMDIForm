@@ -3,7 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     Title="Сведения о квартире"
     Icon="Icon.ico"
-    Width="553.346"
+    Width="553.346" Closing="Window_Closing"
     Height="573.495">
 
     <Grid Background="khaki" Margin="0,0,2,0">
@@ -17,20 +17,27 @@
                 <Label Content="Установлены счетчики" Height="30" Width="170"/>
                 <CheckBox IsChecked="{Binding Flat.Счетчики_установлены}" Height="14" Width="250"/>
                 <Label Content="Адрес дома" Height="30" Width="170"/>
-                <TextBox Height="30" TextWrapping="Wrap"  Width="250"/>
-                
-                <ComboBox/>
+                <ComboBox ItemsSource="{Binding DomSelection}" Height="30" Width="250"
+                          DisplayMemberPath="Адрес" SelectedValue="{Binding Flat.Дом}" />
                 
                 <Label Content="Жильцы" Width="75" />
-                <DataGrid x:Name="dgvTable"
-                	AutoGenerateColumns="True" Margin="0,20,0,0" Height="109" Width="420" />
+                <DataGrid CanUserAddRows="False" CanUserDeleteRows="False" x:Name="dgvTable" ItemsSource="{Binding Dwellers}"
+                	AutoGenerateColumns="False" Margin="0,20,0,0" Height="109" Width="420" >
+                    <DataGrid.Columns>
+                        <DataGridTextColumn
+                    Header="ФИО"
+                    Binding="{Binding ФИО}"
+                    />
+                        <DataGridTextColumn
+                    Header="Номер паспорта"
+                    Binding="{Binding Номер_паспорта}"
+                    />                        
+                    </DataGrid.Columns>
+                </DataGrid>
+
                 <Label Content="Счетчики" Width="75" />
                 <DataGrid x:Name="dgvTable_Copy"
                 	AutoGenerateColumns="True" Margin="0,20,0,0" Height="112" Width="420" />
-
-
-
-
             </WrapPanel>
         </DockPanel>
         <Button x:Name="save"
