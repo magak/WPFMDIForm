@@ -4,7 +4,7 @@
     Title="Сведения о квартире"
     Icon="Icon.ico"
     Width="553.346"
-    Height="573.495">
+    Height="539.495">
 
     <Grid Background="khaki" Margin="0,0,2,0">
         <DockPanel HorizontalAlignment="Left" Height="470" Margin="5,10,0,0" LastChildFill="False" VerticalAlignment="Top" Width="519">
@@ -35,11 +35,11 @@
         </DockPanel>
         <Button x:Name="save"
                 Margin="270,469,0,0"
-                Content="Сохранить" Click="save_Click" HorizontalAlignment="Left" Width="117" Height="54" VerticalAlignment="Top"
+                Content="Сохранить" Click="save_Click" HorizontalAlignment="Left" Width="117" Height="29" VerticalAlignment="Top"
                 />
         <Button x:Name="del"
         	Margin="407,469,0,0"
-        	Content="Отмена" Click="del_Click" HorizontalAlignment="Left" Width="117" Height="54" VerticalAlignment="Top"
+        	Content="Отмена" Click="del_Click" HorizontalAlignment="Left" Width="117" Height="29" VerticalAlignment="Top"
                 />
         <Button x:Name="addAd"
         	Margin="441,101,0,0"
