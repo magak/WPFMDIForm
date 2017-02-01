@@ -107,11 +107,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>JKHModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="PageUsl.xaml.cs">
+      <DependentUpon>PageUsl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PageBens.xaml.cs">
       <DependentUpon>PageBens.xaml</DependentUpon>
     </Compile>
     <Compile Include="PageCounters.xaml.cs">
       <DependentUpon>PageCounters.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WindowAddUsl.xaml.cs">
+      <DependentUpon>WindowAddUsl.xaml</DependentUpon>
     </Compile>
     <Compile Include="WindowAddCounter.xaml.cs">
       <DependentUpon>WindowAddCounter.xaml</DependentUpon>
@@ -166,11 +172,19 @@
     <Compile Include="PageFlats.xaml.cs">
       <DependentUpon>PageFlats.xaml</DependentUpon>
     </Compile>
+    <Page Include="PageUsl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PageBens.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PageCounters.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowAddUsl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

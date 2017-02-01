@@ -1,35 +1,24 @@
 ﻿<Window x:Class="WPFMDIForm.JKHModel.Window1"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Сведения о жильце" Height="400" Width="536">
-    <Grid Background="khaki">
-        <DockPanel HorizontalAlignment="Left" Height="470" Margin="5,10,0,0" LastChildFill="False" VerticalAlignment="Top" Width="519">
-            <WrapPanel Height="439" VerticalAlignment="Top" Width="428">
-                <Label Content="ФИО" Height="30" Width="170"/>
+        Title="Сведения об услуге" Height="178" Width="458">
+    <Grid Background="khaki" Margin="0,0,0,-2">
+        <DockPanel HorizontalAlignment="Left" Margin="10,4,0,32" LastChildFill="False" Width="430">
+            <WrapPanel Height="70" VerticalAlignment="Top" Width="428">
+                <Label Content="Вид услуги" Height="30" Width="170"/>
                 <TextBox Height="30" TextWrapping="Wrap"  Width="250"/>
-                <Label Content="Номер паспорта" Height="30" Width="170"/>
+                <Label Content="Тариф" Height="30" Width="170"/>
                 <TextBox Height="30" TextWrapping="Wrap"  Width="250"/>
-                <Label Content="Квартира" Height="30" Width="170"/>
-                <TextBox Height="30" TextWrapping="Wrap"  Width="250"/>
-                <Label Content="Адрес" Height="30" Width="170"/>
-                <TextBox Height="30" TextWrapping="Wrap"  Width="250"/>
-                <Label Content="Льготы" Width="75" />
-                <DataGrid x:Name="dgvTable"
-                	AutoGenerateColumns="True" Margin="0,20,0,0" Height="109" Width="420" />
-
             </WrapPanel>
         </DockPanel>
-        <Button x:Name="addAd"
-        	Margin="434,72,26,274"
-        	Content="Добавить"
+
+        <Button x:Name="save"
+                Margin="225,119,0,10"
+                Content="Сохранить" Click="save_Click" HorizontalAlignment="Left" Width="98"
                 />
-        <Button x:Name="addBen"
-        	Margin="434,183,0,162"
-        	Content="Добавить" HorizontalAlignment="Left" Width="68" RenderTransformOrigin="0.504,5.884"
-                />
-        <Button x:Name="delBen"
-        	Margin="434,213,26,132"
-        	Content="Удалить"
+        <Button x:Name="del"
+        	Margin="346,119,0,0"
+        	Content="Отмена" Click="del_Click" HorizontalAlignment="Left" Width="94" Height="24" VerticalAlignment="Top"
                 />
 
     </Grid>
