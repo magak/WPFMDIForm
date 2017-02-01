@@ -17,9 +17,9 @@ namespace WPFMDIForm
     /// <summary>
     /// Interaction logic for Window2.xaml
     /// </summary>
-    public partial class Window2 : Window
+    public partial class WindowAddBen : Window
     {
-        public Window2()
+        public WindowAddBen()
         {
             InitializeComponent();
         }

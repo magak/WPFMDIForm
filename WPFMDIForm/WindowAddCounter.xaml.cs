@@ -17,9 +17,9 @@ namespace WPFMDIForm
     /// <summary>
     /// Interaction logic for Window3.xaml
     /// </summary>
-    public partial class Window3 : Window
+    public partial class WindowAddCounter : Window
     {
-        public Window3()
+        public WindowAddCounter()
         {
             InitializeComponent();
         }

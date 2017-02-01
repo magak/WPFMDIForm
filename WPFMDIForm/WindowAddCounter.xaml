@@ -1,4 +1,4 @@
-﻿<Window x:Class="WPFMDIForm.Window3"
+﻿<Window x:Class="WPFMDIForm.WindowAddCounter"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Сведения о счетчике" Height="209" Width="555">
@@ -17,11 +17,11 @@
         </DockPanel>
         <Button x:Name="save"
                 Margin="315,147,0,5"
-                Content="Сохранить" Click="save_Click" HorizontalAlignment="Left" Width="98"
+                Content="Сохранить" HorizontalAlignment="Left" Width="98"
                 />
         <Button x:Name="del"
         	Margin="430,147,0,0"
-        	Content="Отмена" Click="del_Click" HorizontalAlignment="Left" Width="94" Height="24" VerticalAlignment="Top"
+        	Content="Отмена" HorizontalAlignment="Left" Width="94" Height="24" VerticalAlignment="Top"
                 />
         <Button x:Name="addRom"
         	Margin="441,44,0,0"

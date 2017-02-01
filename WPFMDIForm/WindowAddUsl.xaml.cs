@@ -17,9 +17,9 @@ namespace WPFMDIForm
     /// <summary>
     /// Interaction logic for Window4.xaml
     /// </summary>
-    public partial class Window4 : Window
+    public partial class WindowAddUsl : Window
     {
-        public Window4()
+        public WindowAddUsl()
         {
             InitializeComponent();
         }

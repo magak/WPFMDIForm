@@ -34,7 +34,7 @@ namespace WPFMDIForm
 		}
 		private void flatData_Click(object sender, RoutedEventArgs e)
 		{
-			_openPage(new PageFlatData());
+			//_openPage(new PageFlatData());
 		}
 		private void oduData_Click(object sender, RoutedEventArgs e)
 		{

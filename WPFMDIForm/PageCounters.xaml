@@ -26,7 +26,7 @@
                  />
         <Button Name="btnDel"
                 Margin="217,36,280,440"
-                Content="Удалить" Click="btnDel_Click"
+                Content="Удалить"
                 />
     </Grid>
 </Page>

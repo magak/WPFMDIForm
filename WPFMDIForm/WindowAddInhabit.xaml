@@ -1,4 +1,4 @@
-﻿<Window x:Class="WPFMDIForm.JKHModel.Window1"
+﻿<Window x:Class="WPFMDIForm.WindowAddInhabit"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Сведения о жильце" Height="400" Width="536">
@@ -33,11 +33,11 @@
                 />
         <Button x:Name="save"
                 Margin="315,339,0,5"
-                Content="Сохранить" Click="save_Click" HorizontalAlignment="Left" Width="98"
+                Content="Сохранить" HorizontalAlignment="Left" Width="98"
                 />
         <Button x:Name="del"
         	Margin="424,339,0,0"
-        	Content="Отмена" Click="del_Click" HorizontalAlignment="Left" Width="94" Height="24" VerticalAlignment="Top"
+        	Content="Отмена" HorizontalAlignment="Left" Width="94" Height="24" VerticalAlignment="Top"
                 />
 
     </Grid>

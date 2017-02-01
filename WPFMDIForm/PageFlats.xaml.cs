@@ -59,6 +59,7 @@ namespace WPFMDIForm
             var result = window.ShowDialog();
             if(result ?? false)
             {
+                context.Entry<Квартира>(SelectedFlat).Reload();
                 updateListData();
             }
 		}

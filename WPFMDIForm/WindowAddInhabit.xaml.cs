@@ -12,14 +12,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace WPFMDIForm.JKHModel
+namespace WPFMDIForm
 {
     /// <summary>
     /// Interaction logic for Window1.xaml
     /// </summary>
-    public partial class Window1 : Window
+    public partial class WindowAddInhabit : Window
     {
-        public Window1()
+        public WindowAddInhabit()
         {
             InitializeComponent();
         }
