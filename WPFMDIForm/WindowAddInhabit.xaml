@@ -19,10 +19,6 @@
 
             </WrapPanel>
         </DockPanel>
-        <Button x:Name="addAd"
-        	Margin="434,72,26,274"
-        	Content="Добавить"
-                />
         <Button x:Name="addBen"
         	Margin="434,183,0,162"
         	Content="Добавить" HorizontalAlignment="Left" Width="68" RenderTransformOrigin="0.504,5.884"
