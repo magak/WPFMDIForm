@@ -48,10 +48,6 @@
         	Margin="407,469,0,0"
         	Content="Отмена" Click="del_Click" HorizontalAlignment="Left" Width="117" Height="29" VerticalAlignment="Top"
                 />
-        <Button x:Name="addAd"
-        	Margin="441,101,0,0"
-        	Content="Добавить" Width="83" HorizontalAlignment="Left" Height="32" VerticalAlignment="Top"
-                />
         <Button x:Name="addRom"
         	Margin="441,182,0,0"
         	Content="Добавить" Width="83" HorizontalAlignment="Left" Height="32" VerticalAlignment="Top"
