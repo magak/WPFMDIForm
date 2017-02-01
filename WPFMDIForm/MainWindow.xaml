@@ -16,7 +16,7 @@
                     <MenuItem Name="Exit" Header="Выход" Click="menuExit_Click" />
                 </MenuItem>
                 <MenuItem Name="menuLibraries" Header="Справочники">
-                    <MenuItem Name="libHouse" Header="Сведения о доме" Click="house_Click" />
+                    <MenuItem Name="libHouse" Header="Сведения о доме"  />
                     <MenuItem Name="libFlats" Header="Квартиры" Click="flats_Click" />
                     <MenuItem Name="libTariffs" Header="Услуги" Click="tariffs_Click" />
                     

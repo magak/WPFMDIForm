@@ -11,12 +11,12 @@
         <DockPanel HorizontalAlignment="Left" Height="470" Margin="5,10,0,0" LastChildFill="False" VerticalAlignment="Top" Width="519">
             <WrapPanel Height="439" VerticalAlignment="Top" Width="428">
                 <Label Content="Номер квартиры" Height="30" Width="170"/>
-                <TextBox Height="30" TextWrapping="Wrap"  Width="250"/>
+                <TextBox Text="{Binding Номер_квартиры}" Height="30" TextWrapping="Wrap"  Width="250"/>
                 <Label Content="Площадь квартиры" Height="30" Width="170"/>
-                <TextBox Height="30" TextWrapping="Wrap"  Width="250"/>
+                <TextBox Text="{Binding Площадь_квартиры}" Height="30" TextWrapping="Wrap"  Width="250"/>
 
                 <Label Content="Установлены счетчики" Height="30" Width="170"/>
-                <CheckBox Height="14" Width="250"/>
+                <CheckBox IsChecked="{Binding Счетчики_установлены}" Height="14" Width="250"/>
                 <Label Content="Адрес" Height="30" Width="170"/>
                 <TextBox Height="30" TextWrapping="Wrap"  Width="250"/>
 
@@ -28,12 +28,12 @@
             </StackPanel>
         </DockPanel>
         <Button Name="save"
-                Margin="269,416,143,10"
-                Content="Сохранить"
+                Margin="281,389,131,27"
+                Content="Сохранить" Click="save_Click"
                 />
         <Button x:Name="del"
-        	Margin="402,416,10,10"
-        	Content="Отмена"
+        	Margin="402,389,10,27"
+        	Content="Отмена" Click="del_Click"
                 />
 
     </Grid>
