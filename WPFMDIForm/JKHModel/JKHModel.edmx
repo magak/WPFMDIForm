@@ -76,7 +76,6 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Площадь_квартиры" Type="decimal" Nullable="false" />
-    <Property Name="Счетчики_установлены" Type="bit" Nullable="false" />
     <Property Name="Номер_квартиры" Type="smallint" Nullable="false" />
     <Property Name="Дом_Id" Type="int" Nullable="false" />
   </EntityType>
@@ -367,7 +366,6 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Площадь_квартиры" Type="Decimal" Nullable="false" />
-          <Property Name="Счетчики_установлены" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Счетчик" Relationship="JKHModel.КвартираСчетчик" FromRole="Квартира" ToRole="Счетчик" />
           <NavigationProperty Name="Жилец" Relationship="JKHModel.КвартираЖилец" FromRole="Квартира" ToRole="Жилец" />
           <Property Name="Номер_квартиры" Type="Int16" Nullable="false" />
@@ -515,7 +513,6 @@
         <MappingFragment StoreEntitySet="КвартираSet">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Площадь_квартиры" ColumnName="Площадь_квартиры" />
-          <ScalarProperty Name="Счетчики_установлены" ColumnName="Счетчики_установлены" />
           <ScalarProperty Name="Номер_квартиры" ColumnName="Номер_квартиры" />
         </MappingFragment>
       </EntityTypeMapping>

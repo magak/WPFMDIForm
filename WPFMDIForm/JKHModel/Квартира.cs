@@ -22,7 +22,6 @@ namespace WPFMDIForm.JKHModel
     
         public int Id { get; set; }
         public decimal Площадь_квартиры { get; set; }
-        public bool Счетчики_установлены { get; set; }
         public short Номер_квартиры { get; set; }
     
         public virtual ICollection<Счетчик> Счетчик { get; set; }

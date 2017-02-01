@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 02/02/2017 02:21:09
+-- Date Created: 02/02/2017 02:35:24
 -- Generated from EDMX file: E:\WPFMDIForm\WPFMDIForm\WPFMDIForm\JKHModel\JKHModel.edmx
 -- --------------------------------------------------
 
@@ -105,7 +105,6 @@ GO
 CREATE TABLE [dbo].[КвартираSet] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [Площадь_квартиры] decimal(18,0)  NOT NULL,
-    [Счетчики_установлены] bit  NOT NULL,
     [Номер_квартиры] smallint  NOT NULL,
     [Дом_Id] int  NOT NULL
 );
