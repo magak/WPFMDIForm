@@ -107,6 +107,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>JKHModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="WindowAddBen.xaml.cs">
+      <DependentUpon>WindowAddBen.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WindowAddInhabit.xaml.cs">
       <DependentUpon>WindowAddInhabit.xaml</DependentUpon>
     </Compile>
@@ -157,6 +160,10 @@
     <Compile Include="PageFlatData.xaml.cs">
       <DependentUpon>PageFlatData.xaml</DependentUpon>
     </Compile>
+    <Page Include="WindowAddBen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="WindowAddInhabit.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -279,6 +286,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="JKHModel\JKHModel.edmx.sql" />
+    <Content Include="JKHModel\JKHModelDataFill.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
