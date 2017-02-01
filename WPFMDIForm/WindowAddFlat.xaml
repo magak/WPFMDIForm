@@ -3,7 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     Title="Сведения о квартире"
     Icon="Icon.ico"
-    Width="553.346" Closing="Window_Closing"
+    Width="553.346"
     Height="573.495">
 
     <Grid Background="khaki" Margin="0,0,2,0">
@@ -34,7 +34,7 @@
                     />                        
                     </DataGrid.Columns>
                 </DataGrid>
-
+                
                 <Label Content="Счетчики" Width="75" />
                 <DataGrid x:Name="dgvTable_Copy"
                 	AutoGenerateColumns="True" Margin="0,20,0,0" Height="112" Width="420" />
@@ -42,11 +42,11 @@
         </DockPanel>
         <Button x:Name="save"
                 Margin="270,469,0,0"
-                Content="Сохранить" Click="save_Click" HorizontalAlignment="Left" Width="117" Height="54" VerticalAlignment="Top"
+                Content="Сохранить" Click="save_Click" HorizontalAlignment="Left" Width="117" Height="29" VerticalAlignment="Top"
                 />
         <Button x:Name="del"
         	Margin="407,469,0,0"
-        	Content="Отмена" Click="del_Click" HorizontalAlignment="Left" Width="117" Height="54" VerticalAlignment="Top"
+        	Content="Отмена" Click="del_Click" HorizontalAlignment="Left" Width="117" Height="29" VerticalAlignment="Top"
                 />
         <Button x:Name="addAd"
         	Margin="441,101,0,0"
