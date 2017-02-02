@@ -6,17 +6,17 @@
              mc:Ignorable="d" Unloaded="UserControl_Unloaded" Loaded="UserControl_Loaded">
 
     <UserControl.Resources>
-      <Style x:Key="Button" TargetType="{x:Type Button}">
-        <Setter Property="Canvas.Right" Value="10" />
-        <Setter Property="Background" Value="LightBlue" />
-        <Setter Property="Foreground" Value="Black" />
-        <Setter Property="Height" Value="20" />
-        <Setter Property="Width" Value="100" />
-        <Setter Property="HorizontalContentAlignment" Value="Center" />
-      </Style>
+        <Style x:Key="Button" TargetType="{x:Type Button}">
+            <Setter Property="Canvas.Right" Value="10" />
+            <Setter Property="Background" Value="LightBlue" />
+            <Setter Property="Foreground" Value="Black" />
+            <Setter Property="Height" Value="20" />
+            <Setter Property="Width" Value="100" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+        </Style>
     </UserControl.Resources>
 
-  <Grid Background="Khaki"
+    <Grid Background="Khaki"
           HorizontalAlignment="Left" VerticalAlignment="Top">
         <Label Height="32" Margin="0,-2,536,530" Name="label1" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Stretch" FontSize="15" FontWeight="SemiBold">
             Квартиры
@@ -35,22 +35,22 @@
                 <DataGridTextColumn
                     Header="Площадь квартиры"
                     Binding="{Binding Площадь_квартиры}"                    
-                    />       
+                    />
             </DataGrid.Columns>
         </DataGrid>
         <Button Name="btnAdd"
-                Margin="10,36,797,504"
+                Margin="10,36,0,0"
                 Click="btnAdd_Click"
-                Content="Добавить" RenderTransformOrigin="1.1,-0.045"
+                Content="Добавить" RenderTransformOrigin="1.1,-0.045" HorizontalAlignment="Left" Width="87" Height="22" VerticalAlignment="Top"
                 />
-    <Button Name="btnUpd"
-                Margin="114,36,693,504"
+        <Button Name="btnUpd"
+                Margin="114,36,0,0"
                 Click="btnUpd_Click"
-                Content="Редактировать" RenderTransformOrigin="-0.069,0.636"
+                Content="Редактировать" RenderTransformOrigin="-0.069,0.636" HorizontalAlignment="Left" Width="87" Height="22" VerticalAlignment="Top"
                  />
-    <Button Name="btnDel"
-                Margin="218,36,589,504"
-                Content="Удалить" Click="btnDel_Click"
+        <Button Name="btnDel"
+                Margin="218,36,0,0"
+                Content="Удалить" Click="btnDel_Click" HorizontalAlignment="Left" Width="50" Height="22" VerticalAlignment="Top"
                 />
     </Grid>
 </UserControl>

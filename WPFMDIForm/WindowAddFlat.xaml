@@ -39,27 +39,27 @@
             </WrapPanel>
         </DockPanel>
         <Button x:Name="save"
-                Margin="270,469,0,0"
-                Content="Сохранить" Click="save_Click" HorizontalAlignment="Left" Width="117" Height="29" VerticalAlignment="Top"
+                Margin="0,0,159,14"
+                Content="Сохранить" Click="save_Click" HorizontalAlignment="Right" Width="117" Height="29" VerticalAlignment="Bottom"
                 />
         <Button x:Name="del"
-        	Margin="407,469,0,0"
-        	Content="Отмена" Click="del_Click" HorizontalAlignment="Left" Width="117" Height="29" VerticalAlignment="Top"
+        	Margin="0,0,22,14"
+        	Content="Отмена" Click="del_Click" HorizontalAlignment="Right" Width="117" Height="29" VerticalAlignment="Bottom"
                 />
         <Button x:Name="addRom"
-        	Margin="441,182,0,0" Click="addRom_Click"
+        	Margin="441,151,0,0" Click="addRom_Click"
         	Content="Добавить" Width="83" HorizontalAlignment="Left" Height="32" VerticalAlignment="Top"
                 />
         <Button x:Name="delRom"
-        	Margin="441,238,0,0" Click="delRom_Click"
+        	Margin="441,188,0,0" Click="delRom_Click"
         	Content="Удалить" HorizontalAlignment="Left" Width="83" Height="32" VerticalAlignment="Top"
                 />
         <Button x:Name="addCount"
-        	Margin="441,336,0,0"
+        	Margin="441,306,0,0"
         	Content="Добавить" Width="83" HorizontalAlignment="Left" Height="32" VerticalAlignment="Top"
                 />
         <Button x:Name="delCount"
-        	Margin="441,373,0,0" Width="83"
+        	Margin="441,343,0,0" Width="83"
         	Content="Удалить" HorizontalAlignment="Left" Height="32" VerticalAlignment="Top"
                 />
 
