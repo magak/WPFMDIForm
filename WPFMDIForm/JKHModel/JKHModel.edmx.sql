@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 02/02/2017 15:14:19
+-- Date Created: 02/02/2017 22:04:21
 -- Generated from EDMX file: C:\WPFMDIForm\WPFMDIForm\WPFMDIForm\JKHModel\JKHModel.edmx
 -- --------------------------------------------------
 
@@ -17,11 +17,17 @@ GO
 -- Dropping existing FOREIGN KEY constraints
 -- --------------------------------------------------
 
-IF OBJECT_ID(N'[dbo].[FK_ДомКвартира]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[КвартираSet] DROP CONSTRAINT [FK_ДомКвартира];
+IF OBJECT_ID(N'[dbo].[FK_КвартираСчетчик]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[СчетчикSet] DROP CONSTRAINT [FK_КвартираСчетчик];
 GO
-IF OBJECT_ID(N'[dbo].[FK_ДомПоказания_ОДУ]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Показания_ОДУSet] DROP CONSTRAINT [FK_ДомПоказания_ОДУ];
+IF OBJECT_ID(N'[dbo].[FK_КвартираЖилец]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ЖилецSet] DROP CONSTRAINT [FK_КвартираЖилец];
+GO
+IF OBJECT_ID(N'[dbo].[FK_УслугаСчетчик]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[СчетчикSet] DROP CONSTRAINT [FK_УслугаСчетчик];
+GO
+IF OBJECT_ID(N'[dbo].[FK_УслугаСоц_норма]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Соц_нормаSet] DROP CONSTRAINT [FK_УслугаСоц_норма];
 GO
 IF OBJECT_ID(N'[dbo].[FK_ЖилецЛьгота_Жилец]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[ЖилецЛьгота] DROP CONSTRAINT [FK_ЖилецЛьгота_Жилец];
@@ -35,20 +41,17 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_КалендарьПоказания_ОДУ]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Показания_ОДУSet] DROP CONSTRAINT [FK_КалендарьПоказания_ОДУ];
 GO
-IF OBJECT_ID(N'[dbo].[FK_КвартираЖилец]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[ЖилецSet] DROP CONSTRAINT [FK_КвартираЖилец];
+IF OBJECT_ID(N'[dbo].[FK_ДомКвартира]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[КвартираSet] DROP CONSTRAINT [FK_ДомКвартира];
 GO
-IF OBJECT_ID(N'[dbo].[FK_КвартираСчетчик]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[СчетчикSet] DROP CONSTRAINT [FK_КвартираСчетчик];
+IF OBJECT_ID(N'[dbo].[FK_ДомПоказания_ОДУ]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Показания_ОДУSet] DROP CONSTRAINT [FK_ДомПоказания_ОДУ];
 GO
 IF OBJECT_ID(N'[dbo].[FK_СчетчикПоказания_квартир]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Показания_квартирSet] DROP CONSTRAINT [FK_СчетчикПоказания_квартир];
 GO
-IF OBJECT_ID(N'[dbo].[FK_УслугаСоц_норма]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Соц_нормаSet] DROP CONSTRAINT [FK_УслугаСоц_норма];
-GO
-IF OBJECT_ID(N'[dbo].[FK_УслугаСчетчик]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[СчетчикSet] DROP CONSTRAINT [FK_УслугаСчетчик];
+IF OBJECT_ID(N'[dbo].[FK_УслугаЛьгота]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ЛьготаSet] DROP CONSTRAINT [FK_УслугаЛьгота];
 GO
 
 -- --------------------------------------------------
@@ -58,17 +61,20 @@ GO
 IF OBJECT_ID(N'[dbo].[ДомSet]', 'U') IS NOT NULL
     DROP TABLE [dbo].[ДомSet];
 GO
+IF OBJECT_ID(N'[dbo].[КвартираSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[КвартираSet];
+GO
+IF OBJECT_ID(N'[dbo].[СчетчикSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[СчетчикSet];
+GO
 IF OBJECT_ID(N'[dbo].[ЖилецSet]', 'U') IS NOT NULL
     DROP TABLE [dbo].[ЖилецSet];
 GO
-IF OBJECT_ID(N'[dbo].[ЖилецЛьгота]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[ЖилецЛьгота];
+IF OBJECT_ID(N'[dbo].[УслугаSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[УслугаSet];
 GO
-IF OBJECT_ID(N'[dbo].[КалендарьSet]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[КалендарьSet];
-GO
-IF OBJECT_ID(N'[dbo].[КвартираSet]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[КвартираSet];
+IF OBJECT_ID(N'[dbo].[Соц_нормаSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Соц_нормаSet];
 GO
 IF OBJECT_ID(N'[dbo].[ЛьготаSet]', 'U') IS NOT NULL
     DROP TABLE [dbo].[ЛьготаSet];
@@ -76,17 +82,14 @@ GO
 IF OBJECT_ID(N'[dbo].[Показания_квартирSet]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Показания_квартирSet];
 GO
+IF OBJECT_ID(N'[dbo].[КалендарьSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[КалендарьSet];
+GO
 IF OBJECT_ID(N'[dbo].[Показания_ОДУSet]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Показания_ОДУSet];
 GO
-IF OBJECT_ID(N'[dbo].[Соц_нормаSet]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Соц_нормаSet];
-GO
-IF OBJECT_ID(N'[dbo].[СчетчикSet]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[СчетчикSet];
-GO
-IF OBJECT_ID(N'[dbo].[УслугаSet]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[УслугаSet];
+IF OBJECT_ID(N'[dbo].[ЖилецЛьгота]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[ЖилецЛьгота];
 GO
 
 -- --------------------------------------------------
@@ -106,7 +109,6 @@ CREATE TABLE [dbo].[КвартираSet] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [Площадь_квартиры] decimal(18,0)  NOT NULL,
     [Номер_квартиры] smallint  NOT NULL,
-    [Счетчики_установлены] bit  NOT NULL,
     [Дом_Id] int  NOT NULL
 );
 GO
@@ -180,8 +182,8 @@ GO
 -- Creating table 'Показания_ОДУSet'
 CREATE TABLE [dbo].[Показания_ОДУSet] (
     [Id] int IDENTITY(1,1) NOT NULL,
-    [Показание_ГВС] nvarchar(max)  NOT NULL,
-    [Показание_ХВС] nvarchar(max)  NOT NULL,
+    [Показание_ГВС] decimal(18,0)  NOT NULL,
+    [Показание_ХВС] decimal(18,0)  NOT NULL,
     [Календарь_Id] int  NOT NULL,
     [Дом_Id] int  NOT NULL
 );

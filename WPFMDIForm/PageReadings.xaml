@@ -12,22 +12,30 @@
             Показания счетчиков в квартирах
         </Label>
         <DataGrid Name="dgvTable"
-                  AutoGenerateColumns="True" Margin="10,65,10,10" >
+                  AutoGenerateColumns="True" Margin="10,110,10,10" >
         </DataGrid>
         <Button Name="btnAdd"
-                Margin="10,32,0,0"
+                Margin="11,77,0,0"
                 
                 Content="Добавить показания" RenderTransformOrigin="1.1,-0.045" HorizontalAlignment="Left" Width="130" Height="28" VerticalAlignment="Top"
                 />
         <Button Name="btnUpd"
-                Margin="164,33,0,0"
+                Margin="165,78,0,0"
                 
                 Content="Редактировать" RenderTransformOrigin="-0.069,0.636" HorizontalAlignment="Left" Width="91" Height="27" VerticalAlignment="Top"
                  />
         <Button Name="btnDel"
-                Margin="278,33,0,0"
+                Margin="279,78,0,0"
                 Content="Удалить" HorizontalAlignment="Left" Width="89" Height="27" VerticalAlignment="Top"
                 />
+
+        <Button Name="btnPrint"
+                Margin="501,77,0,0"
+                Content="Печать ЕДП" HorizontalAlignment="Left" Width="89" Height="27" VerticalAlignment="Top"
+                />
+
+        <Label Content="Период" Height="30" Width="124" Margin="10,37,466,533"/>
+        <ComboBox Height="30" Margin="83,37,0,0" HorizontalAlignment="Left" Width="173" VerticalAlignment="Top"/>
     </Grid>
 
 

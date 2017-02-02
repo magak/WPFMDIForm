@@ -15,8 +15,8 @@ namespace WPFMDIForm.JKHModel
     public partial class Показания_ОДУ
     {
         public int Id { get; set; }
-        public string Показание_ГВС { get; set; }
-        public string Показание_ХВС { get; set; }
+        public decimal Показание_ГВС { get; set; }
+        public decimal Показание_ХВС { get; set; }
     
         public virtual Календарь Календарь { get; set; }
         public virtual Дом Дом { get; set; }
