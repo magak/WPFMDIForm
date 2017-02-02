@@ -4,18 +4,18 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="9c26286d1d724260b39495f7e7699a37" Name="Diagram1" ZoomLevel="85" >
+      <Diagram DiagramId="9c26286d1d724260b39495f7e7699a37" Name="Diagram1" ZoomLevel="83" >
         <EntityTypeShape EntityType="JKHModel.Дом" Width="1.5" PointX="0.75" PointY="3.25" />
         <EntityTypeShape EntityType="JKHModel.Квартира" Width="1.5" PointX="0.625" PointY="5.75" />
         <EntityTypeShape EntityType="JKHModel.Счетчик" Width="1.5" PointX="3.125" PointY="5.75" />
-        <EntityTypeShape EntityType="JKHModel.Жилец" Width="1.5" PointX="3.25" PointY="8.5" />
+        <EntityTypeShape EntityType="JKHModel.Жилец" Width="1.5" PointX="0.75" PointY="8.75" />
         <AssociationConnector Association="JKHModel.КвартираСчетчик" />
         <AssociationConnector Association="JKHModel.КвартираЖилец" />
         <EntityTypeShape EntityType="JKHModel.Услуга" Width="1.5" PointX="5.875" PointY="5.25" />
         <AssociationConnector Association="JKHModel.УслугаСчетчик" />
-        <EntityTypeShape EntityType="JKHModel.Соц_норма" Width="1.5" PointX="5.875" PointY="8.625" />
+        <EntityTypeShape EntityType="JKHModel.Соц_норма" Width="1.5" PointX="5.875" PointY="9" />
         <AssociationConnector Association="JKHModel.УслугаСоц_норма" />
-        <EntityTypeShape EntityType="JKHModel.Льгота" Width="1.5" PointX="0.625" PointY="8.25" />
+        <EntityTypeShape EntityType="JKHModel.Льгота" Width="1.5" PointX="3.25" PointY="8.625" />
         <AssociationConnector Association="JKHModel.ЖилецЛьгота" />
         <EntityTypeShape EntityType="JKHModel.Показания_квартир" Width="1.875" PointX="3.125" PointY="3.125" />
         <EntityTypeShape EntityType="JKHModel.Календарь" Width="1.5" PointX="5.875" PointY="3.125" />
@@ -25,6 +25,8 @@
         <AssociationConnector Association="JKHModel.ДомКвартира" />
         <AssociationConnector Association="JKHModel.ДомПоказания_ОДУ" />
         <AssociationConnector Association="JKHModel.СчетчикПоказания_квартир" />
+        <AssociationConnector Association="JKHModel.УслугаЛьгота" ManuallyRouted="false" >
+        </AssociationConnector>
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -20,20 +20,20 @@
             </WrapPanel>
         </DockPanel>
         <Button x:Name="addBen"
-        	Margin="434,183,0,162"
-        	Content="Добавить" HorizontalAlignment="Left" Width="68" RenderTransformOrigin="0.504,5.884"
+        	Margin="434,183,0,0"
+        	Content="Добавить" HorizontalAlignment="Left" Width="68" RenderTransformOrigin="0.504,5.884" Height="25" VerticalAlignment="Top"
                 />
         <Button x:Name="delBen"
-        	Margin="434,213,26,132"
-        	Content="Удалить"
+        	Margin="434,213,0,0"
+        	Content="Удалить" HorizontalAlignment="Left" Width="68" Height="25" VerticalAlignment="Top"
                 />
         <Button x:Name="save"
-                Margin="315,339,0,5"
-                Content="Сохранить" HorizontalAlignment="Left" Width="98"
+                Margin="0,0,115,5"
+                Content="Сохранить" HorizontalAlignment="Right" Width="98" Height="26" VerticalAlignment="Bottom"
                 />
         <Button x:Name="del"
-        	Margin="424,339,0,0"
-        	Content="Отмена" HorizontalAlignment="Left" Width="94" Height="24" VerticalAlignment="Top"
+        	Margin="0,0,10,7"
+        	Content="Отмена" HorizontalAlignment="Right" Width="94" Height="24" VerticalAlignment="Bottom"
                 />
 
     </Grid>

@@ -17,14 +17,14 @@
             </WrapPanel>
         </DockPanel>
         <Button x:Name="save"
-                Margin="206,134,0,10"
-                Content="Сохранить" HorizontalAlignment="Left" Width="98"
+                Margin="0,0,134,10"
+                Content="Сохранить" HorizontalAlignment="Right" Width="98" Height="24" VerticalAlignment="Bottom"
                 />
         <Button x:Name="del"
-        	Margin="330,134,0,0"
-        	Content="Отмена" HorizontalAlignment="Left" Width="94" Height="24" VerticalAlignment="Top"
+        	Margin="0,0,14,10"
+        	Content="Отмена" HorizontalAlignment="Right" Width="94" Height="24" VerticalAlignment="Bottom"
                 />
-        <ComboBox Margin="402,72,14,70"/>
+        <ComboBox Margin="402,72,0,0" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left" Width="22"/>
 
     </Grid>
 </Window>

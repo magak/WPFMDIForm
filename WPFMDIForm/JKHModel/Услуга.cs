@@ -18,6 +18,7 @@ namespace WPFMDIForm.JKHModel
         {
             this.Счетчик = new HashSet<Счетчик>();
             this.Соц_норма = new HashSet<Соц_норма>();
+            this.Льгота = new HashSet<Льгота>();
         }
     
         public int Id { get; set; }
@@ -31,5 +32,6 @@ namespace WPFMDIForm.JKHModel
     
         public virtual ICollection<Счетчик> Счетчик { get; set; }
         public virtual ICollection<Соц_норма> Соц_норма { get; set; }
+        public virtual ICollection<Льгота> Льгота { get; set; }
     }
 }

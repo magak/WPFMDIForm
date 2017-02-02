@@ -3,14 +3,14 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Сведения о доме" Height="170" Width="533">
     <Grid Background="khaki">
-        <DockPanel HorizontalAlignment="Left" Height="170" Margin="5,10,0,0" LastChildFill="False" VerticalAlignment="Top" Width="519">
+        <DockPanel HorizontalAlignment="Left" Height="120" Margin="5,10,0,0" LastChildFill="False" VerticalAlignment="Top" Width="519">
             <WrapPanel Height="110" VerticalAlignment="Top" Width="428">
                 <Label Content="Адрес" Height="30" Width="170"/>
                 <TextBox Height="30" TextWrapping="Wrap"  Width="250"/>
                 <Label Content="Площадь" Height="30" Width="170"/>
                 <TextBox Height="30" TextWrapping="Wrap"  Width="250"/>
             </WrapPanel>
-            <StackPanel Height="253" VerticalAlignment="Top" Width="80" RenderTransformOrigin="0.874,0.494">
+            <StackPanel Height="110" VerticalAlignment="Top" Width="80" RenderTransformOrigin="0.874,0.494">
                 <Button Content="Сохранить" Height="22" Margin="0,4"/>
                 <Button Content="Отмена" Height="22" Margin="0,4"/>
             </StackPanel>

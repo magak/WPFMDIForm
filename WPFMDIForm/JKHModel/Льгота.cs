@@ -25,5 +25,6 @@ namespace WPFMDIForm.JKHModel
         public bool Общая { get; set; }
     
         public virtual ICollection<Жилец> Жилец { get; set; }
+        public virtual Услуга Услуга { get; set; }
     }
 }

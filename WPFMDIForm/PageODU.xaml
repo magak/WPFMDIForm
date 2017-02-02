@@ -13,18 +13,18 @@
                   AutoGenerateColumns="True" Margin="10,65,10,10" >
         </DataGrid>
         <Button Name="btnAdd"
-                Margin="10,32,460,244"
+                Margin="10,32,0,0"
                 
-                Content="Добавить показания" RenderTransformOrigin="1.1,-0.045"
+                Content="Добавить показания" RenderTransformOrigin="1.1,-0.045" HorizontalAlignment="Left" Width="130" Height="24" VerticalAlignment="Top"
                 />
         <Button Name="btnUpd"
-                Margin="164,33,345,243"
+                Margin="164,33,0,0"
                 
-                Content="Редактировать" RenderTransformOrigin="-0.069,0.636"
+                Content="Редактировать" RenderTransformOrigin="-0.069,0.636" HorizontalAlignment="Left" Width="91" Height="24" VerticalAlignment="Top"
                  />
         <Button Name="btnDel"
-                Margin="278,33,233,244"
-                Content="Удалить"
+                Margin="278,33,0,0"
+                Content="Удалить" HorizontalAlignment="Left" Width="89" Height="23" VerticalAlignment="Top"
                 />
     </Grid>
 </UserControl>

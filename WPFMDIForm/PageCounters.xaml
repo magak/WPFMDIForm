@@ -17,16 +17,16 @@
 
         </DataGrid>
         <Button Name="btnAdd"
-                Margin="10,36,486,440"
-                Content="Добавить" RenderTransformOrigin="1.1,-0.045"
+                Margin="10,36,0,0"
+                Content="Добавить" RenderTransformOrigin="1.1,-0.045" Height="24" VerticalAlignment="Top" HorizontalAlignment="Left" Width="86"
                 />
         <Button Name="btnUpd"
-                Margin="114,36,382,440"
-                Content="Редактировать" RenderTransformOrigin="-0.069,0.636"
+                Margin="114,36,0,0"
+                Content="Редактировать" RenderTransformOrigin="-0.069,0.636" HorizontalAlignment="Left" Width="86" Height="24" VerticalAlignment="Top"
                  />
         <Button Name="btnDel"
-                Margin="217,36,280,440"
-                Content="Удалить"
+                Margin="217,36,0,0"
+                Content="Удалить" HorizontalAlignment="Left" Width="76" Height="24" VerticalAlignment="Top"
                 />
     </Grid>
 </Page>
