@@ -28,7 +28,7 @@ namespace WPFMDIForm.JKHModel
         public bool Отопление { get; set; }
         public bool Водоотведение { get; set; }
         public bool Содерж_дома { get; set; }
-        public string ХВС { get; set; }
+        public bool ХВС { get; set; }
     
         public virtual ICollection<Счетчик> Счетчик { get; set; }
         public virtual ICollection<Соц_норма> Соц_норма { get; set; }

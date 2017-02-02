@@ -87,7 +87,7 @@
     <Key>
       <PropertyRef Name="Код_счетчика" />
     </Key>
-    <Property Name="Код_счетчика" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Код_счетчика" Type="int" Nullable="false" />
     <Property Name="Квартира_Id" Type="int" Nullable="true" />
     <Property Name="Услуга_Id" Type="int" Nullable="false" />
   </EntityType>
@@ -111,7 +111,7 @@
     <Property Name="Отопление" Type="bit" Nullable="false" />
     <Property Name="Водоотведение" Type="bit" Nullable="false" />
     <Property Name="Содерж_дома" Type="bit" Nullable="false" />
-    <Property Name="ХВС" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ХВС" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="Соц_нормаSet">
     <Key>
@@ -396,7 +396,7 @@
           <Key>
             <PropertyRef Name="Код_счетчика" />
           </Key>
-          <Property Name="Код_счетчика" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Код_счетчика" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="None" />
           <NavigationProperty Name="Квартира" Relationship="JKHModel.КвартираСчетчик" FromRole="Счетчик" ToRole="Квартира" />
           <NavigationProperty Name="Услуга" Relationship="JKHModel.УслугаСчетчик" FromRole="Счетчик" ToRole="Услуга" />
           <NavigationProperty Name="Показания_квартир" Relationship="JKHModel.СчетчикПоказания_квартир" FromRole="Счетчик" ToRole="Показания_квартир" />
@@ -432,7 +432,7 @@
           <Property Name="Содерж_дома" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Счетчик" Relationship="JKHModel.УслугаСчетчик" FromRole="Услуга" ToRole="Счетчик" />
           <NavigationProperty Name="Соц_норма" Relationship="JKHModel.УслугаСоц_норма" FromRole="Услуга" ToRole="Соц_норма" />
-          <Property Name="ХВС" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="ХВС" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Льгота" Relationship="JKHModel.УслугаЛьгота" FromRole="Услуга" ToRole="Льгота" />
         </EntityType>
         <Association Name="УслугаСчетчик">

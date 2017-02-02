@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 02/02/2017 22:04:21
+-- Date Created: 02/03/2017 00:18:29
 -- Generated from EDMX file: C:\WPFMDIForm\WPFMDIForm\WPFMDIForm\JKHModel\JKHModel.edmx
 -- --------------------------------------------------
 
@@ -115,7 +115,7 @@ GO
 
 -- Creating table 'СчетчикSet'
 CREATE TABLE [dbo].[СчетчикSet] (
-    [Код_счетчика] int IDENTITY(1,1) NOT NULL,
+    [Код_счетчика] int  NOT NULL,
     [Квартира_Id] int  NULL,
     [Услуга_Id] int  NOT NULL
 );
@@ -139,7 +139,7 @@ CREATE TABLE [dbo].[УслугаSet] (
     [Отопление] bit  NOT NULL,
     [Водоотведение] bit  NOT NULL,
     [Содерж_дома] bit  NOT NULL,
-    [ХВС] nvarchar(max)  NOT NULL
+    [ХВС] bit  NOT NULL
 );
 GO
 
