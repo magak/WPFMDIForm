@@ -4,18 +4,31 @@
         Title="Жильцы" Height="400" Width="500">
     <Grid Background="Khaki">
 
-        <DataGrid Name="dgvTable"
-                  AutoGenerateColumns="True" Margin="10,32,10,10" >
+        <DataGrid x:Name="dgvTable" ItemsSource="{Binding Dwellers}" CanUserAddRows="False"
+                  CanUserDeleteRows="False" 
+                  AutoGenerateColumns="False" Margin="10,32,10,10" >
+            <DataGrid.Columns>
+                <DataGridCheckBoxColumn 
+                    Binding="{Binding _selected}"/>
+                <DataGridTextColumn
+                    Header="ФИО"
+                    Binding="{Binding _dweller.ФИО, Mode=OneWay}"
+                    />
+                <DataGridTextColumn
+                    Header="Номер паспорта"
+                    Binding="{Binding _dweller.Номер_паспорта, Mode=OneWay}"
+                    />
+            </DataGrid.Columns>
         </DataGrid>
         <Button Name="btnAdd"
-                Margin="10,3,377,343"
-                
-                Content="Добавить" RenderTransformOrigin="1.1,-0.045"
+                Margin="10,3,0,0"
+                Click="btnAdd_Click"
+                Content="Добавить" RenderTransformOrigin="1.1,-0.045" Height="24" VerticalAlignment="Top" HorizontalAlignment="Left" Width="105"
                 />
         <Button Name="btnUpd"
-                Margin="131,3,260,343"
-                
-                Content="Отмена" RenderTransformOrigin="-0.069,0.636"
+                Margin="131,3,0,0"
+                Click="btnUpd_Click"
+                Content="Отмена" RenderTransformOrigin="-0.069,0.636" Height="24" VerticalAlignment="Top" HorizontalAlignment="Left" Width="101"
                  />
 
     </Grid>

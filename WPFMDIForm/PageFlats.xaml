@@ -35,11 +35,7 @@
                 <DataGridTextColumn
                     Header="Площадь квартиры"
                     Binding="{Binding Площадь_квартиры}"                    
-                    />
-                <DataGridCheckBoxColumn
-                    Header="Счетчики установлены"
-                    Binding="{Binding Счетчики_установлены}"
-                    />                
+                    />       
             </DataGrid.Columns>
         </DataGrid>
         <Button Name="btnAdd"

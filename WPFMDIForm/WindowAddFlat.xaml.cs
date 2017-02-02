@@ -46,6 +46,12 @@ namespace WPFMDIForm
             }
         }
 
+        public Жилец SelectedDweller
+        {
+            get;
+            set;
+        }
+
         public List<Жилец> Dwellers
         {
             get
@@ -54,7 +60,8 @@ namespace WPFMDIForm
             }
             set
             {
-
+                _flat.Жилец = value;
+                RaiseProprtyChanged("Dwellers");
             }
         }
 
@@ -117,6 +124,26 @@ namespace WPFMDIForm
         {
             if (_context != null)
                 _context.Dispose();
+        }
+
+        private void delRom_Click(object sender, RoutedEventArgs e)
+        {
+            _flat.Жилец.Remove(SelectedDweller);
+            RaiseProprtyChanged("Dwellers");
+        }
+
+        private void addRom_Click(object sender, RoutedEventArgs e)
+        {
+            WindowInhabits window = new WindowInhabits(_context);
+            var result = window.ShowDialog();
+            if(result ?? false)
+            {
+                foreach(var item in window.GetSelectedDwellers())
+                {
+                    _flat.Жилец.Add(item);
+                    RaiseProprtyChanged("Dwellers");
+                }
+            }
         }
     }
 }
