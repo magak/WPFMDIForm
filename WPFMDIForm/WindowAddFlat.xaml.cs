@@ -65,6 +65,25 @@ namespace WPFMDIForm
             }
         }
 
+        public —четчик SelectedCounter
+        {
+            get;
+            set;
+        }
+
+        public List<—четчик> Counters
+        {
+            get
+            {
+                return _flat.—четчик.ToList();
+            }
+            set
+            {
+                _flat.—четчик = value;
+                RaiseProprtyChanged("Counters");
+            }
+        }
+
         private bool _editMode = false;
 
         public WindowAddFlat(int? flatId = null)
@@ -144,6 +163,26 @@ namespace WPFMDIForm
                     RaiseProprtyChanged("Dwellers");
                 }
             }
+        }
+
+        private void addCount_Click(object sender, RoutedEventArgs e)
+        {
+            WindowCounters window = new WindowCounters(_context);
+            var result = window.ShowDialog();
+            if (result ?? false)
+            {
+                foreach (var item in window.GetSelectedCounters())
+                {
+                    _flat.—четчик.Add(item);
+                    RaiseProprtyChanged("Counters");
+                }
+            }
+        }
+
+        private void delCount_Click(object sender, RoutedEventArgs e)
+        {
+            _flat.—четчик.Remove(SelectedCounter);
+            RaiseProprtyChanged("Counters");
         }
     }
 }
