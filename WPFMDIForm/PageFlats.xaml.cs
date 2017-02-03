@@ -66,7 +66,8 @@ namespace WPFMDIForm
 
         private void UserControl_Unloaded(object sender, RoutedEventArgs e)
         {
-            context.Dispose();
+            if (context != null)
+                context.Dispose();
         }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)

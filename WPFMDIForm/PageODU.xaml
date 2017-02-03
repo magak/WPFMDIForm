@@ -3,27 +3,46 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             mc:Ignorable="d" 
+             mc:Ignorable="d"  Unloaded="UserControl_Unloaded"
              d:DesignHeight="300" d:DesignWidth="600">
     <Grid Background="Khaki">
         <Label Height="32" Margin="0,0,22,0" Name="label1" VerticalAlignment="Top" HorizontalAlignment="Stretch" FontSize="15" FontWeight="SemiBold">
             Показания общедомового прибора учета воды
         </Label>
         <DataGrid Name="dgvTable"
-                  AutoGenerateColumns="True" Margin="10,65,10,10" >
+                  AutoGenerateColumns="False" Margin="10,65,10,10" SelectedItem="{Binding SelectedOdu}" >
+            <DataGrid.Columns>
+                <DataGridTextColumn
+                    Header="Период"
+                    Binding="{Binding Календарь.Description}"
+                    />
+                <DataGridTextColumn
+                    Header="ГВС"
+                    Binding="{Binding Показание_ГВС}"
+                    />
+                <DataGridTextColumn
+                    Header="ХВС"
+                    Binding="{Binding Показание_ХВС}"
+                    />
+                <DataGridTextColumn
+                    Header="Дом"
+                    Binding="{Binding Дом.Адрес}"
+                    />
+            </DataGrid.Columns>
         </DataGrid>
         <Button Name="btnAdd"
                 Margin="10,32,0,0"
-                
+                Click="btnAdd_Click"
                 Content="Добавить показания" RenderTransformOrigin="1.1,-0.045" HorizontalAlignment="Left" Width="130" Height="24" VerticalAlignment="Top"
                 />
         <Button Name="btnUpd"
                 Margin="164,33,0,0"
-                
+                Click="btnUpd_Click"
                 Content="Редактировать" RenderTransformOrigin="-0.069,0.636" HorizontalAlignment="Left" Width="91" Height="24" VerticalAlignment="Top"
                  />
         <Button Name="btnDel"
                 Margin="278,33,0,0"
+                Click="btnDel_Click"
                 Content="Удалить" HorizontalAlignment="Left" Width="89" Height="23" VerticalAlignment="Top"
                 />
     </Grid>

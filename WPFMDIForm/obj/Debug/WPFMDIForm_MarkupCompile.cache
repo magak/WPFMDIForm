@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\WPFMDIForm\WPFMDIForm\WPFMDIForm\obj\Debug\
+E:\WPFMDIForm\WPFMDIForm\WPFMDIForm\obj\Debug\
 WPFMDIForm
 none
 false
 DEBUG;TRACE
-C:\WPFMDIForm\WPFMDIForm\WPFMDIForm\App.xaml
-191919909185
-2-1884808155
-36-2086809181
-18-98738225
-PageNorma.xaml;PageReadings.xaml;PageUsl.xaml;PageBens.xaml;PageCounters.xaml;WindowAddNorma.xaml;WindowAddODU.xaml;WindowAddReading.xaml;WindowAddUsl.xaml;WindowAddCounter.xaml;WindowAddBen.xaml;WindowAddInhabit.xaml;PageInhabits.xaml;PageFlats.xaml;PageLogin.xaml;PageODU.xaml;MainWindow.xaml;House.xaml;WindowAddFlat.xaml;
+E:\WPFMDIForm\WPFMDIForm\WPFMDIForm\App.xaml
+22-2109680506
+3-1201273960
+421310028431
+20158171838
+PageNorma.xaml;PageReadings.xaml;PageUsl.xaml;PageBens.xaml;PageCounters.xaml;WindowAddNorma.xaml;WindowAddODU.xaml;WindowAddReading.xaml;WindowAddUsl.xaml;WindowAddCounter.xaml;WindowAddBen.xaml;WindowAddInhabit.xaml;PageInhabits.xaml;PageFlats.xaml;PageLogin.xaml;PageODU.xaml;MainWindow.xaml;House.xaml;WindowAddFlat.xaml;WindowBens.xaml;WindowCounters.xaml;WindowInhabits.xaml;
 
 False
 

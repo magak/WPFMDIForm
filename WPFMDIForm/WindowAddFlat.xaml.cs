@@ -109,7 +109,16 @@ namespace WPFMDIForm
 
         private void save_Click(object sender, RoutedEventArgs e)
         {
-            _context.SaveChanges();
+            try
+            {
+                _context.SaveChanges();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Все поля должны быть заполнены правильно", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                this.DialogResult = false;
+                this.Close();
+            }
             this.DialogResult = true;
             this.Close();
         }
