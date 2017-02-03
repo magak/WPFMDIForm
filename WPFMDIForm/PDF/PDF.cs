@@ -49,8 +49,14 @@ namespace PDF
 			public int month;
 			public int year;
 
-			public float dolg;
+			public float dolgProshlyh;
+			public float dolgNa1;
+			public float oplacheno;
+			public float lastPay;
+			public float nachisleno;
 			public float itogo;
+
+			public String lastPayDate;
 		}
 
 		public static void GeneratePage(PageData data)
@@ -66,6 +72,11 @@ namespace PDF
 
 			PdfPage page = document.AddPage();
 			XGraphics gfx = XGraphics.FromPdfPage(page);
+			gfx.MUH = PdfFontEncoding.Unicode;
+
+			// You always need a MigraDoc document for rendering.
+			Document doc = new Document();
+			MigraDoc.Rendering.DocumentRenderer docRenderer = new DocumentRenderer(doc);
 
 			gfx.DrawImage(XImage.FromFile("form.png"),
 				S(0.5f),
@@ -74,31 +85,64 @@ namespace PDF
 				S(14.2f));
 
 			XPdfFontOptions fontOptions = new XPdfFontOptions(PdfFontEncoding.Unicode, PdfFontEmbedding.Always);
-			XFont font = new XFont("Times New Roman", 9.5, XFontStyle.Regular, fontOptions);
+			XFont smallFont = new XFont("Times New Roman", 7, XFontStyle.Regular, fontOptions);
+			XFont font = new XFont("Times New Roman", 9.3, XFontStyle.Regular, fontOptions);
 			XFont bigFont = new XFont("Times New Roman", 10, XFontStyle.Bold, fontOptions);
 
 			XBrush brush = XBrushes.Red;
 			Color color = MigraDoc.DocumentObjectModel.Colors.Red;
 
-			Action<String, double, double> DrawText = (text, x, y) => gfx.DrawString(text, font, brush, x, y, XStringFormats.TopLeft);
-			Action<String, double, double> DrawBigText = (text, x, y) => gfx.DrawString(text, bigFont, brush, x, y, XStringFormats.TopLeft);
+			Action<String, double, double> DrawSmallText = (text, x, y) => gfx.DrawString(text, smallFont, brush, S(x), S(y), XStringFormats.TopLeft);
+			Action<String, double, double> DrawText = (text, x, y) => gfx.DrawString(text, font, brush, S(x), S(y), XStringFormats.TopLeft);
+			Action<String, double, double> DrawBigText = (text, x, y) => gfx.DrawString(text, bigFont, brush, S(x), S(y), XStringFormats.TopLeft);
 
-			DrawText(data.FIO, S(6.5f), S(1.98f));
-			DrawText(data.address, S(6.5f), S(2.43f));
+			Action<float, double, double> DRV = (value, x, y) => DrawRightValue(doc, docRenderer, gfx, color, "Times New Roman", 7.2, value, x, y);
+			Action<String, double, double> DLTf8 = (text, x, y) => DrawLeftText(doc, docRenderer, gfx, color, "Times New Roman", 8.1, text, x, y);
+			Action<float, double, double> DRVf8 = (value, x, y) => DrawRightValue(doc, docRenderer, gfx, color, "Times New Roman", 8.1, value, x, y);
 
-			DrawBigText(data.month.ToString(), S(15.82f), S(2.1f));
-			DrawBigText(data.year.ToString(), S(18.35f), S(2.1f));
+			DrawText(data.FIO, 6.52f, 1.98f);
+			DrawText(data.address, 6.53f, 2.43f);
 
-			// You always need a MigraDoc document for rendering.
-			Document doc = new Document();
-			MigraDoc.Rendering.DocumentRenderer docRenderer = new DocumentRenderer(doc);
+			DrawBigText(data.month.ToString(), 15.82f, 2.1f);
+			DrawBigText(data.year.ToString(), 18.37f, 2.1f);
 
-			DrawRightValue(doc, docRenderer, gfx, color, data.dolg, 8, 3.11f, 5.63f);
-			DrawRightValue(doc, docRenderer, gfx, color, data.itogo, 8, 3.82f, 5.63f);
+			DrawRightValue(doc, docRenderer, gfx, color, "Arial", 10, data.dolgProshlyh, 8.63f, 3.11f, 5);
+			DrawRightValue(doc, docRenderer, gfx, color, "Arial", 10, data.itogo, 8.63f, 3.82f, 5);
+			DrawRightValue(doc, docRenderer, gfx, color, "Times New Roman", 10, data.dolgProshlyh, 4.65f, 5.51f, 5);
+			DrawRightValue(doc, docRenderer, gfx, color, "Times New Roman", 10, data.itogo, 8.87f, 5.51f, 5);
+
+			//--------------------------------------------
+
+			DrawSmallText(data.FIO, 14.97, 8.2);
+			DrawSmallText(data.address, 14.97, 8.6);
+			DrawSmallText(Months(data.month) + " " + data.year, 15.88, 9.01);
+
+			{
+				double x0 = 14.091;
+				double y0 = 9.368;
+				double xv = 15.28;
+				double step = 0.325;
+				DLTf8("Долг на 1." + data.month + "." + data.year, x0, y0);
+				DLTf8("Начислено за " + months[data.month] + " " + data.year, x0, y0 + step);
+				DLTf8("Оплачено в " + monthsIn[data.month] + " " + data.year, x0, y0 + step * 2);
+				DLTf8("ИТОГО К ОПЛАТЕ", x0, y0 + step * 3);
+				DLTf8("Последняя оплата для", x0, y0 + step * 4);
+				DLTf8("информации (" + data.lastPayDate + ")", x0, y0 + step * 5);
+
+				DRVf8(data.dolgNa1, xv, y0);
+				DRVf8(data.nachisleno, xv, y0 + step);
+				DRVf8(data.oplacheno, xv, y0 + step * 2);
+				DRVf8(data.itogo, xv, y0 + step * 3);
+				DRVf8(data.lastPay, xv, y0 + step * 4);
+			}
+
+			DRV(data.nachisleno, 6.55, 13.02);
+			DRV(data.dolgProshlyh, 7.65, 13.02);
+			DRV(data.itogo, 8.85, 13.02);
 
 			docRenderer.PrepareDocument();
 
-	
+
 			Debug.WriteLine("seconds=" + (DateTime.Now - now).TotalSeconds.ToString());
 
 			// Save the document...
@@ -107,21 +151,54 @@ namespace PDF
 			Process.Start(filename);
 		}
 
-		static void DrawRightValue(Document doc, MigraDoc.Rendering.DocumentRenderer docRenderer, XGraphics gfx, Color color, float value,
-			float x, float y, float width)
+		static void DrawFormattedValue(Document doc, MigraDoc.Rendering.DocumentRenderer docRenderer, XGraphics gfx,
+			Color color, String fontName, Unit fontSize, ParagraphAlignment alignment,
+			float value,
+			double x, double y, float width = 5)
+		{
+			DrawFormatted(doc, docRenderer, gfx,
+			color, fontName, fontSize, alignment,
+			value.ToString("F2"),
+			x, y, width);
+		}
+		static void DrawRightValue(Document doc, MigraDoc.Rendering.DocumentRenderer docRenderer, XGraphics gfx,
+			Color color, String fontName, Unit fontSize,
+			float value,
+			double x, double y, float width = 5)
+		{
+			DrawFormattedValue(doc, docRenderer, gfx,
+			color, fontName, fontSize, ParagraphAlignment.Right,
+			value,
+			x, y, width);
+		}
+		static void DrawLeftText(Document doc, MigraDoc.Rendering.DocumentRenderer docRenderer, XGraphics gfx,
+			Color color, String fontName, Unit fontSize,
+			String text,
+			double x, double y, float width = 5)
+		{
+			DrawFormatted(doc, docRenderer, gfx,
+			color, fontName, fontSize, ParagraphAlignment.Left,
+			text,
+			x, y, width);
+		}
+
+		static void DrawFormatted(Document doc, MigraDoc.Rendering.DocumentRenderer docRenderer, XGraphics gfx,
+			Color color, String fontName, Unit fontSize, ParagraphAlignment alignment,
+			String text,
+			double x, double y, float width = 5)
 		{
 			Section sec = doc.AddSection();
 			Paragraph para = sec.AddParagraph();
-			para.Format.Alignment = ParagraphAlignment.Right;
-			para.Format.Font.Name = "Arial";
-			para.Format.Font.Size = 10;
+			para.Format.Alignment = alignment;
+			para.Format.Font.Name = fontName;
+			para.Format.Font.Size = fontSize;
 			para.Format.Font.Bold = true;
 			para.Format.Font.Color = color;
-			para.AddText(value.ToString("F2"));
+			para.AddText(text);
 			docRenderer.RenderObject(gfx, XUnit.FromCentimeter(x), XUnit.FromCentimeter(y), XUnit.FromCentimeter(width), para);
 		}
 
-		static double S(float centimeters)
+		static double S(double centimeters)
 		{
 			return XUnit.FromCentimeter(centimeters).Point;
 		}
@@ -129,5 +206,43 @@ namespace PDF
 
 		static double A4Width = XUnit.FromCentimeter(21).Point;
 		static double A4Height = XUnit.FromCentimeter(29.7).Point;
+
+		static String[] months =
+		{
+			"легендарный нулевой месяц",
+			"январь",
+			"февраль",
+			"март",
+			"апрель",
+			"май",
+			"июнь",
+			"июль",
+			"август",
+			"сентябрь",
+			"октябрь",
+			"ноябрь",
+			"декабрь"
+		};
+		static String[] monthsIn =
+		{
+			"легендарном нулевом месяце",
+			"январе",
+			"феврале",
+			"марте",
+			"апреле",
+			"мае",
+			"июне",
+			"июле",
+			"августе",
+			"сентябре",
+			"октябре",
+			"ноябре",
+			"декабре"
+		};
+		static String Months(int month)
+		{
+			String text = months[month];
+			return text.Substring(0, 1).ToString().ToUpper() + text.Substring(1);
+		}
 	}
 }
