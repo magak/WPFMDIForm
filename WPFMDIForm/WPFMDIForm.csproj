@@ -98,6 +98,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DataOperations\DataOperations.cs" />
     <Compile Include="DataModelExtension\Календарь.cs" />
     <Compile Include="DataModelExtension\Счетчик.cs" />
     <Compile Include="JKHModel\JKHModel.Context.cs">
