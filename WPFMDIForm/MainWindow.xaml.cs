@@ -20,8 +20,10 @@ namespace WPFMDIForm
 		{
 			PDF.PDFRenderer.PageData pageData = new PDF.PDFRenderer.PageData()
 			{
+				poluchatel = "ЖСК \"Плановик-4\" ИНН 7708019820 АО Банк \"ТГБ\" р/с 40703810320000000006 к/с\n30101810345250000208 в ГУ  Банка России по ЦФО БИК 044525208",
 				FIO = "Конская Ольга Львовна",
 				address = "Б.Спасская д.10/1 кв.408",
+				FLS = "0000000408",
 
 				month = 12,
 				year = 2016,

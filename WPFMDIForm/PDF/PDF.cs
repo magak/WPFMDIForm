@@ -43,8 +43,10 @@ namespace PDF
 	{
 		public class PageData
 		{
+			public String poluchatel;
 			public String FIO;
 			public String address;
+			public String FLS;
 
 			public int month;
 			public int year;
@@ -98,21 +100,27 @@ namespace PDF
 			Action<float, double, double> DRV = (value, x, y) => DrawRightValue(doc, docRenderer, gfx, color, "Times New Roman", 7.2, value, x, y);
 			Action<String, double, double> DLTf8 = (text, x, y) => DrawLeftText(doc, docRenderer, gfx, color, "Times New Roman", 8.1, text, x, y);
 			Action<float, double, double> DRVf8 = (value, x, y) => DrawRightValue(doc, docRenderer, gfx, color, "Times New Roman", 8.1, value, x, y);
+			Action<String, double, double, double> DCTf8 = (text, x, y, width) => DrawCenterText(doc, docRenderer, gfx, color, "Times New Roman", 8.8, text, x, y, width);
 
-			DrawText(data.FIO, 6.52f, 1.98f);
-			DrawText(data.address, 6.53f, 2.43f);
+			DCTf8(data.poluchatel, 5.45, 0.9, 14.4);
 
-			DrawBigText(data.month.ToString(), 15.82f, 2.1f);
-			DrawBigText(data.year.ToString(), 18.37f, 2.1f);
+			DrawText(data.FIO, 6.52, 1.98);
+			DrawText(data.address, 6.53, 2.43);
+			DrawText(data.FLS, 15.91, 2.65);
+
+			DrawBigText(data.month.ToString(), 15.82, 2.1f);
+			DrawBigText(data.year.ToString(), 18.37, 2.1f);
 
 			DrawRightValue(doc, docRenderer, gfx, color, "Arial", 10, data.itogo, 8.63f, 3.82f);
 			DrawRightValue(doc, docRenderer, gfx, color, "Times New Roman", 10, data.itogo, 4.64f, 5.51f);
 
 			//--------------------------------------------
+			DCTf8(data.poluchatel, 5.45, 7.23, 14.4);
 
 			DrawSmallText(data.FIO, 14.97, 8.2);
 			DrawSmallText(data.address, 14.97, 8.6);
 			DrawSmallText(Months(data.month) + " " + data.year, 15.88, 9.01);
+			DrawSmallText(data.FLS, 18.84, 9.01);
 
 			{
 				double x0 = 14.091;
@@ -143,7 +151,7 @@ namespace PDF
 		static void DrawFormattedValue(Document doc, MigraDoc.Rendering.DocumentRenderer docRenderer, XGraphics gfx,
 			Color color, String fontName, Unit fontSize, ParagraphAlignment alignment,
 			float value,
-			double x, double y, float width = 5)
+			double x, double y, double width = 5)
 		{
 			DrawFormatted(doc, docRenderer, gfx,
 			color, fontName, fontSize, alignment,
@@ -153,7 +161,7 @@ namespace PDF
 		static void DrawRightValue(Document doc, MigraDoc.Rendering.DocumentRenderer docRenderer, XGraphics gfx,
 			Color color, String fontName, Unit fontSize,
 			float value,
-			double x, double y, float width = 5)
+			double x, double y, double width = 5)
 		{
 			DrawFormattedValue(doc, docRenderer, gfx,
 			color, fontName, fontSize, ParagraphAlignment.Right,
@@ -163,10 +171,20 @@ namespace PDF
 		static void DrawLeftText(Document doc, MigraDoc.Rendering.DocumentRenderer docRenderer, XGraphics gfx,
 			Color color, String fontName, Unit fontSize,
 			String text,
-			double x, double y, float width = 5)
+			double x, double y, double width = 5)
 		{
 			DrawFormatted(doc, docRenderer, gfx,
 			color, fontName, fontSize, ParagraphAlignment.Left,
+			text,
+			x, y, width);
+		}
+		static void DrawCenterText(Document doc, MigraDoc.Rendering.DocumentRenderer docRenderer, XGraphics gfx,
+			Color color, String fontName, Unit fontSize,
+			String text,
+			double x, double y, double width = 5)
+		{
+			DrawFormatted(doc, docRenderer, gfx,
+			color, fontName, fontSize, ParagraphAlignment.Center,
 			text,
 			x, y, width);
 		}
@@ -174,7 +192,7 @@ namespace PDF
 		static void DrawFormatted(Document doc, MigraDoc.Rendering.DocumentRenderer docRenderer, XGraphics gfx,
 			Color color, String fontName, Unit fontSize, ParagraphAlignment alignment,
 			String text,
-			double x, double y, float width = 5)
+			double x, double y, double width = 5)
 		{
 			Section sec = doc.AddSection();
 			Paragraph para = sec.AddParagraph();
@@ -183,6 +201,9 @@ namespace PDF
 			para.Format.Font.Size = fontSize;
 			para.Format.Font.Bold = true;
 			para.Format.Font.Color = color;
+			//para.Format.Borders.Color = color;
+			//para.Format.LineSpacing = 10;
+			//para.Format.LineSpacingRule = LineSpacingRule.Exactly;
 			para.AddText(text);
 			docRenderer.RenderObject(gfx, XUnit.FromCentimeter(x), XUnit.FromCentimeter(y), XUnit.FromCentimeter(width), para);
 		}
