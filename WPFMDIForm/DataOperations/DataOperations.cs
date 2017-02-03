@@ -7,6 +7,7 @@ namespace WPFMDIForm
 	using System.Data;
 	using System.Data.SqlClient;
 	using System.Windows;
+    using WPFMDIForm.JKHModel;
 
 	public class DataOperations
 	{
@@ -380,6 +381,10 @@ namespace WPFMDIForm
 					cmd.CommandType = commandType;
 					cmd.CommandText = command;
 
+                    var param = new SqlParameter("@period", 14);
+
+                    cmd.Parameters.Add(param);
+
 					SqlDataReader result = null;
 					try
 					{
@@ -415,11 +420,22 @@ namespace WPFMDIForm
 		public static readonly String TypeInt = "INTEGER DEFAULT 0";
 		public static readonly String TypeString = "VARCHAR";
 
+        private static String _connectionString = null;
 		private static String ConnectionString
 		{
 			get
 			{
-				return "Data Source=(LocalDB)\\v11.0;AttachDbFilename=|DataDirectory|\\db.mdf;Integrated Security=True;Connect Timeout=30";
+                if (!string.IsNullOrEmpty(_connectionString))
+                    return _connectionString;
+                else
+                {
+                    using (var context = new JKHModelContainer())
+                    {
+                        _connectionString = context.Database.Connection.ConnectionString;
+                    }
+                }
+
+                return _connectionString;
 			}
 		}
 	}

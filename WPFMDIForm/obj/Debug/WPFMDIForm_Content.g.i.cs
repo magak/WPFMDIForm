@@ -9,6 +9,7 @@
 //------------------------------------------------------------------------------
 
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("db/sp_calcgvsforperiod.sql")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("db/sp_fetchflatsinfo.sql")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("jkhmodel/jkhmodel.edmx.sql")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("jkhmodel/jkhmodeldatafill.sql")]
 

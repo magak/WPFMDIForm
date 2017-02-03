@@ -80,10 +80,10 @@ namespace PDF
 			public Service[] services;
 		}
 
-		public static void GeneratePage(PageData data)
+		public static void GeneratePage(PageData data, string filePath)
 		{
 			DateTime now = DateTime.Now;
-			string filename = "result.pdf";
+            string filename = filePath;
 			//filename = Guid.NewGuid().ToString("D").ToUpper() + ".pdf";
 			PdfDocument document = new PdfDocument();
 			//document.Info.Title = "";
@@ -190,8 +190,6 @@ namespace PDF
 
 			// Save the document...
 			document.Save(filename);
-			// ...and start a viewer
-			Process.Start(filename);
 		}
 
 		static void DrawFormattedValue(Document doc, MigraDoc.Rendering.DocumentRenderer docRenderer, XGraphics gfx,

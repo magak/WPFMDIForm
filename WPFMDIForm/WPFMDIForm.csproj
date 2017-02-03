@@ -380,6 +380,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="DB\sp_CalcGVSForPeriod.sql" />
+    <Content Include="DB\sp_FetchFlatsInfo.sql" />
     <Content Include="JKHModel\JKHModel.edmx.sql" />
     <Content Include="JKHModel\JKHModelDataFill.sql" />
   </ItemGroup>
