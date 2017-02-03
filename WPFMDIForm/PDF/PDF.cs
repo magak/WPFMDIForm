@@ -145,16 +145,22 @@ namespace PDF
 			double sx0 = 5.44;
 			double sy0 = 8.92;
 			double systep = 0.295;
+			int serviceIndex = 0;
 			for (int i = 0; i < data.services.Length; i++)
 			{
 				Service service = data.services[i];
-				double y = sy0 + systep * i;
+				if (service == null)
+					continue; //no db response
+
+				double y = sy0 + systep * serviceIndex;
 				DLTf6(service.vid, sx0, y);
 				DRVf6(service.tarif, sx0 - 1.56, y);
 				DRTf6(service.obem, sx0 - 0.08, y);
 				DRVf6(service.nachisleno, sx0 + 1.14, y);
 				DRVf6(service.lgoty, sx0 + 2.24, y);
 				DRVf6(service.vsego, sx0 + 3.44, y);
+
+				serviceIndex++;
 			}
 
 			DrawSmallText(data.FIO, 14.97, 8.2);

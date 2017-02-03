@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Data;
+using System.Data.SqlClient;
 using System.Windows;
 
 namespace WPFMDIForm
@@ -18,6 +20,33 @@ namespace WPFMDIForm
 
 		private void print_Click(object sender, RoutedEventArgs e)
 		{
+			Func<SqlDataReader, String, float> read = (reader, columnName) =>
+			{
+				int column = reader.GetOrdinal(columnName);
+				if(reader.IsDBNull(column))
+					return 0; //empty
+
+				return Decimal.ToSingle(reader.GetDecimal(column));
+			};
+
+			PDF.PDFRenderer.Service gvs = null;
+			DataOperations.ReadRows(CommandType.StoredProcedure,
+				"sp_CalcGVSForPeriod",
+				reader =>
+				{
+					if (gvs != null)
+						return; //found
+
+					gvs = new PDF.PDFRenderer.Service("ГВС",
+						tarif:		read(reader, "Тариф"),
+						obem:		read(reader, "diff") + "м3",
+						nachisleno: read(reader, "val"),
+						lgoty:		read(reader, "lgota"),
+						vsego:		read(reader, "total")
+						);
+				});
+
+
 			PDF.PDFRenderer.PageData pageData = new PDF.PDFRenderer.PageData()
 			{
 				poluchatel = "ЖСК \"Плановик-4\" ИНН 7708019820 АО Банк \"ТГБ\" р/с 40703810320000000006 к/с\n30101810345250000208 в ГУ  Банка России по ЦФО БИК 044525208",
@@ -42,6 +71,7 @@ namespace WPFMDIForm
 					new PDF.PDFRenderer.Service("Домофон", 39f, "1аб-т", 39f, 0, 39f),
 					new PDF.PDFRenderer.Service("ХВС", 33.03f, "2м3", 66.06f, 0, 66.06f),
 					new PDF.PDFRenderer.Service("Водоотв.", 23.43f, "2м3", 46.86f, 0, 46.86f),
+					gvs
 				}
 			};
 
