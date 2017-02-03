@@ -26,14 +26,11 @@ namespace WPFMDIForm
 				month = 12,
 				year = 2016,
 
-				dolgProshlyh = 0,
-				dolgNa1 = 2384.63f,
-				oplacheno = -2384.63f,
-				lastPay = 2384.63f,
 				nachisleno = 2328.17f,
+				summaLgot = 0,
 				itogo = 2328.17f,
 
-				lastPayDate = "06.12.16",
+				date = "25.01.2017",
 			};
 
 			PDF.PDFRenderer.GeneratePage(pageData);

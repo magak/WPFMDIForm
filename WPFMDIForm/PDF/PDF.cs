@@ -49,14 +49,11 @@ namespace PDF
 			public int month;
 			public int year;
 
-			public float dolgProshlyh;
-			public float dolgNa1;
-			public float oplacheno;
-			public float lastPay;
 			public float nachisleno;
+			public float summaLgot;
 			public float itogo;
 
-			public String lastPayDate;
+			public String date;
 		}
 
 		public static void GeneratePage(PageData data)
@@ -86,6 +83,7 @@ namespace PDF
 
 			XPdfFontOptions fontOptions = new XPdfFontOptions(PdfFontEncoding.Unicode, PdfFontEmbedding.Always);
 			XFont smallFont = new XFont("Times New Roman", 7, XFontStyle.Regular, fontOptions);
+			XFont notSoSmallFont = new XFont("Times New Roman", 8, XFontStyle.Regular, fontOptions);
 			XFont font = new XFont("Times New Roman", 9.3, XFontStyle.Regular, fontOptions);
 			XFont bigFont = new XFont("Times New Roman", 10, XFontStyle.Bold, fontOptions);
 
@@ -93,6 +91,7 @@ namespace PDF
 			Color color = MigraDoc.DocumentObjectModel.Colors.Red;
 
 			Action<String, double, double> DrawSmallText = (text, x, y) => gfx.DrawString(text, smallFont, brush, S(x), S(y), XStringFormats.TopLeft);
+			Action<String, double, double> DrawNotSoSmallText = (text, x, y) => gfx.DrawString(text, notSoSmallFont, brush, S(x), S(y), XStringFormats.TopLeft);
 			Action<String, double, double> DrawText = (text, x, y) => gfx.DrawString(text, font, brush, S(x), S(y), XStringFormats.TopLeft);
 			Action<String, double, double> DrawBigText = (text, x, y) => gfx.DrawString(text, bigFont, brush, S(x), S(y), XStringFormats.TopLeft);
 
@@ -106,10 +105,8 @@ namespace PDF
 			DrawBigText(data.month.ToString(), 15.82f, 2.1f);
 			DrawBigText(data.year.ToString(), 18.37f, 2.1f);
 
-			DrawRightValue(doc, docRenderer, gfx, color, "Arial", 10, data.dolgProshlyh, 8.63f, 3.11f, 5);
-			DrawRightValue(doc, docRenderer, gfx, color, "Arial", 10, data.itogo, 8.63f, 3.82f, 5);
-			DrawRightValue(doc, docRenderer, gfx, color, "Times New Roman", 10, data.dolgProshlyh, 4.65f, 5.51f, 5);
-			DrawRightValue(doc, docRenderer, gfx, color, "Times New Roman", 10, data.itogo, 8.87f, 5.51f, 5);
+			DrawRightValue(doc, docRenderer, gfx, color, "Arial", 10, data.itogo, 8.63f, 3.82f);
+			DrawRightValue(doc, docRenderer, gfx, color, "Times New Roman", 10, data.itogo, 4.64f, 5.51f);
 
 			//--------------------------------------------
 
@@ -119,26 +116,18 @@ namespace PDF
 
 			{
 				double x0 = 14.091;
-				double y0 = 9.368;
+				double y0 = 9.45;
 				double xv = 15.28;
-				double step = 0.325;
-				DLTf8("Долг на 1." + data.month + "." + data.year, x0, y0);
-				DLTf8("Начислено за " + months[data.month] + " " + data.year, x0, y0 + step);
-				DLTf8("Оплачено в " + monthsIn[data.month] + " " + data.year, x0, y0 + step * 2);
-				DLTf8("ИТОГО К ОПЛАТЕ", x0, y0 + step * 3);
-				DLTf8("Последняя оплата для", x0, y0 + step * 4);
-				DLTf8("информации (" + data.lastPayDate + ")", x0, y0 + step * 5);
+				DLTf8("ИТОГО К ОПЛАТЕ", x0, y0);
 
-				DRVf8(data.dolgNa1, xv, y0);
-				DRVf8(data.nachisleno, xv, y0 + step);
-				DRVf8(data.oplacheno, xv, y0 + step * 2);
-				DRVf8(data.itogo, xv, y0 + step * 3);
-				DRVf8(data.lastPay, xv, y0 + step * 4);
+				DRVf8(data.itogo, xv, y0);
 			}
 
 			DRV(data.nachisleno, 6.55, 13.02);
-			DRV(data.dolgProshlyh, 7.65, 13.02);
+			DRV(data.summaLgot, 7.65, 13.02);
 			DRV(data.itogo, 8.85, 13.02);
+
+			DrawNotSoSmallText(data.date, 3.58, 13.83);
 
 			docRenderer.PrepareDocument();
 
