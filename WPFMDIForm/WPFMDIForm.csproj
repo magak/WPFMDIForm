@@ -83,8 +83,14 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
-    <Reference Include="WPF.MDI">
-      <HintPath>bin\WPF.MDI.dll</HintPath>
+    <Reference Include="PdfSharp-WPF.dll">
+      <HintPath>bin\PdfSharp-WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="MigraDoc.DocumentObjectModel-WPF.dll">
+      <HintPath>bin\MigraDoc.DocumentObjectModel-WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="MigraDoc.Rendering-WPF.dll">
+      <HintPath>bin\MigraDoc.Rendering-WPF.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -299,6 +305,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Compile Include="PDF\PDF.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -374,6 +381,9 @@
     <Content Include="JKHModel\JKHModelDataFill.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy "$(ProjectDir)form.png" "$(TargetDir)"</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

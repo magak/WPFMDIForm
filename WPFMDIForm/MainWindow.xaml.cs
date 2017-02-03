@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Windows;
-using WPF.MDI;
 
 namespace WPFMDIForm
 {
@@ -19,6 +18,19 @@ namespace WPFMDIForm
 
 		private void print_Click(object sender, RoutedEventArgs e)
 		{
+			PDF.PDFRenderer.PageData pageData = new PDF.PDFRenderer.PageData()
+			{
+				FIO = "Конская Ольга Львовна",
+				address = "Б.Спасская д.10/1 кв.408",
+
+				month = 12,
+				year = 2016,
+
+				dolg = 0,
+				itogo = 2328.17f
+			};
+
+			PDF.PDFRenderer.GeneratePage(pageData);
 		}
 		private void changeUser_Click(object sender, RoutedEventArgs e)
 		{
