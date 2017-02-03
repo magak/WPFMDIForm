@@ -33,6 +33,16 @@ namespace WPFMDIForm
 				itogo = 2328.17f,
 
 				date = "25.01.2017",
+
+				services = new PDF.PDFRenderer.Service[]
+				{
+					new PDF.PDFRenderer.Service("Сод.общ.имущ.дома", 23.6f, "37.20м2", 877.92f, 0, 877.92f),
+					new PDF.PDFRenderer.Service("Отопление ДПУ", 2101.52f, "0.5952Гкал", 1250.83f, 0, 1250.83f),
+					new PDF.PDFRenderer.Service("Антенна", 95f, "0.5аб-т", 47.50f, 0, 47.50f),
+					new PDF.PDFRenderer.Service("Домофон", 39f, "1аб-т", 39f, 0, 39f),
+					new PDF.PDFRenderer.Service("ХВС", 33.03f, "2м3", 66.06f, 0, 66.06f),
+					new PDF.PDFRenderer.Service("Водоотв.", 23.43f, "2м3", 46.86f, 0, 46.86f),
+				}
 			};
 
 			PDF.PDFRenderer.GeneratePage(pageData);

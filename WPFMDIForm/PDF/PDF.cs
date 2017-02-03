@@ -41,6 +41,26 @@ namespace PDF
 {
 	class PDFRenderer
 	{
+		public class Service
+		{
+			public String vid;
+			public float tarif;
+			public String obem;
+			public float nachisleno;
+			public float lgoty;
+			public float vsego;
+
+			public Service(String vid, float tarif, String obem, float nachisleno, float lgoty, float vsego)
+			{
+				this.vid = vid;
+				this.tarif = tarif;
+				this.obem = obem;
+				this.nachisleno = nachisleno;
+				this.lgoty = lgoty;
+				this.vsego = vsego;
+			}
+		}
+
 		public class PageData
 		{
 			public String poluchatel;
@@ -56,6 +76,8 @@ namespace PDF
 			public float itogo;
 
 			public String date;
+
+			public Service[] services;
 		}
 
 		public static void GeneratePage(PageData data)
@@ -101,6 +123,9 @@ namespace PDF
 			Action<String, double, double> DLTf8 = (text, x, y) => DrawLeftText(doc, docRenderer, gfx, color, "Times New Roman", 8.1, text, x, y);
 			Action<float, double, double> DRVf8 = (value, x, y) => DrawRightValue(doc, docRenderer, gfx, color, "Times New Roman", 8.1, value, x, y);
 			Action<String, double, double, double> DCTf8 = (text, x, y, width) => DrawCenterText(doc, docRenderer, gfx, color, "Times New Roman", 8.8, text, x, y, width);
+			Action<String, double, double> DLTf6 = (text, x, y) => DrawLeftText(doc, docRenderer, gfx, color, "Times New Roman", 6.7, text, x, y);
+			Action<float, double, double> DRVf6 = (value, x, y) => DrawRightValue(doc, docRenderer, gfx, color, "Times New Roman", 6.8, value, x, y);
+			Action<String, double, double> DRTf6 = (text, x, y) => DrawRightText(doc, docRenderer, gfx, color, "Times New Roman", 6.8, text, x, y);
 
 			DCTf8(data.poluchatel, 5.45, 0.9, 14.4);
 
@@ -116,6 +141,21 @@ namespace PDF
 
 			//--------------------------------------------
 			DCTf8(data.poluchatel, 5.45, 7.23, 14.4);
+
+			double sx0 = 5.44;
+			double sy0 = 8.92;
+			double systep = 0.295;
+			for (int i = 0; i < data.services.Length; i++)
+			{
+				Service service = data.services[i];
+				double y = sy0 + systep * i;
+				DLTf6(service.vid, sx0, y);
+				DRVf6(service.tarif, sx0 - 1.56, y);
+				DRTf6(service.obem, sx0 - 0.08, y);
+				DRVf6(service.nachisleno, sx0 + 1.14, y);
+				DRVf6(service.lgoty, sx0 + 2.24, y);
+				DRVf6(service.vsego, sx0 + 3.44, y);
+			}
 
 			DrawSmallText(data.FIO, 14.97, 8.2);
 			DrawSmallText(data.address, 14.97, 8.6);
@@ -175,6 +215,16 @@ namespace PDF
 		{
 			DrawFormatted(doc, docRenderer, gfx,
 			color, fontName, fontSize, ParagraphAlignment.Left,
+			text,
+			x, y, width);
+		}
+		static void DrawRightText(Document doc, MigraDoc.Rendering.DocumentRenderer docRenderer, XGraphics gfx,
+			Color color, String fontName, Unit fontSize,
+			String text,
+			double x, double y, double width = 5)
+		{
+			DrawFormatted(doc, docRenderer, gfx,
+			color, fontName, fontSize, ParagraphAlignment.Right,
 			text,
 			x, y, width);
 		}
