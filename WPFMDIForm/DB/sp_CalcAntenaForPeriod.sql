@@ -8,7 +8,7 @@ BEGIN
 
 	declare @uslId int
 	
-	select @uslId = id from dbo.УслугаSet serv where serv.Вид_услуги = 'Антенна'
+	select @uslId = id from dbo.УслугаSet serv where serv.Id = 8
 	
 	select 
 		flat.Id, flat.Номер_квартиры, hm.Адрес, cast(1 as decimal(18,0)) as diff, serv.Тариф as Тариф,

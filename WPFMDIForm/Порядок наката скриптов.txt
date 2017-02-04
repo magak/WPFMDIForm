@@ -1,0 +1,9 @@
+﻿JKHModel.edmx.sql
+JKHModelDataFill.sql
+sp_CalcAntenaForPeriod.sql
+sp_CalcDomofonForPeriod.sql
+sp_CalcGVSForPeriod.sql
+sp_CalcHVSForPeriod.sql
+sp_CalcSOIDForPeriod.sql
+sp_CalcVodootvodForPeriod.sql
+sp_FetchFlatsInfo.sql

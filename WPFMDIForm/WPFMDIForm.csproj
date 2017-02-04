@@ -388,6 +388,7 @@
     <Content Include="DB\sp_FetchFlatsInfo.sql" />
     <Content Include="JKHModel\JKHModel.edmx.sql" />
     <Content Include="JKHModel\JKHModelDataFill.sql" />
+    <Resource Include="Порядок наката скриптов.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
