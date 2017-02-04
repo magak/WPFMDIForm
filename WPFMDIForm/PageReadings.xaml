@@ -52,12 +52,13 @@
 
         <Button Name="btnPrint"
                 Margin="501,77,0,0"
-                Content="Печать ЕПД" HorizontalAlignment="Left" Width="89" Height="27" VerticalAlignment="Top"
+                Content="Печать ЕПД" HorizontalAlignment="Left" Width="89" Height="27" VerticalAlignment="Top" Click="btnPrint_Click"
                 />
 
         <Label Content="Период" Margin="10,37,0,0" HorizontalAlignment="Left" Width="52" Height="30" VerticalAlignment="Top"/>
         <ComboBox ItemsSource="{Binding Calendars}" DisplayMemberPath="Description" SelectedValue="{Binding SelectedCal}"
                   Height="30" Margin="83,37,0,0" HorizontalAlignment="Left" Width="173" VerticalAlignment="Top"/>
+        <ProgressBar x:Name="progress" IsIndeterminate="True" Visibility="Hidden" HorizontalAlignment="Left" Height="26" Margin="501,77,0,0" VerticalAlignment="Top" Width="89"/>
     </Grid>
 
 

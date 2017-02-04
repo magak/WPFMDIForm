@@ -11,7 +11,7 @@
         <DockPanel>
             <Menu Name="MainMenu" VerticalAlignment="Top" DockPanel.Dock="Top" Height="25" FontSize="15" >
                 <MenuItem Name="menuHome" Header="Главное меню">
-                    <MenuItem Name="print" Header="(*) Печать" Click="print_Click" />
+                    <!--<MenuItem Name="print" Header="(*) Печать" Click="print_Click" />-->
                     <MenuItem Name="login" Header="Другой пользователь" />
                     <MenuItem Name="Exit" Header="Выход"/>
                 </MenuItem>

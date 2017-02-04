@@ -11,7 +11,9 @@ BEGIN
 		dwl.ФИО,
 		hm.Адрес,
 		cast(Месяц as int) as Месяц,
-		cast(Год as int) as Год		
+		cast(Год as int) as Год,
+		right('0000000000'+cast(fl.Номер_квартиры as varchar(10)),10) as FLS,
+		cast(fl.Номер_квартиры as varchar(10)) as Номер_квартиры
 	from dbo.КвартираSet fl
 	join dbo.ДомSet hm on hm.Id = fl.Дом_Id
 	join dbo.КалендарьSet cal on cal.Id =@period

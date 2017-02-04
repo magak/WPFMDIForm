@@ -379,7 +379,12 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="DB\sp_CalcAntenaForPeriod.sql" />
+    <Content Include="DB\sp_CalcDomofonForPeriod.sql" />
     <Content Include="DB\sp_CalcGVSForPeriod.sql" />
+    <Content Include="DB\sp_CalcHVSForPeriod.sql" />
+    <Content Include="DB\sp_CalcSOIDForPeriod.sql" />
+    <Content Include="DB\sp_CalcVodootvodForPeriod.sql" />
     <Content Include="DB\sp_FetchFlatsInfo.sql" />
     <Content Include="JKHModel\JKHModel.edmx.sql" />
     <Content Include="JKHModel\JKHModelDataFill.sql" />

@@ -8,7 +8,12 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("db/sp_calcantenaforperiod.sql")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("db/sp_calcdomofonforperiod.sql")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("db/sp_calcgvsforperiod.sql")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("db/sp_calchvsforperiod.sql")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("db/sp_calcsoidforperiod.sql")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("db/sp_calcvodootvodforperiod.sql")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("db/sp_fetchflatsinfo.sql")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("jkhmodel/jkhmodel.edmx.sql")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("jkhmodel/jkhmodeldatafill.sql")]
