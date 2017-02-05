@@ -386,6 +386,7 @@
     <Content Include="DB\sp_CalcSOIDForPeriod.sql" />
     <Content Include="DB\sp_CalcVodootvodForPeriod.sql" />
     <Content Include="DB\sp_FetchFlatsInfo.sql" />
+    <Resource Include="form.png" />
     <Content Include="JKHModel\JKHModel.edmx.sql" />
     <Content Include="JKHModel\JKHModelDataFill.sql" />
     <Resource Include="Порядок наката скриптов.txt" />
