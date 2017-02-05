@@ -20,6 +20,15 @@ namespace WPFMDIForm.JKHModel
         }
     
         public int Код_счетчика { get; set; }
+        public string Вид_услуги
+        {
+            get
+            {
+                if (Услуга == null)
+                    return String.Empty;
+                return Услуга.Вид_услуги.ToString();
+            }
+        }
     
         public virtual Квартира Квартира { get; set; }
         public virtual Услуга Услуга { get; set; }

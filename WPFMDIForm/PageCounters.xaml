@@ -13,19 +13,31 @@
             Счетчики
         </Label>
         <DataGrid Name="dgvTable"
-                  AutoGenerateColumns="False" Margin="10,65,10,10" SelectedItem="{Binding SelectedFlat}" >
-
+                  AutoGenerateColumns="False" Margin="10,65,10,10" SelectedItem="{Binding SelectedCounter}" >
+            <DataGrid.Columns>
+                <DataGridTextColumn
+                    Header="Код счетчика"
+                    Binding="{Binding Код_счетчика}"
+                    />
+                <DataGridTextColumn
+                    Header="Услуга"
+                    Binding="{Binding Вид_услуги}"
+                    />
+            </DataGrid.Columns>
         </DataGrid>
         <Button Name="btnAdd"
                 Margin="10,36,0,0"
+                Click="btnAdd_Click"
                 Content="Добавить" RenderTransformOrigin="1.1,-0.045" Height="24" VerticalAlignment="Top" HorizontalAlignment="Left" Width="86"
                 />
         <Button Name="btnUpd"
                 Margin="114,36,0,0"
+                Click="btnUpd_Click"
                 Content="Редактировать" RenderTransformOrigin="-0.069,0.636" HorizontalAlignment="Left" Width="86" Height="24" VerticalAlignment="Top"
                  />
         <Button Name="btnDel"
                 Margin="217,36,0,0"
+                Click="btnDel_Click"
                 Content="Удалить" HorizontalAlignment="Left" Width="76" Height="24" VerticalAlignment="Top"
                 />
     </Grid>

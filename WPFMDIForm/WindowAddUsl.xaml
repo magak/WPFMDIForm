@@ -6,18 +6,20 @@
         <DockPanel HorizontalAlignment="Left" Height="117" Margin="10,4,0,0" LastChildFill="False" VerticalAlignment="Top" Width="430">
             <WrapPanel Height="70" VerticalAlignment="Top" Width="428">
                 <Label Content="Вид услуги" Height="30" Width="170"/>
-                <TextBox Height="30" TextWrapping="Wrap"  Width="250"/>
+                <TextBox Text="{Binding Usl.Вид_услуги}" Height="30" TextWrapping="Wrap"  Width="250"/>
                 <Label Content="Тариф" Height="30" Width="170"/>
-                <TextBox Height="30" TextWrapping="Wrap"  Width="250"/>
+                <TextBox Text="{Binding Usl.Тариф}" Height="30" TextWrapping="Wrap"  Width="250"/>
             </WrapPanel>
         </DockPanel>
 
         <Button x:Name="save"
                 Margin="0,0,127,10"
+                Click="save_Click"
                 Content="Сохранить" HorizontalAlignment="Right" Width="98" Height="24" VerticalAlignment="Bottom"
                 />
-        <Button x:Name="del"
+        <Button x:Name="cancel"
         	Margin="0,0,10,10"
+                Click="cancel_Click"
         	Content="Отмена" HorizontalAlignment="Right" Width="94" Height="24" VerticalAlignment="Bottom"
                 />
 

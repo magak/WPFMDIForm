@@ -3,27 +3,25 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Сведения о счетчике" Height="209" Width="535">
     <Grid Background="khaki" Margin="0,0,2,0" Height="176" VerticalAlignment="Top">
-        <DockPanel HorizontalAlignment="Left" Margin="5,10,0,289" LastChildFill="False" Width="519">
+        <DockPanel HorizontalAlignment="Left" Margin="5,10,0,289" LastChildFill="False">
             <WrapPanel Height="167" VerticalAlignment="Top" Width="480" Margin="0,0,0,-167">
                 <Label Content="Код счетчика" Height="30" Width="97"/>
-                <TextBox Text="{Binding Flat.Номер_квартиры}" Height="30" TextWrapping="Wrap"  Width="376"/>
+                <TextBox Text="{Binding Counter.Код_счетчика}" Height="30" TextWrapping="Wrap"  Width="376"/>
                 <Label Content="Услуга" Height="30" Width="96"/>
-                <TextBox Height="30" TextWrapping="Wrap"  Width="340"/>
-
-
-
-
             </WrapPanel>
         </DockPanel>
         <Button x:Name="save"
                 Margin="0,0,164,10"
+                Click="save_Click"
                 Content="Сохранить" HorizontalAlignment="Right" Width="98" Height="24" VerticalAlignment="Bottom"
                 />
-        <Button x:Name="del"
+        <Button x:Name="cancel"
         	Margin="0,0,49,10"
+                Click="cancel_Click"
         	Content="Отмена" HorizontalAlignment="Right" Width="94" Height="24" VerticalAlignment="Bottom"
                 />
-        <ComboBox Margin="449,43,0,0" HorizontalAlignment="Left" Width="27" Height="26" VerticalAlignment="Top"/>
+        <ComboBox Margin="103,43,0,0" HorizontalAlignment="Left" Width="373" Height="26" VerticalAlignment="Top"
+                  ItemsSource="{Binding UslSelection}" DisplayMemberPath="Вид_услуги" SelectedValue="{Binding Counter.Услуга}"/>
 
     </Grid>
 </Window>
