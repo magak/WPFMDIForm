@@ -111,8 +111,8 @@ namespace PDF
 			XFont font = new XFont("Times New Roman", 9.3, XFontStyle.Regular, fontOptions);
 			XFont bigFont = new XFont("Times New Roman", 10, XFontStyle.Bold, fontOptions);
 
-			XBrush brush = XBrushes.Red;
-			Color color = MigraDoc.DocumentObjectModel.Colors.Red;
+			XBrush brush = XBrushes.Black;
+			Color color = MigraDoc.DocumentObjectModel.Colors.Black;
 
 			Action<String, double, double> DrawSmallText = (text, x, y) => gfx.DrawString(text, smallFont, brush, S(x), S(y), XStringFormats.TopLeft);
 			Action<String, double, double> DrawNotSoSmallText = (text, x, y) => gfx.DrawString(text, notSoSmallFont, brush, S(x), S(y), XStringFormats.TopLeft);

@@ -259,7 +259,7 @@ namespace WPFMDIForm
 
                     List<PDF.PDFRenderer.Service> srvs = new List<PDF.PDFRenderer.Service>()
                     {
-					    new PDF.PDFRenderer.Service("Отопление ДПУ", 2101.52f, "0.5952Гкал", 1250.83f, 0, 1250.83f),
+                        //new PDF.PDFRenderer.Service("Отопление ДПУ", 2101.52f, "0,5952Гкал", 1250.83f, 0, 1250.83f),
                     };
 
                     float nachisleno = 0;
