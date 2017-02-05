@@ -4,19 +4,23 @@
         Title="Льготы" Height="400" Width="500">
     <Grid Background="Khaki">
 
-        <DataGrid x:Name="dgvTable" ItemsSource="{Binding Dwellers}" CanUserAddRows="False"
+        <DataGrid x:Name="dgvTable" ItemsSource="{Binding Lgoty}" CanUserAddRows="False"
                   CanUserDeleteRows="False" 
                   AutoGenerateColumns="False" Margin="10,32,10,10" >
             <DataGrid.Columns>
                 <DataGridCheckBoxColumn 
                     Binding="{Binding _selected}"/>
                 <DataGridTextColumn
-                    Header="ФИО"
-                    Binding="{Binding _dweller.ФИО, Mode=OneWay}"
+                    Header="Льгота"
+                    Binding="{Binding _lgota.Имя_льготы, Mode=OneWay}"
                     />
                 <DataGridTextColumn
-                    Header="Номер паспорта"
-                    Binding="{Binding _dweller.Номер_паспорта, Mode=OneWay}"
+                    Header="Значение"
+                    Binding="{Binding _lgota.Значение_льготы, Mode=OneWay}"
+                    />
+                <DataGridCheckBoxColumn
+                    Header="Общая"
+                    Binding="{Binding _lgota.Общая, Mode=OneWay}"
                     />
             </DataGrid.Columns>
         </DataGrid>

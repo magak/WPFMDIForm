@@ -15,7 +15,7 @@
                   AutoGenerateColumns="False" Margin="10,65,10,10" SelectedItem="{Binding SelectedBen}" >
             <DataGrid.Columns>
                 <DataGridTextColumn
-                    Header="Имя"
+                    Header="Льгота"
                     Binding="{Binding Имя_льготы}"
                     />
                 <DataGridTextColumn

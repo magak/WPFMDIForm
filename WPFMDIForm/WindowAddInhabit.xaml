@@ -11,7 +11,23 @@
                 <TextBox Text="{Binding Inhabit.Номер_паспорта}" Height="30" TextWrapping="Wrap"  Width="250"/>
                 <Label Content="Льготы" Width="75" />
                 <DataGrid x:Name="dgvTable"
-                	AutoGenerateColumns="True" Margin="0,20,0,0" Height="109" Width="420" />
+                	AutoGenerateColumns="False" Margin="0,20,0,0" Height="109" Width="420"
+                    ItemsSource="{Binding Lgoty}" SelectedItem="{Binding SelectedLgota}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn
+                            Header="Льгота"
+                            Binding="{Binding Имя_льготы}"
+                        />
+                        <DataGridTextColumn
+                            Header="Значение"
+                            Binding="{Binding Значение_льготы}"
+                        />
+                       <DataGridCheckBoxColumn
+                            Header="Общая"
+                            Binding="{Binding Общая}"
+                        />
+                    </DataGrid.Columns>
+                </DataGrid>
 
             </WrapPanel>
         </DockPanel>
