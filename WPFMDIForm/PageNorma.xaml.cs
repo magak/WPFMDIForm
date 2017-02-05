@@ -16,7 +16,7 @@ using System.Windows.Shapes;
 namespace WPFMDIForm
 {
     /// <summary>
-    /// Interaction logic for Page5.xaml
+    /// Interaction logic for PageNorma.xaml
     /// </summary>
     public partial class PageNorma : Page
     {

@@ -187,9 +187,6 @@
     <Compile Include="PageInhabits.xaml.cs">
       <DependentUpon>PageInhabits.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PageLogin.xaml.cs">
-      <DependentUpon>PageLogin.xaml</DependentUpon>
-    </Compile>
     <Compile Include="PageODU.xaml.cs">
       <DependentUpon>PageODU.xaml</DependentUpon>
     </Compile>
@@ -204,6 +201,9 @@
     </Compile>
     <Compile Include="WindowInhabits.xaml.cs">
       <DependentUpon>WindowInhabits.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WindowLogin.xaml.cs">
+      <DependentUpon>WindowLogin.xaml</DependentUpon>
     </Compile>
     <Page Include="PageNorma.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -261,10 +261,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PageLogin.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="PageODU.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -309,6 +305,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Compile Include="PDF\PDF.cs" />
+    <Page Include="WindowLogin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

@@ -17,7 +17,7 @@
     </UserControl.Resources>
 
     <Grid Background="Khaki"
-          HorizontalAlignment="Left" VerticalAlignment="Top">
+          HorizontalAlignment="Left" VerticalAlignment="Top" Width="1025">
         <Label Height="32" Margin="0,-2,536,530" Name="label1" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Stretch" FontSize="15" FontWeight="SemiBold">
             Квартиры
         </Label>

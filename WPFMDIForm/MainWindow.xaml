@@ -12,11 +12,11 @@
             <Menu Name="MainMenu" VerticalAlignment="Top" DockPanel.Dock="Top" Height="25" FontSize="15" >
                 <MenuItem Name="menuHome" Header="Главное меню">
                     <!--<MenuItem Name="print" Header="(*) Печать" Click="print_Click" />-->
-                    <MenuItem Name="login" Header="Другой пользователь" />
+                    <MenuItem Name="login" Header="Другой пользователь" Click="changeUser_Click" />
                     <MenuItem Name="Exit" Header="Выход"/>
                 </MenuItem>
                 <MenuItem Name="menuLibraries" Header="Справочники">
-                    <MenuItem Name="libInhabits" Header="Жильцы"  />
+                    <MenuItem Name="libInhabits" Header="Жильцы" Click="inhabits_Click"  />
                     <MenuItem Name="libFlats" Header="Квартиры" Click="flats_Click" />
                     <MenuItem Name="libHouse" Header="Дома"  />
                     <MenuItem Name="libCounters" Header="Счетчики"  />

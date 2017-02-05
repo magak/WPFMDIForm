@@ -121,13 +121,18 @@ namespace WPFMDIForm
 
 		private void changeUser_Click(object sender, RoutedEventArgs e)
 		{
-			_openPage(new PageLogin());
+            WindowLogin w = new WindowLogin();
+            w.Show();
 		}
 		private void flats_Click(object sender, RoutedEventArgs e)
 		{
 			_openPage(new PageFlats());
 		}
-		private void tariffs_Click(object sender, RoutedEventArgs e)
+        private void inhabits_Click(object sender, RoutedEventArgs e)
+        {
+            _openPage(new PageInhabits());
+        }
+        private void tariffs_Click(object sender, RoutedEventArgs e)
 		{
 			//_openPage(new PageTariffs());
 		}
@@ -144,5 +149,10 @@ namespace WPFMDIForm
 		{
 			MainContainer.Content = content;
 		}
+
+        private void login_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

@@ -22,6 +22,15 @@ namespace WPFMDIForm.JKHModel
         public int Id { get; set; }
         public string ФИО { get; set; }
         public string Номер_паспорта { get; set; }
+        public string Номер_квартиры
+        {
+            get
+            {
+                if (Квартира == null)
+                    return String.Empty;
+                return Квартира.Номер_квартиры.ToString();
+            }
+        }
     
         public virtual Квартира Квартира { get; set; }
         public virtual ICollection<Льгота> Льгота { get; set; }

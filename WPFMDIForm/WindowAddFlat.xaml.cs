@@ -113,7 +113,7 @@ namespace WPFMDIForm
             {
                 _context.SaveChanges();
             }
-            catch(Exception ex)
+            catch(Exception)
             {
                 MessageBox.Show("Все поля должны быть заполнены правильно", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 this.DialogResult = false;

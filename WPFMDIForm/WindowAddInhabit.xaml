@@ -4,14 +4,10 @@
         Title="Сведения о жильце" Height="400" Width="536">
     <Grid Background="khaki">
         <DockPanel HorizontalAlignment="Left" Height="350" Margin="5,10,0,0" LastChildFill="False" VerticalAlignment="Top" Width="519">
-            <WrapPanel Height="289" VerticalAlignment="Top" Width="428">
+            <WrapPanel Height="255" VerticalAlignment="Top" Width="428">
                 <Label Content="ФИО" Height="30" Width="170"/>
                 <TextBox Height="30" TextWrapping="Wrap"  Width="250"/>
                 <Label Content="Номер паспорта" Height="30" Width="170"/>
-                <TextBox Height="30" TextWrapping="Wrap"  Width="250"/>
-                <Label Content="Квартира" Height="30" Width="170"/>
-                <TextBox Height="30" TextWrapping="Wrap"  Width="250"/>
-                <Label Content="Адрес" Height="30" Width="170"/>
                 <TextBox Height="30" TextWrapping="Wrap"  Width="250"/>
                 <Label Content="Льготы" Width="75" />
                 <DataGrid x:Name="dgvTable"
@@ -20,11 +16,11 @@
             </WrapPanel>
         </DockPanel>
         <Button x:Name="addBen"
-        	Margin="434,183,0,0"
+        	Margin="436,116,0,0"
         	Content="Добавить" HorizontalAlignment="Left" Width="68" RenderTransformOrigin="0.504,5.884" Height="25" VerticalAlignment="Top"
                 />
         <Button x:Name="delBen"
-        	Margin="434,213,0,0"
+        	Margin="436,146,0,0"
         	Content="Удалить" HorizontalAlignment="Left" Width="68" Height="25" VerticalAlignment="Top"
                 />
         <Button x:Name="save"
