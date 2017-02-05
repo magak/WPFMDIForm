@@ -18,7 +18,7 @@ namespace WPFMDIForm
     /// <summary>
     /// Interaction logic for PageNorma.xaml
     /// </summary>
-    public partial class PageNorma : Page
+    public partial class PageNorma : UserControl
     {
         public PageNorma()
         {

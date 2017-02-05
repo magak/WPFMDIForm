@@ -67,8 +67,6 @@ namespace WPFMDIForm
             }
         }
 
-        private bool _editMode = false;
-
         public WindowAddODU(int? oduId = null)
         {
             _context = new JKHModelContainer();
@@ -81,7 +79,6 @@ namespace WPFMDIForm
             else
             {
                 _odu = _context.Показания_ОДУSet.Find(oduId);
-                _editMode = true;
             }
 
             InitializeComponent();

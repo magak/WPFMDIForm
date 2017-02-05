@@ -1,14 +1,14 @@
-﻿<Page x:Class="WPFMDIForm.Page4"
+﻿<UserControl x:Class="WPFMDIForm.PageUsl"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
-      d:DesignHeight="600" d:DesignWidth="595"
-	Title="PageUsl">
+      d:DesignHeight="600"
+	  Width="939.776">
 
     <Grid Background="Khaki"
-          HorizontalAlignment="Left" VerticalAlignment="Top">
+          HorizontalAlignment="Left" VerticalAlignment="Top" Width="940">
         <Label Height="32" Margin="0,-1,508,531" Name="label1" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Stretch" FontSize="15" FontWeight="SemiBold">
             Услуги
         </Label>
@@ -30,4 +30,4 @@
                 Content="Удалить" HorizontalAlignment="Left" Width="54" Height="22" VerticalAlignment="Top"
                 />
     </Grid>
-</Page>
+</UserControl>

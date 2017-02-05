@@ -1,4 +1,4 @@
-﻿<Window x:Class="WPFMDIForm.Window1"
+﻿<Window x:Class="WPFMDIForm.House"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Сведения о доме" Height="170" Width="533">

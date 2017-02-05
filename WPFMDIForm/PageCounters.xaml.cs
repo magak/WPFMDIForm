@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace WPFMDIForm
 {
     /// <summary>
-    /// Interaction logic for Page2.xaml
+    /// Interaction logic for PageCounters.xaml
     /// </summary>
-    public partial class Page2 : Page
+    public partial class PageCounters : UserControl
     {
-        public Page2()
+        public PageCounters()
         {
             InitializeComponent();
         }

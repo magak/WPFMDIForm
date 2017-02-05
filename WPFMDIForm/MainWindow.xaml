@@ -18,11 +18,11 @@
                 <MenuItem Name="menuLibraries" Header="Справочники">
                     <MenuItem Name="libInhabits" Header="Жильцы" Click="inhabits_Click"  />
                     <MenuItem Name="libFlats" Header="Квартиры" Click="flats_Click" />
-                    <MenuItem Name="libHouse" Header="Дома"  />
-                    <MenuItem Name="libCounters" Header="Счетчики"  />
-                    <MenuItem Name="libUsl" Header="Услуги" />
-                    <MenuItem Name="libBens" Header="Льготы" />
-                    <MenuItem Name="libNorma" Header="Соц. нормы" />
+                    <MenuItem Name="libHouse" Header="Дома" Click="houses_Click" />
+                    <MenuItem Name="libCounters" Header="Счетчики" Click="counters_Click"  />
+                    <MenuItem Name="libUsl" Header="Услуги" Click="usl_Click" />
+                    <MenuItem Name="libBens" Header="Льготы" Click="bens_Click" />
+                    <MenuItem Name="libNorma" Header="Соц. нормы" Click="norma_Click" />
 
                 </MenuItem>
                 <MenuItem Name="menuData" Header="Показания">

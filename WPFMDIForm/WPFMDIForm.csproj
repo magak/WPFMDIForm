@@ -125,6 +125,9 @@
     <Compile Include="PageUsl.xaml.cs">
       <DependentUpon>PageUsl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PageHouses.xaml.cs">
+      <DependentUpon>PageHouses.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PageBens.xaml.cs">
       <DependentUpon>PageBens.xaml</DependentUpon>
     </Compile>
@@ -193,9 +196,6 @@
     <Compile Include="PageFlats.xaml.cs">
       <DependentUpon>PageFlats.xaml</DependentUpon>
     </Compile>
-    <Compile Include="WindowBens.xaml.cs">
-      <DependentUpon>WindowBens.xaml</DependentUpon>
-    </Compile>
     <Compile Include="WindowCounters.xaml.cs">
       <DependentUpon>WindowCounters.xaml</DependentUpon>
     </Compile>
@@ -260,6 +260,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="PageHouses.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PageFlats.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -295,10 +299,6 @@
       <DependentUpon>WindowAddFlat.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="WindowBens.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="WindowCounters.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

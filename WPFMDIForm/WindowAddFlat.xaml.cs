@@ -84,8 +84,6 @@ namespace WPFMDIForm
             }
         }
 
-        private bool _editMode = false;
-
         public WindowAddFlat(int? flatId = null)
         {
             _context = new JKHModelContainer();
@@ -98,7 +96,6 @@ namespace WPFMDIForm
             else
             {
                 _flat = _context.ÊגאנעטנאSet.Find(flatId);
-                _editMode = true;
             }
 
             InitializeComponent();

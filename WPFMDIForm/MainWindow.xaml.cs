@@ -136,6 +136,26 @@ namespace WPFMDIForm
 		{
 			//_openPage(new PageTariffs());
 		}
+		private void counters_Click(object sender, RoutedEventArgs e)
+		{
+			_openPage(new PageCounters());
+		}
+		private void usl_Click(object sender, RoutedEventArgs e)
+		{
+			_openPage(new PageUsl());
+		}
+		private void houses_Click(object sender, RoutedEventArgs e)
+		{
+			_openPage(new PageHouses());
+		}
+ 		private void bens_Click(object sender, RoutedEventArgs e)
+		{
+			_openPage(new PageBens());
+		}
+        private void norma_Click(object sender, RoutedEventArgs e)
+		{
+			_openPage(new PageNorma());
+		}
 		private void flatData_Click(object sender, RoutedEventArgs e)
 		{
             _openPage(new PageReadings());

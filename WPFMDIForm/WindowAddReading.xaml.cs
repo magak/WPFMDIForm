@@ -67,8 +67,6 @@ namespace WPFMDIForm
             }
         }
 
-        private bool _editMode = false;
-
         public WindowAddReading(int? readingId = null)
         {
             _context = new JKHModelContainer();
@@ -81,7 +79,6 @@ namespace WPFMDIForm
             else
             {
                 _reading = _context.Показания_квартирSet.Find(readingId);
-                _editMode = true;
             }
 
             InitializeComponent();

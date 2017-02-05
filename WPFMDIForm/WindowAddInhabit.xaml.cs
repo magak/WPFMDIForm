@@ -50,8 +50,6 @@ namespace WPFMDIForm
             }
         }
 
-        private bool _editMode = false;
-
         public WindowAddInhabit(int? inhabitId = null)
         {
             _context = new JKHModelContainer();
@@ -64,7 +62,6 @@ namespace WPFMDIForm
             else
             {
                 _inhabit = _context.ЖилецSet.Find(inhabitId);
-                _editMode = true;
             }
 
             InitializeComponent();
@@ -78,7 +75,7 @@ namespace WPFMDIForm
                 _context.SaveChanges();
                 this.DialogResult = true;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show("Все поля должны быть заполнены правильно", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 this.DialogResult = false;

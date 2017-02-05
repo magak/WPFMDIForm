@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace WPFMDIForm
 {
     /// <summary>
-    /// Interaction logic for Page3.xaml
+    /// Interaction logic for PageBens.xaml
     /// </summary>
-    public partial class Page3 : Page
+    public partial class PageBens : UserControl
     {
-        public Page3()
+        public PageBens()
         {
             InitializeComponent();
         }
