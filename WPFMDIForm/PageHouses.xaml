@@ -22,19 +22,15 @@
             Дома
         </Label>
         <DataGrid Name="dgvTable"
-                  AutoGenerateColumns="False" Margin="0,65,0,0" SelectedItem="{Binding SelectedFlat}" >
+                  AutoGenerateColumns="False" Margin="0,65,0,0" SelectedItem="{Binding SelectedHouse}" >
             <DataGrid.Columns>
                 <DataGridTextColumn
-                    Header="Дом"
-                    Binding="{Binding Дом.Адрес}"
+                    Header="Адрес"
+                    Binding="{Binding Адрес}"
                     />
                 <DataGridTextColumn
-                    Header="Номер Квартиры"
-                    Binding="{Binding Номер_квартиры}"
-                    />
-                <DataGridTextColumn
-                    Header="Площадь квартиры"
-                    Binding="{Binding Площадь_квартиры}"                    
+                    Header="Площадь"
+                    Binding="{Binding Площадь}"
                     />
             </DataGrid.Columns>
         </DataGrid>

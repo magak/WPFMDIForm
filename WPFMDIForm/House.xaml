@@ -6,15 +6,21 @@
         <DockPanel HorizontalAlignment="Left" Height="120" Margin="5,10,0,0" LastChildFill="False" VerticalAlignment="Top" Width="519">
             <WrapPanel Height="110" VerticalAlignment="Top" Width="428">
                 <Label Content="Адрес" Height="30" Width="170"/>
-                <TextBox Height="30" TextWrapping="Wrap"  Width="250"/>
+                <TextBox Text="{Binding Dom.Адрес}" Height="30" TextWrapping="Wrap"  Width="250"/>
                 <Label Content="Площадь" Height="30" Width="170"/>
-                <TextBox Height="30" TextWrapping="Wrap"  Width="250"/>
+                <TextBox Text="{Binding Dom.Площадь}" Height="30" TextWrapping="Wrap"  Width="250"/>
             </WrapPanel>
-            <StackPanel Height="110" VerticalAlignment="Top" Width="80" RenderTransformOrigin="0.874,0.494">
-                <Button Content="Сохранить" Height="22" Margin="0,4"/>
-                <Button Content="Отмена" Height="22" Margin="0,4"/>
-            </StackPanel>
-        </DockPanel>
 
+        </DockPanel>
+        <Button x:Name="save"
+                Margin="0,0,136,10"
+                Click="save_Click"
+                Content="Сохранить" HorizontalAlignment="Right" Width="98" Height="24" VerticalAlignment="Bottom"
+                />
+        <Button x:Name="del"
+        	Margin="0,0,16,10"
+                Click="del_Click"
+        	Content="Отмена" HorizontalAlignment="Right" Width="94" Height="24" VerticalAlignment="Bottom"
+                />
     </Grid>
 </Window>

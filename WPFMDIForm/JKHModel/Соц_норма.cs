@@ -17,6 +17,15 @@ namespace WPFMDIForm.JKHModel
         public int Id { get; set; }
         public string Вид_нормы { get; set; }
         public decimal Значение_нормы { get; set; }
+        public string Вид_услуги
+        {
+            get
+            {
+                if (Услуга == null)
+                    return String.Empty;
+                return Услуга.Вид_услуги.ToString();
+            }
+        }
     
         public virtual Услуга Услуга { get; set; }
     }

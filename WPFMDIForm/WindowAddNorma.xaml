@@ -6,11 +6,10 @@
         <DockPanel HorizontalAlignment="Left" Height="148" Margin="5,10,-16,0" LastChildFill="False" VerticalAlignment="Top" Width="434">
             <WrapPanel Height="95" VerticalAlignment="Top" Width="428">
                 <Label Content="Соц. норма" Height="30" Width="170"/>
-                <TextBox Height="30" TextWrapping="Wrap"  Width="250"/>
+                <TextBox Text="{Binding Norma.Вид_нормы}" Height="30" TextWrapping="Wrap"  Width="250"/>
                 <Label Content="Значение" Height="30" Width="170"/>
-                <TextBox Height="30" TextWrapping="Wrap"  Width="250"/>
+                <TextBox Text="{Binding Norma.Значение_нормы}" Height="30" TextWrapping="Wrap"  Width="250"/>
                 <Label Content="Услуга" Height="30" Width="170"/>
-                <TextBox Height="30" TextWrapping="Wrap"  Width="210"/>
 
 
 
@@ -18,13 +17,16 @@
         </DockPanel>
         <Button x:Name="save"
                 Margin="0,0,136,10"
+                Click="save_Click"
                 Content="Сохранить" HorizontalAlignment="Right" Width="98" Height="24" VerticalAlignment="Bottom"
                 />
-        <Button x:Name="del"
+        <Button x:Name="cancel"
         	Margin="0,0,16,10"
+            Click="cancel_Click"
         	Content="Отмена" HorizontalAlignment="Right" Width="94" Height="24" VerticalAlignment="Bottom"
                 />
-        <ComboBox Margin="399,72,0,0" HorizontalAlignment="Left" Width="25" Height="26" VerticalAlignment="Top"/>
+        <ComboBox Margin="175,72,0,0" HorizontalAlignment="Left" Width="249" Height="26" VerticalAlignment="Top"
+                  ItemsSource="{Binding UslSelection}" DisplayMemberPath="Вид_услуги" SelectedValue="{Binding Norma.Услуга}"/>
 
     </Grid>
 </Window>

@@ -27,7 +27,7 @@ namespace WPFMDIForm
             set 
             {
                 _flat = value;
-                RaiseProprtyChanged("Flat");
+                RaisePropertyChanged("Flat");
             }
         }
 
@@ -42,7 +42,7 @@ namespace WPFMDIForm
             set
             {
                 _domSelection = value;
-                RaiseProprtyChanged("DomSelection");
+                RaisePropertyChanged("DomSelection");
             }
         }
 
@@ -61,7 +61,7 @@ namespace WPFMDIForm
             set
             {
                 _flat.Жилец = value;
-                RaiseProprtyChanged("Dwellers");
+                RaisePropertyChanged("Dwellers");
             }
         }
 
@@ -80,7 +80,7 @@ namespace WPFMDIForm
             set
             {
                 _flat.Счетчик = value;
-                RaiseProprtyChanged("Counters");
+                RaisePropertyChanged("Counters");
             }
         }
 
@@ -127,7 +127,7 @@ namespace WPFMDIForm
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public void RaiseProprtyChanged(string PropertyName)
+        public void RaisePropertyChanged(string PropertyName)
         {
             if (PropertyChanged != null)
                 PropertyChanged(this, new PropertyChangedEventArgs(PropertyName));
@@ -142,7 +142,7 @@ namespace WPFMDIForm
         private void delRom_Click(object sender, RoutedEventArgs e)
         {
             _flat.Жилец.Remove(SelectedDweller);
-            RaiseProprtyChanged("Dwellers");
+            RaisePropertyChanged("Dwellers");
         }
 
         private void addRom_Click(object sender, RoutedEventArgs e)
@@ -154,7 +154,7 @@ namespace WPFMDIForm
                 foreach(var item in window.GetSelectedDwellers())
                 {
                     _flat.Жилец.Add(item);
-                    RaiseProprtyChanged("Dwellers");
+                    RaisePropertyChanged("Dwellers");
                 }
             }
         }
@@ -168,7 +168,7 @@ namespace WPFMDIForm
                 foreach (var item in window.GetSelectedCounters())
                 {
                     _flat.Счетчик.Add(item);
-                    RaiseProprtyChanged("Counters");
+                    RaisePropertyChanged("Counters");
                 }
             }
         }
@@ -176,7 +176,7 @@ namespace WPFMDIForm
         private void delCount_Click(object sender, RoutedEventArgs e)
         {
             _flat.Счетчик.Remove(SelectedCounter);
-            RaiseProprtyChanged("Counters");
+            RaisePropertyChanged("Counters");
         }
     }
 }

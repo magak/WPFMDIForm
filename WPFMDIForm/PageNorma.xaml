@@ -13,20 +13,35 @@
             Перечень социальных норм
         </Label>
         <DataGrid Name="dgvTable"
-                  AutoGenerateColumns="True" Margin="10,65,10,10" >
+                  AutoGenerateColumns="False" Margin="10,65,10,10" SelectedItem="{Binding SelectedNorma}" >
+            <DataGrid.Columns>
+                <DataGridTextColumn
+                    Header="Вид"
+                    Binding="{Binding Вид_нормы}"
+                    />
+                <DataGridTextColumn
+                    Header="Значение"
+                    Binding="{Binding Значение_нормы}"
+                    />
+                <DataGridTextColumn
+                    Header="Услуга"
+                    Binding="{Binding Вид_услуги}"
+                    />
+            </DataGrid.Columns>
         </DataGrid>
         <Button Name="btnAdd"
                 Margin="10,36,0,0"
-                
+                Click="btnAdd_Click"
                 Content="Добавить" RenderTransformOrigin="1.1,-0.045" HorizontalAlignment="Left" Width="86" Height="22" VerticalAlignment="Top"
                 />
         <Button Name="btnUpd"
                 Margin="114,36,0,0"
-                
+                Click="btnUpd_Click"
                 Content="Редактировать" RenderTransformOrigin="-0.069,0.636" HorizontalAlignment="Left" Width="87" Height="22" VerticalAlignment="Top"
                  />
         <Button Name="btnDel"
                 Margin="218,36,0,0"
+                Click="btnDel_Click"
                 Content="Удалить" HorizontalAlignment="Left" Width="64" Height="22" VerticalAlignment="Top"
                 />
     </Grid>

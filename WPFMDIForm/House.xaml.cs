@@ -31,21 +31,6 @@ namespace WPFMDIForm
             }
         }
 
-        private List<Дом> _domSelection;
-
-        public List<Дом> DomSelection
-        {
-            get
-            {
-                return _domSelection;
-            }
-            set
-            {
-                _domSelection = value;
-                RaiseProprtyChanged("DomSelection");
-            }
-        }
-
         public House(int? houseId = null)
         {
             _context = new JKHModelContainer();
@@ -62,8 +47,6 @@ namespace WPFMDIForm
 
             InitializeComponent();
             this.DataContext = this;
-
-            DomSelection = _context.ДомSet.ToList();
         }
 
         private void save_Click(object sender, RoutedEventArgs e)

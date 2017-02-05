@@ -12,20 +12,35 @@
             Льготы
         </Label>
         <DataGrid Name="dgvTable"
-                  AutoGenerateColumns="True" Margin="10,65,10,10" >
+                  AutoGenerateColumns="False" Margin="10,65,10,10" SelectedItem="{Binding SelectedBen}" >
+            <DataGrid.Columns>
+                <DataGridTextColumn
+                    Header="Имя"
+                    Binding="{Binding Имя_льготы}"
+                    />
+                <DataGridTextColumn
+                    Header="Значение"
+                    Binding="{Binding Значение_льготы}"
+                    />
+                <DataGridCheckBoxColumn
+                    Header="Общая"
+                    Binding="{Binding Общая}"
+                    />
+            </DataGrid.Columns>
         </DataGrid>
         <Button Name="btnAdd"
                 Margin="10,36,0,0"
-                
+                Click="btnAdd_Click"
                 Content="Добавить" RenderTransformOrigin="1.1,-0.045" Height="21" VerticalAlignment="Top" HorizontalAlignment="Left" Width="85"
                 />
         <Button Name="btnUpd"
                 Margin="114,36,0,0"
-                
+                Click="btnUpd_Click"
                 Content="Редактировать" RenderTransformOrigin="-0.069,0.636" HorizontalAlignment="Left" Width="86" Height="21" VerticalAlignment="Top"
                  />
         <Button Name="btnDel"
                 Margin="218,36,0,0"
+                Click="btnDel_Click"
                 Content="Удалить" HorizontalAlignment="Left" Width="58" Height="21" VerticalAlignment="Top"
                 />
     </Grid>
