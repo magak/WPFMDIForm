@@ -12,7 +12,7 @@
             Жильцы
         </Label>
         <DataGrid Name="dgvTable"
-                  AutoGenerateColumns="False" Margin="10,65,10,10" >
+                  AutoGenerateColumns="False" Margin="10,65,10,10" SelectedItem="{Binding SelectedInhabit}" >
             <DataGrid.Columns>
                 <DataGridTextColumn
                     Header="ФИО"

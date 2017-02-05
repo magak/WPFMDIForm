@@ -202,6 +202,9 @@
     <Compile Include="WindowInhabits.xaml.cs">
       <DependentUpon>WindowInhabits.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WindowLgoty.xaml.cs">
+      <DependentUpon>WindowLgoty.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WindowLogin.xaml.cs">
       <DependentUpon>WindowLogin.xaml</DependentUpon>
     </Compile>
@@ -301,6 +304,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="WindowInhabits.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowLgoty.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

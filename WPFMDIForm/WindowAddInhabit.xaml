@@ -6,29 +6,33 @@
         <DockPanel HorizontalAlignment="Left" Height="350" Margin="5,10,0,0" LastChildFill="False" VerticalAlignment="Top" Width="519">
             <WrapPanel Height="255" VerticalAlignment="Top" Width="428">
                 <Label Content="ФИО" Height="30" Width="170"/>
-                <TextBox Height="30" TextWrapping="Wrap"  Width="250"/>
+                <TextBox Text="{Binding Inhabit.ФИО}" Height="30" TextWrapping="Wrap"  Width="250"/>
                 <Label Content="Номер паспорта" Height="30" Width="170"/>
-                <TextBox Height="30" TextWrapping="Wrap"  Width="250"/>
+                <TextBox Text="{Binding Inhabit.Номер_паспорта}" Height="30" TextWrapping="Wrap"  Width="250"/>
                 <Label Content="Льготы" Width="75" />
                 <DataGrid x:Name="dgvTable"
                 	AutoGenerateColumns="True" Margin="0,20,0,0" Height="109" Width="420" />
 
             </WrapPanel>
         </DockPanel>
-        <Button x:Name="addBen"
+        <Button x:Name="addLgota"
         	Margin="436,116,0,0"
+            Click="addLgota_Click"
         	Content="Добавить" HorizontalAlignment="Left" Width="68" RenderTransformOrigin="0.504,5.884" Height="25" VerticalAlignment="Top"
                 />
-        <Button x:Name="delBen"
+        <Button x:Name="delLgota"
         	Margin="436,146,0,0"
+            Click="delLgota_Click"
         	Content="Удалить" HorizontalAlignment="Left" Width="68" Height="25" VerticalAlignment="Top"
                 />
         <Button x:Name="save"
                 Margin="0,0,115,5"
+                Click="save_Click"
                 Content="Сохранить" HorizontalAlignment="Right" Width="98" Height="26" VerticalAlignment="Bottom"
                 />
-        <Button x:Name="del"
+        <Button x:Name="cancel"
         	Margin="0,0,10,7"
+            Click="cancel_Click"
         	Content="Отмена" HorizontalAlignment="Right" Width="94" Height="24" VerticalAlignment="Bottom"
                 />
 

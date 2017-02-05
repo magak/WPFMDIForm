@@ -76,18 +76,17 @@ namespace WPFMDIForm
             try
             {
                 _context.SaveChanges();
+                this.DialogResult = true;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 MessageBox.Show("Все поля должны быть заполнены правильно", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 this.DialogResult = false;
-                this.Close();
             }
-            this.DialogResult = true;
             this.Close();
         }
 
-        private void del_Click(object sender, RoutedEventArgs e)
+        private void cancel_Click(object sender, RoutedEventArgs e)
         {
             this.DialogResult = false;
             this.Close();
@@ -107,44 +106,24 @@ namespace WPFMDIForm
                 _context.Dispose();
         }
 
-        private void delRom_Click(object sender, RoutedEventArgs e)
+        private void addLgota_Click(object sender, RoutedEventArgs e)
+        {
+            WindowLgoty window = new WindowLgoty(_context);
+            var result = window.ShowDialog();
+            if (result ?? false)
+            {
+                foreach (var item in window.GetSelectedLgoty())
+                {
+                    _inhabit.Льгота.Add(item);
+                    RaiseProprtyChanged("Lgoty");
+                }
+            }
+        }
+
+        private void delLgota_Click(object sender, RoutedEventArgs e)
         {
             _inhabit.Льгота.Remove(SelectedLgota);
             RaiseProprtyChanged("Lgoty");
-        }
-
-        private void addRom_Click(object sender, RoutedEventArgs e)
-        {
-            /*WindowInhabits window = new WindowInhabits(_context);
-            var result = window.ShowDialog();
-            if (result ?? false)
-            {
-                foreach (var item in window.GetSelectedDwellers())
-                {
-                    _inhabit.Жилец.Add(item);
-                    RaiseProprtyChanged("Dwellers");
-                }
-            }*/
-        }
-
-        private void addCount_Click(object sender, RoutedEventArgs e)
-        {
-            /*WindowCounters window = new WindowCounters(_context);
-            var result = window.ShowDialog();
-            if (result ?? false)
-            {
-                foreach (var item in window.GetSelectedCounters())
-                {
-                    _inhabit.Счетчик.Add(item);
-                    RaiseProprtyChanged("Counters");
-                }
-            }*/
-        }
-
-        private void delCount_Click(object sender, RoutedEventArgs e)
-        {
-            /*_inhabit.Счетчик.Remove(SelectedCounter);
-            RaiseProprtyChanged("Counters");*/
         }
     }
 }

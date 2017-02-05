@@ -112,14 +112,13 @@ namespace WPFMDIForm
             try
             {
                 _context.SaveChanges();
+                this.DialogResult = true;
             }
             catch(Exception)
             {
                 MessageBox.Show("Все поля должны быть заполнены правильно", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 this.DialogResult = false;
-                this.Close();
             }
-            this.DialogResult = true;
             this.Close();
         }
 
@@ -128,17 +127,6 @@ namespace WPFMDIForm
             this.DialogResult = false;
             this.Close();     
         }
-
-        /*private void Rotate(object sender, RoutedEventArgs e)
-        {
-
-            BitmapSource img = (BitmapSource)(_photo.Image);
-
-            CachedBitmap cache = new CachedBitmap(img, BitmapCreateOptions.None, BitmapCacheOption.OnLoad);
-            _photo.Image = BitmapFrame.Create(new TransformedBitmap(cache, new RotateTransform(90.0)));
-
-            ViewedPhoto.Source = _photo.Image;
-        }*/
 
         public event PropertyChangedEventHandler PropertyChanged;
 

@@ -110,13 +110,13 @@ namespace WPFMDIForm
             try
             {
                 _context.SaveChanges();
+                this.DialogResult = true;
             }
             catch (Exception)
             {
                 MessageBox.Show("Все поля должны быть заполнены правильно", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
+                this.DialogResult = false;
             }
-            this.DialogResult = true;
             this.Close();
         }
 

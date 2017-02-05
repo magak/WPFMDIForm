@@ -1,0 +1,35 @@
+﻿<Window x:Class="WPFMDIForm.WindowLgoty"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Льготы" Height="400" Width="500">
+    <Grid Background="Khaki">
+
+        <DataGrid x:Name="dgvTable" ItemsSource="{Binding Dwellers}" CanUserAddRows="False"
+                  CanUserDeleteRows="False" 
+                  AutoGenerateColumns="False" Margin="10,32,10,10" >
+            <DataGrid.Columns>
+                <DataGridCheckBoxColumn 
+                    Binding="{Binding _selected}"/>
+                <DataGridTextColumn
+                    Header="ФИО"
+                    Binding="{Binding _dweller.ФИО, Mode=OneWay}"
+                    />
+                <DataGridTextColumn
+                    Header="Номер паспорта"
+                    Binding="{Binding _dweller.Номер_паспорта, Mode=OneWay}"
+                    />
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Name="btnAdd"
+                Margin="10,3,0,0"
+                Click="btnAdd_Click"
+                Content="Добавить" RenderTransformOrigin="1.1,-0.045" Height="24" VerticalAlignment="Top" HorizontalAlignment="Left" Width="105"
+                />
+        <Button Name="btnUpd"
+                Margin="131,3,0,0"
+                Click="btnUpd_Click"
+                Content="Отмена" RenderTransformOrigin="-0.069,0.636" Height="24" VerticalAlignment="Top" HorizontalAlignment="Left" Width="101"
+                 />
+
+    </Grid>
+</Window>
