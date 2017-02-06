@@ -13,7 +13,7 @@
                 <MenuItem Name="menuHome" Header="Главное меню">
                     <!--<MenuItem Name="print" Header="(*) Печать" Click="print_Click" />-->
                     <MenuItem Name="login" Header="Другой пользователь" Click="changeUser_Click" />
-                    <MenuItem Name="Exit" Header="Выход"/>
+                    <MenuItem Name="Exit" Header="Выход" Click="menuExit_Click"/>
                 </MenuItem>
                 <MenuItem Name="menuLibraries" Header="Справочники">
                     <MenuItem Name="libInhabits" Header="Жильцы" Click="inhabits_Click"  />
